@@ -1,4 +1,4 @@
-# light-it-analytics
+# growth-analytics-simulation
 
 Simulación end-to-end de growth analytics para una plataforma de teleterapia
 en EE.UU. (una sociedad de psicólogos que atiende pacientes por videollamada).
