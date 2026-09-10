@@ -132,6 +132,8 @@ python/
 data/
   teleterapia.db          base generada (no se versiona, se regenera con los scripts)
   powerbi/                CSV de las tablas mart, fuente del dashboard
+powerbi/
+  growth_analytics_dashboard.pbix   dashboard de Power BI
 ```
 
 ## Resultados de ejemplo
