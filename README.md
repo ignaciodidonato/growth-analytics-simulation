@@ -8,20 +8,20 @@ LTV) y evalúa un test A/B con significancia estadística — todo persistido en
 SQLite, listo para conectarse a Power BI (o cualquier BI tool) sin tener que
 reimplementar la lógica de negocio en DAX.
 
-Es un proyecto de portfolio: el objetivo es mostrar cómo diseñaría el modelo
-de datos, el pipeline y las métricas de un caso de growth/marketing analytics
-real, de punta a punta.
+Lo armé como proyecto de portfolio para practicar y mostrar cómo encaro un
+caso de growth/marketing analytics de punta a punta: diseño del modelo de
+datos, generación del dataset, cálculo de métricas y evaluación de un test
+A/B con estadística real (no solo "cuál número es más alto").
 
 ## Qué preguntas responde
 
-- **¿Qué canal de adquisición es más eficiente?** CAC, ARPU, churn mensual y
-  LTV por canal, con el ratio LTV:CAC como métrica resumen.
-- **¿Dónde se pierden los usuarios en el funnel?** Conversión etapa a etapa
-  (registro → activación → suscripción paga) por canal.
-- **¿La audiencia lookalike de Meta convierte mejor que la broad?** Test A/B
-  con test de proporciones (z-test) y p-value.
-- **¿Cómo evoluciona el costo de adquisición en el tiempo?** Costo por
-  registro, mes a mes, por canal.
+- Qué canal de adquisición es más eficiente (CAC, ARPU, churn mensual y LTV
+  por canal, con el ratio LTV:CAC como resumen).
+- Dónde se pierden los usuarios en el funnel (conversión etapa a etapa:
+  registro → activación → suscripción paga, por canal).
+- Si la audiencia lookalike de Meta convierte mejor que la broad (test A/B
+  con test de proporciones y p-value).
+- Cómo evoluciona el costo de adquisición mes a mes, por canal.
 
 ## Stack
 
@@ -143,7 +143,7 @@ Con la seed por defecto (`RANDOM_SEED = 42` en `config.py`):
 
 Email y orgánico son, por lejos, los canales más eficientes (costo marginal
 bajo o nulo y menor churn); los canales pagos masivos (Google/Meta) traen
-mucho más volumen pero a un CAC ~20-30x mayor.
+mucho más volumen pero a un CAC 20-30x mayor.
 
 **Test A/B** (`meta_targeting_test`, audiencia broad vs. lookalike)
 
@@ -153,18 +153,18 @@ mucho más volumen pero a un CAC ~20-30x mayor.
 | B (lookalike) | 1,228 | 56 | 4.56% | -1.726 | 0.0843 | No |
 
 La variante lookalike convierte ~42% mejor en la muestra, pero con este
-volumen de clicks el resultado **no llega a ser estadísticamente
-significativo al 95%** (p = 0.084) — un ejemplo real de por qué conviene
-calcular significancia antes de declarar un ganador en un test A/B.
+volumen de clicks el resultado no llega a ser estadísticamente significativo
+al 95% (p = 0.084). Es el típico caso real de "parece que ganó una variante,
+pero la muestra todavía no alcanza para afirmarlo".
 
 ## Decisiones de diseño
 
 - **Seed fija (`RANDOM_SEED = 42`)**: todo el pipeline es reproducible; correr
   `generate_data.py` dos veces da exactamente la misma base.
 - **Las tasas de negocio (`config.py`) no se usan en `analysis.py`**: las
-  métricas se *estiman* desde los datos generados (igual que haría un
-  analista real, que nunca tiene acceso a las probabilidades "verdaderas" de
-  generación), no se leen de la configuración.
+  métricas se estiman desde los datos generados, igual que haría un analista
+  real (que nunca tiene acceso a las probabilidades "verdaderas" de
+  generación).
 - **Churn estimado por método persona-periodo**: cada suscripción aporta N
   periodos de 30 días en riesgo, y 1 evento si terminó en cancelación (las
   suscripciones activas quedan censuradas, no se cuentan como churn).
