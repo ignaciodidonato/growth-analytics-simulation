@@ -49,6 +49,26 @@ def create_output_tables(conn):
             p_value             REAL,
             significativo_95    INTEGER
         );
+
+        DROP TABLE IF EXISTS monthly_channel_metrics;
+        CREATE TABLE monthly_channel_metrics (
+            channel_name        TEXT,
+            month                TEXT,
+            spend                REAL,
+            registros            INTEGER,
+            costo_por_registro   REAL
+        );
+
+        DROP TABLE IF EXISTS funnel_conversion;
+        CREATE TABLE funnel_conversion (
+            channel_name                  TEXT PRIMARY KEY,
+            registro                      INTEGER,
+            activacion                    INTEGER,
+            pago                          INTEGER,
+            tasa_registro_a_activacion    REAL,
+            tasa_activacion_a_pago        REAL,
+            tasa_registro_a_pago          REAL
+        );
         """
     )
     conn.commit()
@@ -151,6 +171,80 @@ def compute_channel_metrics(conn):
     return rows
 
 
+def compute_monthly_channel_metrics(conn):
+    """Costo por registro, mes a mes y por canal (misma logica que la query 1
+    de sql/metrics_queries.sql, persistida aca para alimentar Power BI sin
+    que el reporte tenga que recalcularla)."""
+    rows = conn.execute(
+        """
+        SELECT
+            ch.channel_name,
+            strftime('%Y-%m', m.date) AS month,
+            ROUND(SUM(m.spend), 2) AS spend,
+            COUNT(DISTINCT u.user_id) AS registros,
+            ROUND(SUM(m.spend) * 1.0 / NULLIF(COUNT(DISTINCT u.user_id), 0), 2) AS costo_por_registro
+        FROM campaign_daily_metrics m
+        JOIN campaigns c ON c.campaign_id = m.campaign_id
+        JOIN channels ch ON ch.channel_id = c.channel_id
+        LEFT JOIN users u
+            ON u.acquisition_campaign_id = c.campaign_id
+            AND u.signup_date = m.date
+        GROUP BY ch.channel_name, month
+        ORDER BY ch.channel_name, month
+        """
+    ).fetchall()
+
+    conn.executemany(
+        """INSERT INTO monthly_channel_metrics
+           (channel_name, month, spend, registros, costo_por_registro)
+           VALUES (?, ?, ?, ?, ?)""",
+        rows,
+    )
+    conn.commit()
+    return rows
+
+
+def compute_funnel_conversion(conn):
+    """Conversion etapa a etapa del funnel por canal (misma logica que la
+    query 3 de sql/metrics_queries.sql)."""
+    rows = conn.execute(
+        """
+        WITH stage_counts AS (
+            SELECT
+                ch.channel_name,
+                SUM(CASE WHEN fe.event_type = 'registro' THEN 1 ELSE 0 END) AS registro,
+                SUM(CASE WHEN fe.event_type = 'activacion' THEN 1 ELSE 0 END) AS activacion,
+                SUM(CASE WHEN fe.event_type = 'suscripcion_paga' THEN 1 ELSE 0 END) AS pago
+            FROM funnel_events fe
+            JOIN users u ON u.user_id = fe.user_id
+            JOIN campaigns c ON c.campaign_id = u.acquisition_campaign_id
+            JOIN channels ch ON ch.channel_id = c.channel_id
+            GROUP BY ch.channel_name
+        )
+        SELECT
+            channel_name,
+            registro,
+            activacion,
+            pago,
+            ROUND(activacion * 1.0 / NULLIF(registro, 0), 3) AS tasa_registro_a_activacion,
+            ROUND(pago * 1.0 / NULLIF(activacion, 0), 3) AS tasa_activacion_a_pago,
+            ROUND(pago * 1.0 / NULLIF(registro, 0), 3) AS tasa_registro_a_pago
+        FROM stage_counts
+        ORDER BY tasa_registro_a_pago DESC
+        """
+    ).fetchall()
+
+    conn.executemany(
+        """INSERT INTO funnel_conversion
+           (channel_name, registro, activacion, pago,
+            tasa_registro_a_activacion, tasa_activacion_a_pago, tasa_registro_a_pago)
+           VALUES (?, ?, ?, ?, ?, ?, ?)""",
+        rows,
+    )
+    conn.commit()
+    return rows
+
+
 def two_proportion_z_test(x1, n1, x2, n2):
     p1, p2 = x1 / n1, x2 / n2
     p_pool = (x1 + x2) / (n1 + n2)
@@ -206,6 +300,16 @@ def main():
     ab_rows = compute_ab_test(conn)
     print("\n--- ab_test_results ---")
     for row in ab_rows:
+        print(row)
+
+    monthly_rows = compute_monthly_channel_metrics(conn)
+    print("\n--- monthly_channel_metrics ---")
+    for row in monthly_rows:
+        print(row)
+
+    funnel_rows = compute_funnel_conversion(conn)
+    print("\n--- funnel_conversion ---")
+    for row in funnel_rows:
         print(row)
 
     conn.close()

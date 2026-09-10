@@ -102,12 +102,16 @@ esquema transaccional).
 pip install -r python/requirements.txt
 python python/generate_data.py
 python python/analysis.py
+python python/export_for_powerbi.py
 ```
 
 El primer script recrea `data/teleterapia.db` desde cero (aplica
 `sql/schema.sql` y simula todo el pipeline con una seed fija para que el
 resultado sea reproducible). El segundo calcula las métricas y las persiste
-como tablas `channel_metrics` y `ab_test_results` en esa misma base.
+como tablas mart (`channel_metrics`, `monthly_channel_metrics`,
+`funnel_conversion`, `ab_test_results`) en esa misma base. El tercero
+exporta esas cuatro tablas a `data/powerbi/*.csv`, que es lo que consume el
+dashboard de Power BI — así no hace falta ningún driver ODBC de SQLite.
 
 Para explorar los datos a mano, `sql/metrics_queries.sql` tiene queries de
 referencia (costo por registro mensual, CAC blended, conversión de funnel)
@@ -120,12 +124,14 @@ sql/
   schema.sql            esquema transaccional (dimensiones + hechos)
   metrics_queries.sql   queries de referencia para growth
 python/
-  config.py             parámetros de negocio (canales, tasas, precios, A/B test)
-  generate_data.py       genera la simulación completa en SQLite
-  analysis.py            calcula CAC/ARPU/churn/LTV y el test A/B, los persiste
+  config.py               parámetros de negocio (canales, tasas, precios, A/B test)
+  generate_data.py        genera la simulación completa en SQLite
+  analysis.py              calcula CAC/ARPU/churn/LTV, funnel y el test A/B, los persiste
+  export_for_powerbi.py   exporta las tablas mart a CSV para Power BI
   requirements.txt
 data/
   teleterapia.db          base generada (no se versiona, se regenera con los scripts)
+  powerbi/                CSV de las tablas mart, fuente del dashboard
 ```
 
 ## Resultados de ejemplo

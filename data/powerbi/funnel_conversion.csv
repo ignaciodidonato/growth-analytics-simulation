@@ -1,0 +1,5 @@
+channel_name,registro,activacion,pago,tasa_registro_a_activacion,tasa_activacion_a_pago,tasa_registro_a_pago
+email,268,208,113,0.776,0.543,0.422
+organic,386,290,140,0.751,0.483,0.363
+google_ads,1235,831,357,0.673,0.43,0.289
+meta,982,528,141,0.538,0.267,0.144

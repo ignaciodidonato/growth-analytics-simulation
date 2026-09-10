@@ -1,0 +1,3 @@
+ab_test_name,variant,clicks,registros,conversion_rate,z_stat,p_value,significativo_95
+meta_targeting_test,A,1243,40,0.0322,-1.726,0.0843,0
+meta_targeting_test,B,1228,56,0.0456,-1.726,0.0843,0
