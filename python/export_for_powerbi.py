@@ -11,7 +11,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DB_PATH = os.path.join(BASE_DIR, "data", "teleterapia.db")
 OUTPUT_DIR = os.path.join(BASE_DIR, "data", "powerbi")
 
+# channels es la dimension que relaciona a las tres tablas mart por canal en
+# el modelo de Power BI, para que un unico slicer filtre todos los visuales.
 TABLES = [
+    "channels",
     "channel_metrics",
     "monthly_channel_metrics",
     "funnel_conversion",

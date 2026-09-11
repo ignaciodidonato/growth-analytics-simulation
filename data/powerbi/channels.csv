@@ -1,0 +1,5 @@
+channel_id,channel_name,channel_type
+1,google_ads,paid
+2,meta,paid
+3,email,owned
+4,organic,organic

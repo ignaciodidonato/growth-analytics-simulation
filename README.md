@@ -110,8 +110,10 @@ El primer script recrea `data/teleterapia.db` desde cero (aplica
 resultado sea reproducible). El segundo calcula las métricas y las persiste
 como tablas mart (`channel_metrics`, `monthly_channel_metrics`,
 `funnel_conversion`, `ab_test_results`) en esa misma base. El tercero
-exporta esas cuatro tablas a `data/powerbi/*.csv`, que es lo que consume el
-dashboard de Power BI — así no hace falta ningún driver ODBC de SQLite.
+exporta esas cuatro tablas más la dimensión `channels` a `data/powerbi/*.csv`,
+que es lo que consume el dashboard de Power BI — así no hace falta ningún
+driver ODBC de SQLite. En el modelo de Power BI, `channels` se relaciona 1:N
+con las tres tablas por canal, para que un único slicer filtre todo el reporte.
 
 Para explorar los datos a mano, `sql/metrics_queries.sql` tiene queries de
 referencia (costo por registro mensual, CAC blended, conversión de funnel)
