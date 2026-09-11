@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "cfda2addbc1a9f174d20",
+  "name": "ce22bb7fa637343002ec",
   "position": {
-    "x": 944.67065868263478,
-    "y": 486.70658682634735,
-    "z": 3000,
-    "height": 121.67664670658684,
-    "width": 319.04191616766468,
-    "tabOrder": 3000
+    "x": 1046.5550660792951,
+    "y": 396.96916299559473,
+    "z": 13000,
+    "height": 289,
+    "width": 216.52863436123349,
+    "tabOrder": 13000
   },
   "visual": {
     "visualType": "textbox",
@@ -19,7 +19,35 @@
               {
                 "textRuns": [
                   {
-                    "value": "Meta pierde usuarios en las dos etapas: solo el 54% de los registrados se activa y el 27% de los activados paga (14% punta a punta). Email convierte el 42% de sus registros en clientes pagos: el canal owned trae usuarios con intención real, no solo curiosidad.",
+                    "value": "Meta no rinde parejo: en Texas y Florida convierte el 7% de sus registros, contra 19% en California, con un CAC estimado de mas de $500. Google Ads es el canal pago mas eficiente en Texas (46%, $136) y email domina el noreste (NY 85%). ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "10pt",
+                      "color": "#d2d3da"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Recomendación:",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "10pt",
+                      "textDecoration": "underline",
+                      "color": "#d2d3da"
+                    }
+                  },
+                  {
+                    "value": " mover el presupuesto de Meta en TX/FL hacia Google Ads y reforzar email en NY/MA. El gasto por estado es estimado: se asigna a cada estado en proporción a los registros de cada campaña.",
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontSize": "10pt",

@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "6098cce2d7c0ecc92197",
   "position": {
-    "x": 216,
-    "y": 396,
+    "x": 216.52863436123349,
+    "y": 396.96916299559473,
     "z": 3000,
-    "height": 256,
-    "width": 400,
+    "height": 288.704845814978,
+    "width": 399.22466960352421,
     "tabOrder": 3000
   },
   "visual": {
@@ -64,7 +64,7 @@
                 "Property": "Tasa registro a pago"
               }
             },
-            "direction": "Descending"
+            "direction": "Ascending"
           }
         ]
       }
@@ -116,5 +116,37 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "49d926bed95ab6ac970a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "state_channel_metrics"
+              }
+            },
+            "Property": "state"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "ed017850ded2db66e790",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "state_channel_metrics"
+              }
+            },
+            "Property": "Tasa registro a pago"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

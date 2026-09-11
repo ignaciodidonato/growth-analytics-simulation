@@ -2056,168 +2056,542 @@ cultureInfo es-ES
 			          }
 			        }
 			      ]
+			    },
+			    "state_channel_metrics": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "state_channel_metrics"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "state channel metrics": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "state_channel_metrics": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "metrics": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "location channel metrics": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "province channel metrics": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "territory channel metrics": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "nation channel metrics": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "condition channel metrics": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "country channel metrics": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        }
+			      ]
+			    },
+			    "state_channel_metrics.state": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "state_channel_metrics",
+			          "ConceptualProperty": "state"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "state": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "location": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "province": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "territory": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "nation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "condition": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "country": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        }
+			      ]
+			    },
+			    "state_channel_metrics.state_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "state_channel_metrics",
+			          "ConceptualProperty": "state_name"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "state name": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "state_name": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "state or province": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        },
+			        {
+			          "state nickname": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "state title": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "state label": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "state tag": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "location name": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "province name": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "territory name": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "nation name": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "condition name": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "country name": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "Estado": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ],
+			      "SemanticType": "Location"
+			    },
+			    "state_channel_metrics.channel_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "state_channel_metrics",
+			          "ConceptualProperty": "channel_name"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "channel name": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "channel_name": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "channel nickname": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "channel title": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "channel label": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "channel tag": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        }
+			      ]
+			    },
+			    "state_channel_metrics.registro": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "state_channel_metrics",
+			          "ConceptualProperty": "registros"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "registro": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "state_channel_metrics.activacione": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "state_channel_metrics",
+			          "ConceptualProperty": "activaciones"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "activacione": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "state_channel_metrics.clientes_pago": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "state_channel_metrics",
+			          "ConceptualProperty": "clientes_pagos"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "clientes pago": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "cliente pago": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.78
+			          }
+			        },
+			        {
+			          "clientes_pagos": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "state_channel_metrics.tasa_registro_a_pago": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "state_channel_metrics",
+			          "ConceptualProperty": "tasa_registro_a_pago"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "tasa registro a pago": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "tasa_registro_a_pago": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "state_channel_metrics.spend_asignado": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "state_channel_metrics",
+			          "ConceptualProperty": "spend_asignado"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "spend asignado": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "spend_asignado": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "state_channel_metrics.cac_estimado": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "state_channel_metrics",
+			          "ConceptualProperty": "cac_estimado"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cac estimado": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "cac_estimado": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "state_channel_metrics.tasa_registro_a_pago1": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "state_channel_metrics",
+			          "ConceptualProperty": "Tasa registro a pago"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "tasa registro a pago": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "state_channel_metrics.CAC_estimado": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "state_channel_metrics",
+			          "ConceptualProperty": "CAC estimado"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "CAC estimado": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
-			    "monthly_channel_metrics_has_spend": {
-			      "Binding": {
-			        "ConceptualEntity": "monthly_channel_metrics"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "monthly_channel_metrics": {
-			          "Target": {
-			            "Entity": "monthly_channel_metrics"
-			          }
-			        },
-			        "monthly_channel_metrics.spend": {
-			          "Target": {
-			            "Entity": "monthly_channel_metrics.spend"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "monthly_channel_metrics"
-			            },
-			            "Object": {
-			              "Role": "monthly_channel_metrics.spend"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "monthly_channel_metrics_have_spend"
-			        },
-			        {
-			          "Adjective": {
-			            "Subject": {
-			              "Role": "monthly_channel_metrics"
-			            },
-			            "Adjectives": [
-			              {
-			                "expensive": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Antonyms": [
-			              {
-			                "cheap": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Measurement": {
-			              "Role": "monthly_channel_metrics.spend"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "spend_indicates_how_expensive_monthly_channel_metrics_are"
-			        }
-			      ]
-			    },
-			    "monthly_channel_metrics_has_month": {
-			      "Binding": {
-			        "ConceptualEntity": "monthly_channel_metrics"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "monthly_channel_metrics": {
-			          "Target": {
-			            "Entity": "monthly_channel_metrics"
-			          }
-			        },
-			        "monthly_channel_metrics.month": {
-			          "Target": {
-			            "Entity": "monthly_channel_metrics.month"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "monthly_channel_metrics"
-			            },
-			            "Object": {
-			              "Role": "monthly_channel_metrics.month"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "monthly_channel_metrics_have_months"
-			        }
-			      ]
-			    },
-			    "funnel_conversion_has_tasa_registro_a_pago": {
-			      "Binding": {
-			        "ConceptualEntity": "funnel_conversion"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "funnel_conversion": {
-			          "Target": {
-			            "Entity": "funnel_conversion"
-			          }
-			        },
-			        "funnel_conversion.tasa_registro_a_pago": {
-			          "Target": {
-			            "Entity": "funnel_conversion.tasa_registro_a_pago"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "funnel_conversion"
-			            },
-			            "Object": {
-			              "Role": "funnel_conversion.tasa_registro_a_pago"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "funnel_conversions_have_tasa_registro_a_pago"
-			        }
-			      ]
-			    },
-			    "funnel_conversion_has_tasa_activacion_a_pago": {
-			      "Binding": {
-			        "ConceptualEntity": "funnel_conversion"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "funnel_conversion": {
-			          "Target": {
-			            "Entity": "funnel_conversion"
-			          }
-			        },
-			        "funnel_conversion.tasa_activacion_a_pago": {
-			          "Target": {
-			            "Entity": "funnel_conversion.tasa_activacion_a_pago"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "funnel_conversion"
-			            },
-			            "Object": {
-			              "Role": "funnel_conversion.tasa_activacion_a_pago"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "funnel_conversions_have_tasa_activacion_a_pago"
-			        }
-			      ]
-			    },
 			    "funnel_conversion_has_tasa_registro_a_activacion": {
 			      "Binding": {
 			        "ConceptualEntity": "funnel_conversion"
@@ -3019,6 +3393,216 @@ cultureInfo es-ES
 			        }
 			      ]
 			    },
+			    "state_channel_metrics_in_state_name": {
+			      "Binding": {
+			        "ConceptualEntity": "state_channel_metrics"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "state_channel_metrics": {
+			          "Target": {
+			            "Entity": "state_channel_metrics"
+			          }
+			        },
+			        "state_channel_metrics.state_name": {
+			          "Target": {
+			            "Entity": "state_channel_metrics.state_name"
+			          }
+			        }
+			      },
+			      "SemanticSlots": {
+			        "Where": {
+			          "Role": "state_channel_metrics.state_name"
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "state_channel_metrics"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "state_channel_metrics.state_name"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "state_channel_metrics_are_in_state_names"
+			        }
+			      ]
+			    },
+			    "state_channel_metrics_in_state": {
+			      "Binding": {
+			        "ConceptualEntity": "state_channel_metrics"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "state_channel_metrics": {
+			          "Target": {
+			            "Entity": "state_channel_metrics"
+			          }
+			        },
+			        "state_channel_metrics.state": {
+			          "Target": {
+			            "Entity": "state_channel_metrics.state"
+			          }
+			        }
+			      },
+			      "SemanticSlots": {
+			        "Where": {
+			          "Role": "state_channel_metrics.state"
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "state_channel_metrics"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "state_channel_metrics.state"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "state_channel_metrics_are_in_states"
+			        }
+			      ]
+			    },
+			    "state_channel_metrics_is_expensive1": {
+			      "Binding": {
+			        "ConceptualEntity": "state_channel_metrics"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "state_channel_metrics": {
+			          "Target": {
+			            "Entity": "state_channel_metrics"
+			          }
+			        },
+			        "state_channel_metrics.cac_estimado": {
+			          "Target": {
+			            "Entity": "state_channel_metrics.cac_estimado"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Adjective": {
+			            "Subject": {
+			              "Role": "state_channel_metrics"
+			            },
+			            "Adjectives": [
+			              {
+			                "expensive": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Antonyms": [
+			              {
+			                "cheap": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Measurement": {
+			              "Role": "state_channel_metrics.cac_estimado"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "cac_estimado_indicates_how_expensive_state_channel_metrics_are"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "state_channel_metrics"
+			            },
+			            "Object": {
+			              "Role": "state_channel_metrics.cac_estimado"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "state_channel_metrics_have_cac_estimados"
+			        }
+			      ]
+			    },
+			    "state_channel_metrics_is_expensive": {
+			      "Binding": {
+			        "ConceptualEntity": "state_channel_metrics"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "state_channel_metrics": {
+			          "Target": {
+			            "Entity": "state_channel_metrics"
+			          }
+			        },
+			        "state_channel_metrics.spend_asignado": {
+			          "Target": {
+			            "Entity": "state_channel_metrics.spend_asignado"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Adjective": {
+			            "Subject": {
+			              "Role": "state_channel_metrics"
+			            },
+			            "Adjectives": [
+			              {
+			                "expensive": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Antonyms": [
+			              {
+			                "cheap": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Measurement": {
+			              "Role": "state_channel_metrics.spend_asignado"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "spend_asignado_indicates_how_expensive_state_channel_metrics_are"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "state_channel_metrics"
+			            },
+			            "Object": {
+			              "Role": "state_channel_metrics.spend_asignado"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "state_channel_metrics_have_spend_asignado"
+			        }
+			      ]
+			    },
 			    "monthly_channel_metrics_is_expensive1": {
 			      "Binding": {
 			        "ConceptualEntity": "monthly_channel_metrics"
@@ -3076,6 +3660,66 @@ cultureInfo es-ES
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "monthly_channel_metrics_have_costo_por_registros"
+			        }
+			      ]
+			    },
+			    "monthly_channel_metrics_is_expensive": {
+			      "Binding": {
+			        "ConceptualEntity": "monthly_channel_metrics"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "monthly_channel_metrics": {
+			          "Target": {
+			            "Entity": "monthly_channel_metrics"
+			          }
+			        },
+			        "monthly_channel_metrics.spend": {
+			          "Target": {
+			            "Entity": "monthly_channel_metrics.spend"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Adjective": {
+			            "Subject": {
+			              "Role": "monthly_channel_metrics"
+			            },
+			            "Adjectives": [
+			              {
+			                "expensive": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Antonyms": [
+			              {
+			                "cheap": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Measurement": {
+			              "Role": "monthly_channel_metrics.spend"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "spend_indicates_how_expensive_monthly_channel_metrics_are"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "monthly_channel_metrics"
+			            },
+			            "Object": {
+			              "Role": "monthly_channel_metrics.spend"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "monthly_channel_metrics_have_spend"
 			        }
 			      ]
 			    },
@@ -3171,6 +3815,105 @@ cultureInfo es-ES
 			        }
 			      ]
 			    },
+			    "funnel_conversion_has_tasa_activacion_a_pago": {
+			      "Binding": {
+			        "ConceptualEntity": "funnel_conversion"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "funnel_conversion": {
+			          "Target": {
+			            "Entity": "funnel_conversion"
+			          }
+			        },
+			        "funnel_conversion.tasa_activacion_a_pago": {
+			          "Target": {
+			            "Entity": "funnel_conversion.tasa_activacion_a_pago"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "funnel_conversion"
+			            },
+			            "Object": {
+			              "Role": "funnel_conversion.tasa_activacion_a_pago"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "funnel_conversions_have_tasa_activacion_a_pago"
+			        }
+			      ]
+			    },
+			    "funnel_conversion_has_tasa_registro_a_pago": {
+			      "Binding": {
+			        "ConceptualEntity": "funnel_conversion"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "funnel_conversion": {
+			          "Target": {
+			            "Entity": "funnel_conversion"
+			          }
+			        },
+			        "funnel_conversion.tasa_registro_a_pago": {
+			          "Target": {
+			            "Entity": "funnel_conversion.tasa_registro_a_pago"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "funnel_conversion"
+			            },
+			            "Object": {
+			              "Role": "funnel_conversion.tasa_registro_a_pago"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "funnel_conversions_have_tasa_registro_a_pago"
+			        }
+			      ]
+			    },
+			    "monthly_channel_metrics_has_month": {
+			      "Binding": {
+			        "ConceptualEntity": "monthly_channel_metrics"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "monthly_channel_metrics": {
+			          "Target": {
+			            "Entity": "monthly_channel_metrics"
+			          }
+			        },
+			        "monthly_channel_metrics.month": {
+			          "Target": {
+			            "Entity": "monthly_channel_metrics.month"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "monthly_channel_metrics"
+			            },
+			            "Object": {
+			              "Role": "monthly_channel_metrics.month"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "monthly_channel_metrics_have_months"
+			        }
+			      ]
+			    },
 			    "monthly_channel_metrics_has_registro": {
 			      "Binding": {
 			        "ConceptualEntity": "monthly_channel_metrics"
@@ -3234,6 +3977,270 @@ cultureInfo es-ES
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "channels_have_channel_types"
+			        }
+			      ]
+			    },
+			    "state_channel_metrics_has_state": {
+			      "Binding": {
+			        "ConceptualEntity": "state_channel_metrics"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "state_channel_metrics": {
+			          "Target": {
+			            "Entity": "state_channel_metrics"
+			          }
+			        },
+			        "state_channel_metrics.state": {
+			          "Target": {
+			            "Entity": "state_channel_metrics.state"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "state_channel_metrics"
+			            },
+			            "Object": {
+			              "Role": "state_channel_metrics.state"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "state_channel_metrics_have_states"
+			        }
+			      ]
+			    },
+			    "state_channel_metrics_has_state_name": {
+			      "Binding": {
+			        "ConceptualEntity": "state_channel_metrics"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "state_channel_metrics": {
+			          "Target": {
+			            "Entity": "state_channel_metrics"
+			          }
+			        },
+			        "state_channel_metrics.state_name": {
+			          "Target": {
+			            "Entity": "state_channel_metrics.state_name"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "state_channel_metrics"
+			            },
+			            "Object": {
+			              "Role": "state_channel_metrics.state_name"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "state_channel_metrics_have_state_names"
+			        }
+			      ]
+			    },
+			    "state_channel_metrics_has_registro": {
+			      "Binding": {
+			        "ConceptualEntity": "state_channel_metrics"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "state_channel_metrics": {
+			          "Target": {
+			            "Entity": "state_channel_metrics"
+			          }
+			        },
+			        "state_channel_metrics.registro": {
+			          "Target": {
+			            "Entity": "state_channel_metrics.registro"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "state_channel_metrics"
+			            },
+			            "Object": {
+			              "Role": "state_channel_metrics.registro"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "state_channel_metrics_have_registros"
+			        }
+			      ]
+			    },
+			    "state_channel_metrics_has_activacione": {
+			      "Binding": {
+			        "ConceptualEntity": "state_channel_metrics"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "state_channel_metrics": {
+			          "Target": {
+			            "Entity": "state_channel_metrics"
+			          }
+			        },
+			        "state_channel_metrics.activacione": {
+			          "Target": {
+			            "Entity": "state_channel_metrics.activacione"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "state_channel_metrics"
+			            },
+			            "Object": {
+			              "Role": "state_channel_metrics.activacione"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "state_channel_metrics_have_activaciones"
+			        }
+			      ]
+			    },
+			    "state_channel_metrics_has_clientes_pago": {
+			      "Binding": {
+			        "ConceptualEntity": "state_channel_metrics"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "state_channel_metrics": {
+			          "Target": {
+			            "Entity": "state_channel_metrics"
+			          }
+			        },
+			        "state_channel_metrics.clientes_pago": {
+			          "Target": {
+			            "Entity": "state_channel_metrics.clientes_pago"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "state_channel_metrics"
+			            },
+			            "Object": {
+			              "Role": "state_channel_metrics.clientes_pago"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "state_channel_metrics_have_clientes_pago"
+			        }
+			      ]
+			    },
+			    "state_channel_metrics_has_tasa_registro_a_pago": {
+			      "Binding": {
+			        "ConceptualEntity": "state_channel_metrics"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "state_channel_metrics": {
+			          "Target": {
+			            "Entity": "state_channel_metrics"
+			          }
+			        },
+			        "state_channel_metrics.tasa_registro_a_pago": {
+			          "Target": {
+			            "Entity": "state_channel_metrics.tasa_registro_a_pago"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "state_channel_metrics"
+			            },
+			            "Object": {
+			              "Role": "state_channel_metrics.tasa_registro_a_pago"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "state_channel_metrics_have_tasa_registro_a_pago"
+			        }
+			      ]
+			    },
+			    "state_channel_metrics_has_tasa_registro_a_pago1": {
+			      "Binding": {
+			        "ConceptualEntity": "state_channel_metrics"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "state_channel_metrics": {
+			          "Target": {
+			            "Entity": "state_channel_metrics"
+			          }
+			        },
+			        "state_channel_metrics.tasa_registro_a_pago1": {
+			          "Target": {
+			            "Entity": "state_channel_metrics.tasa_registro_a_pago1"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "state_channel_metrics"
+			            },
+			            "Object": {
+			              "Role": "state_channel_metrics.tasa_registro_a_pago1"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "state_channel_metrics_have_tasa_registro_a_pago1"
+			        }
+			      ]
+			    },
+			    "state_channel_metrics_has_CAC_estimado": {
+			      "Binding": {
+			        "ConceptualEntity": "state_channel_metrics"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "state_channel_metrics": {
+			          "Target": {
+			            "Entity": "state_channel_metrics"
+			          }
+			        },
+			        "state_channel_metrics.CAC_estimado": {
+			          "Target": {
+			            "Entity": "state_channel_metrics.CAC_estimado"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "state_channel_metrics"
+			            },
+			            "Object": {
+			              "Role": "state_channel_metrics.CAC_estimado"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "state_channel_metrics_have_CAC_estimado"
 			        }
 			      ]
 			    },
@@ -3372,6 +4379,52 @@ cultureInfo es-ES
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "channels_have_monthly_channel_metrics"
+			        }
+			      ]
+			    },
+			    "state_channel_metrics_has_channel": {
+			      "Binding": {
+			        "ConceptualEntity": "state_channel_metrics"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "state_channel_metrics": {
+			          "Target": {
+			            "Entity": "state_channel_metrics"
+			          }
+			        },
+			        "channel": {
+			          "Target": {
+			            "Entity": "channel"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "state_channel_metrics"
+			            },
+			            "Object": {
+			              "Role": "channel"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "state_channel_metrics_have_channels"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "channel"
+			            },
+			            "Object": {
+			              "Role": "state_channel_metrics"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "channels_have_state_channel_metrics"
 			        }
 			      ]
 			    }

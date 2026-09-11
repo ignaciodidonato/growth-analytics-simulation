@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "cc9ce3735d7a1971a104",
   "position": {
-    "x": 632,
-    "y": 396,
+    "x": 631.54185022026434,
+    "y": 396.96916299559473,
     "z": 4000,
-    "height": 256,
-    "width": 400,
+    "height": 288.704845814978,
+    "width": 400.352422907489,
     "tabOrder": 4000
   },
   "visual": {
@@ -116,5 +116,37 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "a96176c9ad6add9873a0",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "state_channel_metrics"
+              }
+            },
+            "Property": "state"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "808e0daea0dbd4d7eda4",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "state_channel_metrics"
+              }
+            },
+            "Property": "CAC estimado"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }
