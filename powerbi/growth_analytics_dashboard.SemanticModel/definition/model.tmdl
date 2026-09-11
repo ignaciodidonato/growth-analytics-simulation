@@ -9,7 +9,7 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_QueryOrder = ["channel_metrics","ab_test_results","funnel_conversion","monthly_channel_metrics","channels","state_channel_metrics","ab_test_summary","ab_test_daily","months"]
+annotation PBI_QueryOrder = ["channel_metrics","ab_test_results","funnel_conversion","monthly_channel_metrics","channels","state_channel_metrics","ab_test_summary","ab_test_daily"]
 
 annotation PBI_ProTooling = ["DevMode"]
 
@@ -21,7 +21,6 @@ ref table channels
 ref table state_channel_metrics
 ref table ab_test_summary
 ref table ab_test_daily
-ref table months
 ref table DateTableTemplate_77aab71e-56f6-4e16-b5fb-6222a7cbf403
 ref table LocalDateTable_c30a60d3-3723-4ca4-8d83-b94b147bb364
 

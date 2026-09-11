@@ -19,6 +19,3 @@ relationship 823c3498-1f96-498b-99d4-81dd397b0d2a
 	fromColumn: ab_test_daily.Date
 	toColumn: LocalDateTable_c30a60d3-3723-4ca4-8d83-b94b147bb364.Date
 
-relationship 4b57918b-3f4f-494b-8635-79cf3b89c9d5
-	fromColumn: monthly_channel_metrics.Month
-	toColumn: months.Month

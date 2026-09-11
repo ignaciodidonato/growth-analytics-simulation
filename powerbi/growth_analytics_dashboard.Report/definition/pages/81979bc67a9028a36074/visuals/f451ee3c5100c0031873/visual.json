@@ -20,13 +20,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "months"
+                      "Entity": "monthly_channel_metrics"
                     }
                   },
                   "Property": "Month"
                 }
               },
-              "queryRef": "months.Month",
+              "queryRef": "monthly_channel_metrics.Month",
               "nativeQueryRef": "Month",
               "active": true
             }
@@ -54,17 +54,22 @@
           "projections": [
             {
               "field": {
-                "Measure": {
+                "Aggregation": {
                   "Expression": {
-                    "SourceRef": {
-                      "Entity": "monthly_channel_metrics"
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "monthly_channel_metrics"
+                        }
+                      },
+                      "Property": "Cost per signup"
                     }
                   },
-                  "Property": "Cost per signup (line)"
+                  "Function": 0
                 }
               },
-              "queryRef": "monthly_channel_metrics.Cost per signup (line)",
-              "nativeQueryRef": "Cost per signup (line)"
+              "queryRef": "Sum(monthly_channel_metrics.Cost per signup)",
+              "nativeQueryRef": "Sum of Cost per signup"
             }
           ]
         }
@@ -76,10 +81,23 @@
               "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "months"
+                    "Entity": "monthly_channel_metrics"
                   }
                 },
                 "Property": "Month"
+              }
+            },
+            "direction": "Ascending"
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "channels"
+                  }
+                },
+                "Property": "Channel"
               }
             },
             "direction": "Ascending"
@@ -119,7 +137,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "monthly_channel_metrics"
+                      "Entity": "ab_test_daily"
                     }
                   },
                   "Property": "Cost per signup label"
