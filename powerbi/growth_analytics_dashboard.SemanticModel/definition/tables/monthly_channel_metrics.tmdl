@@ -5,7 +5,7 @@ table monthly_channel_metrics
 		formatString: \$#,0
 		lineageTag: 43b163f0-2623-442d-90ed-6b64b1c70304
 
-	measure 'Cost per signup label' = VAR picked = IF(ISFILTERED(monthly_channel_metrics[Month]), SELECTEDVALUE(monthly_channel_metrics[Month])) VAR axis = SELECTEDVALUE(months[Month]) VAR v = [Cost per signup (line)] RETURN IF(NOT ISBLANK(picked), IF(picked = axis, v), IF(CALCULATE(DISTINCTCOUNT(channels[Channel]), ALLSELECTED(channels[Channel])) = 1, v))
+	measure 'Cost per signup label' = VAR picked = CALCULATE(SELECTEDVALUE(monthly_channel_metrics[Month]), REMOVEFILTERS(months)) VAR axis = SELECTEDVALUE(months[Month]) VAR v = [Cost per signup (line)] RETURN IF(NOT ISBLANK(picked), IF(picked = axis, v), IF(CALCULATE(DISTINCTCOUNT(channels[Channel]), ALLSELECTED(channels[Channel])) = 1, v))
 		formatString: \$#,0
 		lineageTag: b87cf74a-da8d-412b-8ced-9d9781a8ddc1
 

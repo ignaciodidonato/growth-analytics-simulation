@@ -113,20 +113,7 @@
           }
         },
         {
-          "properties": {
-            "dynamicLabelValue": {
-              "expr": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "monthly_channel_metrics"
-                    }
-                  },
-                  "Property": "Cost per signup label"
-                }
-              }
-            }
-          },
+          "properties": {},
           "selector": {
             "data": [
               {
