@@ -1,6 +1,14 @@
 table ab_test_daily
 	lineageTag: 7b504d3f-ede7-40f4-b979-afe4f82cb864
 
+	measure 'Cost per signup label' = IF(CALCULATE(DISTINCTCOUNT(channels[Channel]), ALLSELECTED(channels[Channel])) = 1, SUM(monthly_channel_metrics[Cost per signup]))
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 3ee33582-ee76-4643-b72d-a98c1923341a
+
+	measure 'Signups label' = IF(CALCULATE(DISTINCTCOUNT(channels[Channel]), ALLSELECTED(channels[Channel])) = 1, SUM(monthly_channel_metrics[Signups]))
+		formatString: 0
+		lineageTag: 988a702c-a585-42fa-8159-bf2ca7d575ff
+
 	column Variant
 		dataType: string
 		lineageTag: 5b1c54ca-eac9-474b-8417-6261b4629d03

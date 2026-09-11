@@ -10,7 +10,7 @@
     "tabOrder": 1000
   },
   "visual": {
-    "visualType": "filledMap",
+    "visualType": "azureMap",
     "query": {
       "queryState": {
         "Category": {
@@ -69,35 +69,104 @@
     "objects": {
       "dataPoint": [
         {
+          "properties": {}
+        }
+      ],
+      "mapControls": [
+        {
           "properties": {
-            "fillRule": {
-              "linearGradient2": {
-                "min": {
-                  "color": {
-                    "expr": {
-                      "Literal": {
-                        "Value": "'minColor'"
-                      }
-                    }
-                  }
-                },
-                "max": {
-                  "color": {
-                    "expr": {
-                      "Literal": {
-                        "Value": "'maxColor'"
-                      }
-                    }
-                  }
-                },
-                "nullColoringStrategy": {
-                  "strategy": {
-                    "expr": {
-                      "Literal": {
-                        "Value": "'asZero'"
-                      }
-                    }
-                  }
+            "defaultStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "'road'"
+                }
+              }
+            },
+            "showStylePicker": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "showNavigationControls": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "showSelectionControl": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "zoom": {
+              "expr": {
+                "Literal": {
+                  "Value": "1.99D"
+                }
+              }
+            },
+            "centerLatitude": {
+              "expr": {
+                "Literal": {
+                  "Value": "37.77937667038347D"
+                }
+              }
+            },
+            "centerLongitude": {
+              "expr": {
+                "Literal": {
+                  "Value": "-97.33721000000003D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryLabels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "bubbleLayer": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "filledMap": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "mapTransparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "40L"
                 }
               }
             }

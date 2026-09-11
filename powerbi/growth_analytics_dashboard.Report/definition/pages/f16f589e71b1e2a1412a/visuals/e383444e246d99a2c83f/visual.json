@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "e383444e246d99a2c83f",
   "position": {
-    "x": 208.86227544910182,
-    "y": 548.02395209580845,
+    "x": 208.88888888888889,
+    "y": 538.66666666666663,
     "z": 6000,
-    "height": 157.125748502994,
-    "width": 238.56287425149702,
+    "height": 166.22222222222223,
+    "width": 238.22222222222223,
     "tabOrder": 6000
   },
   "visual": {
@@ -21,7 +21,6 @@
                   {
                     "value": "Email and organic acquire customers at a fraction of the cost of paid channels (CAC of $8 and $0 vs. $189–292) and retain them better: their monthly churn is roughly half. Google Ads and Meta bring 2 of every 3 paying customers, but each one costs 25–40x more.",
                     "textStyle": {
-                      "fontSize": "10pt",
                       "color": "#d2d3da"
                     }
                   }
