@@ -108,7 +108,40 @@
     "textbox": {
       "*": {
         "background": [{ "show": false }],
-        "border": [{ "show": false }]
+        "border": [{ "show": false }],
+        "padding": [{ "top": 0, "bottom": 0, "left": 0, "right": 0 }]
+      }
+    },
+    "shape": {
+      "*": {
+        "background": [{ "show": false }],
+        "border": [{ "show": false }],
+        "padding": [{ "top": 0, "bottom": 0, "left": 0, "right": 0 }],
+        "title": [{ "show": false }]
+      }
+    },
+    "actionButton": {
+      "*": {
+        "background": [{ "show": false }],
+        "border": [{ "show": false }],
+        "padding": [{ "top": 0, "bottom": 0, "left": 0, "right": 0 }],
+        "title": [{ "show": false }]
+      }
+    },
+    "pageNavigator": {
+      "*": {
+        "background": [{ "show": false }],
+        "border": [{ "show": false }],
+        "padding": [{ "top": 0, "bottom": 0, "left": 0, "right": 0 }],
+        "title": [{ "show": false }]
+      }
+    },
+    "slicer": {
+      "*": {
+        "background": [{ "show": false }],
+        "border": [{ "show": false }],
+        "padding": [{ "top": 0, "bottom": 0, "left": 0, "right": 0 }],
+        "title": [{ "show": false }]
       }
     }
   }
