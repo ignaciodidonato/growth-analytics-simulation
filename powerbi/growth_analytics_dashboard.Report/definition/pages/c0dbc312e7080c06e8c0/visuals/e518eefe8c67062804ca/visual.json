@@ -27,8 +27,7 @@
                 }
               },
               "queryRef": "channels.Channel",
-              "nativeQueryRef": "Channel",
-              "displayName": "Canal de Tráfico"
+              "nativeQueryRef": "Channel"
             },
             {
               "field": {
@@ -47,8 +46,7 @@
                 }
               },
               "queryRef": "Sum(funnel_conversion.Signup to activation)",
-              "nativeQueryRef": "Sum of Signup to activation",
-              "displayName": "Tasa Registro-Activación"
+              "nativeQueryRef": "Sum of Signup to activation"
             },
             {
               "field": {
@@ -67,8 +65,7 @@
                 }
               },
               "queryRef": "Sum(funnel_conversion.Activation to paid)",
-              "nativeQueryRef": "Sum of Activation to paid",
-              "displayName": "Tasa Activación-Pago"
+              "nativeQueryRef": "Sum of Activation to paid"
             },
             {
               "field": {
@@ -87,8 +84,7 @@
                 }
               },
               "queryRef": "Sum(funnel_conversion.Signup to paid)",
-              "nativeQueryRef": "Sum of Signup to paid",
-              "displayName": "Tasa Registro-Pago"
+              "nativeQueryRef": "Sum of Signup to paid"
             }
           ]
         }

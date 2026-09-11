@@ -27,8 +27,7 @@
                 }
               },
               "queryRef": "ab_test_results.Variant",
-              "nativeQueryRef": "Variant",
-              "displayName": "Variante"
+              "nativeQueryRef": "Variant"
             },
             {
               "field": {
@@ -47,8 +46,7 @@
                 }
               },
               "queryRef": "Sum(ab_test_results.Clicks)",
-              "nativeQueryRef": "Sum of Clicks",
-              "displayName": "Clicks"
+              "nativeQueryRef": "Sum of Clicks"
             },
             {
               "field": {
@@ -67,8 +65,7 @@
                 }
               },
               "queryRef": "Sum(ab_test_results.Signups)",
-              "nativeQueryRef": "Sum of Signups",
-              "displayName": "Registros"
+              "nativeQueryRef": "Sum of Signups"
             },
             {
               "field": {
@@ -87,8 +84,7 @@
                 }
               },
               "queryRef": "Sum(ab_test_results.Conversion rate)",
-              "nativeQueryRef": "Sum of Conversion rate",
-              "displayName": "Tasa de Conversión"
+              "nativeQueryRef": "Sum of Conversion rate"
             },
             {
               "field": {
@@ -107,8 +103,7 @@
                 }
               },
               "queryRef": "Sum(ab_test_results.z-statistic)",
-              "nativeQueryRef": "Sum of z-statistic",
-              "displayName": "Z-Stat"
+              "nativeQueryRef": "Sum of z-statistic"
             },
             {
               "field": {
@@ -127,8 +122,7 @@
                 }
               },
               "queryRef": "Sum(ab_test_results.p-value)",
-              "nativeQueryRef": "Sum of p-value",
-              "displayName": "P-Value"
+              "nativeQueryRef": "Sum of p-value"
             }
           ]
         }

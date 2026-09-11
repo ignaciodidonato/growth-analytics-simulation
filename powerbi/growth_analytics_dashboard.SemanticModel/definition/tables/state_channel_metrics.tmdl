@@ -27,8 +27,8 @@ table state_channel_metrics
 		annotation SummarizationSetBy = Automatic
 
 	column channel_name
-		isHidden
 		dataType: string
+		isHidden
 		lineageTag: b15cb331-92f3-4208-952f-6959bd67b9e1
 		summarizeBy: none
 		sourceColumn: channel_name

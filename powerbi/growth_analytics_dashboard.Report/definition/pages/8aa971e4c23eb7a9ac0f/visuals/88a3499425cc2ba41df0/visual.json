@@ -47,8 +47,7 @@
               },
               "queryRef": "state_channel_metrics.State name",
               "nativeQueryRef": "State name",
-              "active": true,
-              "displayName": "Estado"
+              "active": true
             }
           ]
         },

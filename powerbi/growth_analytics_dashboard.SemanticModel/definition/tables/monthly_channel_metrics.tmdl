@@ -2,8 +2,8 @@ table monthly_channel_metrics
 	lineageTag: d0923e9b-96e0-459f-9ce1-b93c670e5508
 
 	column channel_name
-		isHidden
 		dataType: string
+		isHidden
 		lineageTag: f4c61218-a763-447d-a580-ea4f8bdf1525
 		summarizeBy: none
 		sourceColumn: channel_name

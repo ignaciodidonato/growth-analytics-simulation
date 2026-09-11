@@ -6,8 +6,8 @@ table channel_metrics
 		lineageTag: 7b1631eb-aa97-4282-8091-2a9117415b91
 
 	column channel_name
-		isHidden
 		dataType: string
+		isHidden
 		lineageTag: 51b25bcc-430a-48bf-a2d6-9834f6d03ed2
 		summarizeBy: none
 		sourceColumn: channel_name
@@ -86,7 +86,7 @@ table channel_metrics
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'LTV:CAC'
+	column LTV:CAC
 		dataType: double
 		formatString: 0.0
 		lineageTag: 9d54dc46-fc48-4ae3-b419-75e21c4ab2c2

@@ -2,8 +2,8 @@ table funnel_conversion
 	lineageTag: e013fb0a-51ff-465b-992c-87568b7ca587
 
 	column channel_name
-		isHidden
 		dataType: string
+		isHidden
 		lineageTag: 0b127c49-a64c-42d2-96ea-835251b58a01
 		summarizeBy: none
 		sourceColumn: channel_name

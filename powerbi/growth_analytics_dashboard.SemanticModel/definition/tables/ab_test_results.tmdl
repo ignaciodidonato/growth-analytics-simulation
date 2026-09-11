@@ -1,7 +1,7 @@
 table ab_test_results
 	lineageTag: 445bbc74-070f-49b4-b4d9-558188f08462
 
-	measure 'Significant (95%)' = IF(MAX(ab_test_results[Significant at 95%]) = 1, \"Yes\", \"No\")
+	measure 'Significant (95%)' = IF(MAX(ab_test_results[Significant at 95%]) = 1, "Yes", "No")
 		lineageTag: 4ee6b566-194c-4f54-859d-29b3d0aa1952
 
 	column Test
@@ -47,7 +47,7 @@ table ab_test_results
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'z-statistic'
+	column z-statistic
 		dataType: double
 		formatString: 0.000
 		lineageTag: 572a70bc-203f-4f6b-b70b-8de340655013
@@ -56,7 +56,7 @@ table ab_test_results
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'p-value'
+	column p-value
 		dataType: double
 		formatString: 0.000
 		lineageTag: eea10157-5cc0-4a52-bfb2-427e66609b35

@@ -27,8 +27,7 @@
                 }
               },
               "queryRef": "channels.Channel",
-              "nativeQueryRef": "Channel",
-              "displayName": "Canal de Tráfico"
+              "nativeQueryRef": "Channel"
             },
             {
               "field": {
@@ -47,8 +46,7 @@
                 }
               },
               "queryRef": "Sum(channel_metrics.Spend)",
-              "nativeQueryRef": "Sum of Spend",
-              "displayName": "Total Gastado"
+              "nativeQueryRef": "Sum of Spend"
             },
             {
               "field": {
@@ -67,8 +65,7 @@
                 }
               },
               "queryRef": "Sum(channel_metrics.Paying customers)",
-              "nativeQueryRef": "Sum of Paying customers",
-              "displayName": "Clientes Pagos"
+              "nativeQueryRef": "Sum of Paying customers"
             },
             {
               "field": {
@@ -87,8 +84,7 @@
                 }
               },
               "queryRef": "Sum(channel_metrics.CAC)",
-              "nativeQueryRef": "Sum of CAC",
-              "displayName": "CAC"
+              "nativeQueryRef": "Sum of CAC"
             },
             {
               "field": {
@@ -107,8 +103,7 @@
                 }
               },
               "queryRef": "Sum(channel_metrics.Monthly ARPU)",
-              "nativeQueryRef": "Sum of Monthly ARPU",
-              "displayName": "ARPU Mensual"
+              "nativeQueryRef": "Sum of Monthly ARPU"
             },
             {
               "field": {
@@ -127,8 +122,7 @@
                 }
               },
               "queryRef": "Sum(channel_metrics.Monthly churn)",
-              "nativeQueryRef": "Sum of Monthly churn",
-              "displayName": "Churn Mensual"
+              "nativeQueryRef": "Sum of Monthly churn"
             },
             {
               "field": {
@@ -147,8 +141,7 @@
                 }
               },
               "queryRef": "Sum(channel_metrics.LTV)",
-              "nativeQueryRef": "Sum of LTV",
-              "displayName": "LTV"
+              "nativeQueryRef": "Sum of LTV"
             },
             {
               "field": {
@@ -167,8 +160,7 @@
                 }
               },
               "queryRef": "Sum(channel_metrics.LTV:CAC)",
-              "nativeQueryRef": "Sum of LTV:CAC",
-              "displayName": "LTV-CAC Ratio"
+              "nativeQueryRef": "Sum of LTV:CAC"
             }
           ]
         }

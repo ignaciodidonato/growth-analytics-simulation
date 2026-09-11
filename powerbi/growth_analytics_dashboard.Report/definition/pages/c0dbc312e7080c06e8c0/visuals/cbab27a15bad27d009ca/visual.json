@@ -51,8 +51,7 @@
                 }
               },
               "queryRef": "Sum(funnel_conversion.Signups)",
-              "nativeQueryRef": "Sum of Signups",
-              "displayName": "Registro"
+              "nativeQueryRef": "Sum of Signups"
             },
             {
               "field": {
@@ -71,8 +70,7 @@
                 }
               },
               "queryRef": "Sum(funnel_conversion.Activations)",
-              "nativeQueryRef": "Sum of Activations",
-              "displayName": "Activacion"
+              "nativeQueryRef": "Sum of Activations"
             },
             {
               "field": {
@@ -91,8 +89,7 @@
                 }
               },
               "queryRef": "Sum(funnel_conversion.Paid)",
-              "nativeQueryRef": "Sum of Paid",
-              "displayName": "Pago"
+              "nativeQueryRef": "Sum of Paid"
             }
           ]
         }
