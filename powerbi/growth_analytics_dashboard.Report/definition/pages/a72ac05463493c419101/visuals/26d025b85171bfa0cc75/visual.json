@@ -3,7 +3,7 @@
   "name": "26d025b85171bfa0cc75",
   "position": {
     "x": 216,
-    "y": 643.55555555555554,
+    "y": 643.5555555555555,
     "z": 6000,
     "height": 50,
     "width": 1048,
@@ -19,7 +19,30 @@
               {
                 "textRuns": [
                   {
-                    "value": "Variant B (lookalike) converts 42% better than A in the sample, but the confidence interval of the difference still includes zero (p = 0.084). Confirming a lift of this size with 80% power needs ~3,300 clicks per variant, about 80 more days at the test's budget: keep the test running rather than declaring B the winner now.",
+                    "value": "Result: ",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#d2d3da",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "variant B (lookalike) converts 42% better than A in the sample, but the confidence interval of the difference still includes zero (p = 0.084). ",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#d2d3da"
+                    }
+                  },
+                  {
+                    "value": "Next step: ",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#d2d3da",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "confirming a lift of this size with 80% power needs ~3,300 clicks per variant, about 80 more days at the test's budget. Keep the test running rather than declaring B the winner now.",
                     "textStyle": {
                       "fontSize": "10pt",
                       "color": "#d2d3da"

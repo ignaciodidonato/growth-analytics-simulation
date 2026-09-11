@@ -1,10 +1,10 @@
 table ab_test_summary
 	lineageTag: 4c64aa9c-04c2-454f-a89d-4aa1c2a4e9fa
 
-	measure 'Clicks needed (text)' = FORMAT(SUM(ab_test_summary[Clicks needed per variant]), "#,0")
+	measure 'Clicks needed (text)' = FORMAT(SUM(ab_test_summary[Clicks needed per variant]), "#,0", "en-US")
 		lineageTag: de2ecc3c-0327-4faf-a3d1-c9ec3cfccab7
 
-	measure 'CI 95% (pp)' = FORMAT(MAX(ab_test_summary[CI low]) * 100, "+0.0;-0.0") & " to " & FORMAT(MAX(ab_test_summary[CI high]) * 100, "+0.0;-0.0") & " pp"
+	measure 'CI 95% (pp)' = FORMAT(MAX(ab_test_summary[CI low]) * 100, "+0.0;-0.0", "en-US") & " to " & FORMAT(MAX(ab_test_summary[CI high]) * 100, "+0.0;-0.0", "en-US") & " pp"
 		lineageTag: 77dc9951-cce1-4ee7-b69f-8d9b6cf6c2e0
 
 	column Test

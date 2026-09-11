@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "d81eb5f1a9b333adc105",
+  "position": {
+    "x": 216,
+    "y": 603.3333333333333,
+    "z": 7000,
+    "height": 20,
+    "width": 1048,
+    "tabOrder": 7000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "The first days are noisy because few clicks have accumulated; the curves settle after ~2 weeks and B stays above A, but the gap is within the noise.",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#AAADB6",
+                      "fontStyle": "italic"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
