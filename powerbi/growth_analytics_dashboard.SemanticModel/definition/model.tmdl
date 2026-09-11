@@ -1,0 +1,23 @@
+model Model
+	culture: es-ES
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: es-ES
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["channel_metrics","ab_test_results","funnel_conversion","monthly_channel_metrics","channels"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table channel_metrics
+ref table ab_test_results
+ref table funnel_conversion
+ref table monthly_channel_metrics
+ref table channels
+
+ref cultureInfo es-ES
+

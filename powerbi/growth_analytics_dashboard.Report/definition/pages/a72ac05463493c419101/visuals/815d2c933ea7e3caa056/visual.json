@@ -1,0 +1,170 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "815d2c933ea7e3caa056",
+  "position": {
+    "x": 578.44197138314792,
+    "y": 370.87440381558031,
+    "z": 3000,
+    "height": 129.72972972972974,
+    "width": 659.33227344992054,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ab_test_results"
+                    }
+                  },
+                  "Property": "variant"
+                }
+              },
+              "queryRef": "ab_test_results.variant",
+              "nativeQueryRef": "variant"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "ab_test_results"
+                        }
+                      },
+                      "Property": "clicks"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(ab_test_results.clicks)",
+              "nativeQueryRef": "Sum of clicks"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "ab_test_results"
+                        }
+                      },
+                      "Property": "registros"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(ab_test_results.registros)",
+              "nativeQueryRef": "Sum of registros"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "ab_test_results"
+                        }
+                      },
+                      "Property": "conversion_rate"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(ab_test_results.conversion_rate)",
+              "nativeQueryRef": "Sum of conversion_rate"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "ab_test_results"
+                        }
+                      },
+                      "Property": "z_stat"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(ab_test_results.z_stat)",
+              "nativeQueryRef": "Sum of z_stat"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "ab_test_results"
+                        }
+                      },
+                      "Property": "p_value"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(ab_test_results.p_value)",
+              "nativeQueryRef": "Sum of p_value"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "ab_test_results"
+                      }
+                    },
+                    "Property": "conversion_rate"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

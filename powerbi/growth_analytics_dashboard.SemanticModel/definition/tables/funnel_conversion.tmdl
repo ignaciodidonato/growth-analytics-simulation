@@ -1,0 +1,80 @@
+table funnel_conversion
+	lineageTag: e013fb0a-51ff-465b-992c-87568b7ca587
+
+	column channel_name
+		dataType: string
+		lineageTag: 0b127c49-a64c-42d2-96ea-835251b58a01
+		summarizeBy: none
+		sourceColumn: channel_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column registro
+		dataType: int64
+		formatString: 0
+		lineageTag: 180db32e-d31c-4319-949c-2526a1ab3a70
+		summarizeBy: sum
+		sourceColumn: registro
+
+		annotation SummarizationSetBy = Automatic
+
+	column activacion
+		dataType: int64
+		formatString: 0
+		lineageTag: f72cc025-ef37-43f5-b40f-6cd763db0dfc
+		summarizeBy: sum
+		sourceColumn: activacion
+
+		annotation SummarizationSetBy = Automatic
+
+	column pago
+		dataType: int64
+		formatString: 0
+		lineageTag: d0a98bfa-5d4c-4c49-8db1-fc88e5a86427
+		summarizeBy: sum
+		sourceColumn: pago
+
+		annotation SummarizationSetBy = Automatic
+
+	column tasa_registro_a_activacion
+		dataType: double
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: 84d2350d-9b6e-4173-bc44-87b78e6896c3
+		summarizeBy: sum
+		sourceColumn: tasa_registro_a_activacion
+
+		annotation SummarizationSetBy = Automatic
+
+	column tasa_activacion_a_pago
+		dataType: double
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: d3a1cf42-578d-44f2-8dca-f0bafd2abb0b
+		summarizeBy: sum
+		sourceColumn: tasa_activacion_a_pago
+
+		annotation SummarizationSetBy = Automatic
+
+	column tasa_registro_a_pago
+		dataType: double
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: 85d229c6-3e07-46d9-9a36-ad58632e26d5
+		summarizeBy: sum
+		sourceColumn: tasa_registro_a_pago
+
+		annotation SummarizationSetBy = Automatic
+
+	partition funnel_conversion = m
+		mode: import
+		source =
+				let
+				  Origen = Csv.Document(File.Contents("C:\Users\Nacho\Desktop\light-it-analytics\data\powerbi\funnel_conversion.csv"), [Delimiter = ",", Columns = 7, QuoteStyle = QuoteStyle.None]),
+				  #"Encabezados promovidos" = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				    #"Changed Type with Locale" = Table.TransformColumnTypes(#"Encabezados promovidos", {{"tasa_registro_a_activacion", type number}, {"tasa_activacion_a_pago", type number}, {"tasa_registro_a_pago", type number}}, "en-US"),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Changed Type with Locale",{{"registro", Int64.Type}, {"activacion", Int64.Type}, {"pago", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

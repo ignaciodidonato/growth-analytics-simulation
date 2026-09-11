@@ -1,0 +1,87 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 1
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 0,
+            "y": 85
+          },
+          "nodeIndex": "channel_metrics",
+          "nodeLineageTag": "65f4b64f-6cb4-481a-8ebe-e091bb62aa7f",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 967,
+            "y": 223
+          },
+          "nodeIndex": "ab_test_results",
+          "nodeLineageTag": "445bbc74-070f-49b4-b4d9-558188f08462",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 335,
+            "y": 412
+          },
+          "nodeIndex": "funnel_conversion",
+          "nodeLineageTag": "e013fb0a-51ff-465b-992c-87568b7ca587",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 318,
+            "y": 0
+          },
+          "nodeIndex": "monthly_channel_metrics",
+          "nodeLineageTag": "d0923e9b-96e0-459f-9ce1-b93c670e5508",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 645,
+            "y": 232
+          },
+          "nodeIndex": "channels",
+          "nodeLineageTag": "64895936-dc18-48e6-af94-08bd39352021",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Todas las tablas",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas las tablas",
+  "defaultDiagram": "Todas las tablas"
+}

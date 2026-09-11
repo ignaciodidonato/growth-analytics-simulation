@@ -1,0 +1,12 @@
+relationship 15e4cabd-b704-7ad5-8671-4dd4734285f0
+	fromColumn: funnel_conversion.channel_name
+	toColumn: channels.channel_name
+
+relationship d05cd8d5-b140-edfa-4aa0-4fbfe8d07837
+	fromColumn: monthly_channel_metrics.channel_name
+	toColumn: channels.channel_name
+
+relationship bebaacce-a4fc-4584-d3cb-b8f68c5aaa74
+	fromColumn: channel_metrics.channel_name
+	toColumn: channels.channel_name
+

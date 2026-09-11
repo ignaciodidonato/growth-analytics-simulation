@@ -1,0 +1,186 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "154d433c6b9dc939d891",
+  "position": {
+    "x": 46.68693009118541,
+    "y": 347.2340425531915,
+    "z": 4000,
+    "height": 192.58358662613981,
+    "width": 1043.161094224924,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "channel_metrics"
+                    }
+                  },
+                  "Property": "channel_name"
+                }
+              },
+              "queryRef": "channel_metrics.channel_name",
+              "nativeQueryRef": "channel_name"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "channel_metrics"
+                        }
+                      },
+                      "Property": "spend_total"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "channel_metrics.spend_total",
+              "nativeQueryRef": "Sum of spend_total"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "channel_metrics"
+                        }
+                      },
+                      "Property": "clientes_pagos"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "channel_metrics.clientes_pagos",
+              "nativeQueryRef": "Sum of clientes_pagos"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "channel_metrics"
+                        }
+                      },
+                      "Property": "cac"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "channel_metrics.cac",
+              "nativeQueryRef": "Sum of cac"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "channel_metrics"
+                        }
+                      },
+                      "Property": "arpu_mensual"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "channel_metrics.arpu_mensual",
+              "nativeQueryRef": "Sum of arpu_mensual"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "channel_metrics"
+                        }
+                      },
+                      "Property": "churn_mensual"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "channel_metrics.churn_mensual",
+              "nativeQueryRef": "Sum of churn_mensual"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "channel_metrics"
+                        }
+                      },
+                      "Property": "ltv"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "channel_metrics.ltv",
+              "nativeQueryRef": "Sum of ltv"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "channel_metrics"
+                        }
+                      },
+                      "Property": "ltv_cac_ratio"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "channel_metrics.ltv_cac_ratio",
+              "nativeQueryRef": "Sum of ltv_cac_ratio"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

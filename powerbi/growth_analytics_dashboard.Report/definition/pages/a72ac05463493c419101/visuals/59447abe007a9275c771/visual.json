@@ -1,0 +1,66 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "59447abe007a9275c771",
+  "position": {
+    "x": 1414.8171701112879,
+    "y": 70.2066772655008,
+    "z": 2000,
+    "height": 300,
+    "width": 300,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "ab_test_results"
+                        }
+                      },
+                      "Property": "significativo_95"
+                    }
+                  },
+                  "Function": 1
+                }
+              },
+              "queryRef": "Sum(ab_test_results.significativo_95)",
+              "nativeQueryRef": "Average of significativo_95"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "ab_test_results"
+                      }
+                    },
+                    "Property": "significativo_95"
+                  }
+                },
+                "Function": 1
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

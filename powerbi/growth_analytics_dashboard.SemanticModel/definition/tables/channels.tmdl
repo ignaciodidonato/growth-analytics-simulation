@@ -1,0 +1,38 @@
+table channels
+	lineageTag: 64895936-dc18-48e6-af94-08bd39352021
+
+	column channel_id
+		dataType: int64
+		formatString: 0
+		lineageTag: c23764ab-f2ef-4cb1-b354-dd4b7e346725
+		summarizeBy: sum
+		sourceColumn: channel_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column channel_name
+		dataType: string
+		lineageTag: a63d8a0a-da94-4385-ad17-1adf4bc6680b
+		summarizeBy: none
+		sourceColumn: channel_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column channel_type
+		dataType: string
+		lineageTag: f7a00172-129a-432b-b28d-a1648680d5f1
+		summarizeBy: none
+		sourceColumn: channel_type
+
+		annotation SummarizationSetBy = Automatic
+
+	partition channels = m
+		mode: import
+		source =
+				let
+				  Source = Csv.Document(File.Contents("C:\Users\Nacho\Desktop\light-it-analytics\data\powerbi\channels.csv"), [Delimiter = ",", Columns = 3, QuoteStyle = QuoteStyle.None]),
+				  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"channel_id", Int64.Type}, {"channel_name", type text}, {"channel_type", type text}}, "en-US")
+				in
+				  #"Changed column type"
+

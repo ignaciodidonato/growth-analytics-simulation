@@ -1,0 +1,132 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "e518eefe8c67062804ca",
+  "position": {
+    "x": 960.00000000000011,
+    "y": 86.9952305246423,
+    "z": 1000,
+    "height": 209.09379968203498,
+    "width": 749.3799682034977,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "funnel_conversion"
+                    }
+                  },
+                  "Property": "channel_name"
+                }
+              },
+              "queryRef": "funnel_conversion.channel_name",
+              "nativeQueryRef": "channel_name"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "funnel_conversion"
+                        }
+                      },
+                      "Property": "tasa_registro_a_activacion"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(funnel_conversion.tasa_registro_a_activacion)",
+              "nativeQueryRef": "Sum of tasa_registro_a_activacion"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "funnel_conversion"
+                        }
+                      },
+                      "Property": "tasa_activacion_a_pago"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(funnel_conversion.tasa_activacion_a_pago)",
+              "nativeQueryRef": "Sum of tasa_activacion_a_pago"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "funnel_conversion"
+                        }
+                      },
+                      "Property": "tasa_registro_a_pago"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(funnel_conversion.tasa_registro_a_pago)",
+              "nativeQueryRef": "Sum of tasa_registro_a_pago"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "funnel_conversion"
+                      }
+                    },
+                    "Property": "tasa_registro_a_pago"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
