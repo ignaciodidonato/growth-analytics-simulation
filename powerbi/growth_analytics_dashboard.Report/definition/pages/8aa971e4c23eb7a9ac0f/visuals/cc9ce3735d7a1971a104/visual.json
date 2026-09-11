@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "b128df19e810b4e40781",
+  "name": "cc9ce3735d7a1971a104",
   "position": {
-    "x": 216,
-    "y": 80,
-    "z": 1000,
-    "height": 300,
+    "x": 632,
+    "y": 396,
+    "z": 4000,
+    "height": 256,
     "width": 400,
-    "tabOrder": 1000
+    "tabOrder": 4000
   },
   "visual": {
-    "visualType": "filledMap",
+    "visualType": "clusteredColumnChart",
     "query": {
       "queryState": {
         "Category": {
@@ -23,31 +23,17 @@
                       "Entity": "state_channel_metrics"
                     }
                   },
-                  "Property": "state_name"
+                  "Property": "state"
                 }
               },
-              "queryRef": "state_channel_metrics.state_name",
-              "nativeQueryRef": "state_name",
+              "queryRef": "state_channel_metrics.state",
+              "nativeQueryRef": "state",
               "active": true
             }
           ]
         },
-        "Tooltips": {
+        "Y": {
           "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "state_channel_metrics"
-                    }
-                  },
-                  "Property": "Tasa registro a pago"
-                }
-              },
-              "queryRef": "state_channel_metrics.Tasa registro a pago",
-              "nativeQueryRef": "Tasa registro a pago"
-            },
             {
               "field": {
                 "Measure": {
@@ -64,46 +50,24 @@
             }
           ]
         }
-      }
-    },
-    "objects": {
-      "dataPoint": [
-        {
-          "properties": {
-            "fillRule": {
-              "linearGradient2": {
-                "min": {
-                  "color": {
-                    "expr": {
-                      "Literal": {
-                        "Value": "'minColor'"
-                      }
-                    }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "state_channel_metrics"
                   }
                 },
-                "max": {
-                  "color": {
-                    "expr": {
-                      "Literal": {
-                        "Value": "'maxColor'"
-                      }
-                    }
-                  }
-                },
-                "nullColoringStrategy": {
-                  "strategy": {
-                    "expr": {
-                      "Literal": {
-                        "Value": "'asZero'"
-                      }
-                    }
-                  }
-                }
+                "Property": "CAC estimado"
               }
-            }
+            },
+            "direction": "Ascending"
           }
-        }
-      ]
+        ]
+      }
     },
     "visualContainerObjects": {
       "title": [
@@ -119,7 +83,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Estados con usuarios (15 de mayor poblacion)'"
+                  "Value": "'CAC estimado por estado (USD)'"
                 }
               }
             },
