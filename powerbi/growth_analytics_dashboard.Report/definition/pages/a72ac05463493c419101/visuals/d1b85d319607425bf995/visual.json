@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "d1b85d319607425bf995",
   "position": {
-    "x": 792,
-    "y": 624,
+    "x": 852,
+    "y": 522,
     "z": 23,
-    "height": 80,
-    "width": 472,
+    "height": 120,
+    "width": 412,
     "tabOrder": 23
   },
   "visual": {
@@ -17,22 +17,17 @@
           "projections": [
             {
               "field": {
-                "Aggregation": {
+                "Measure": {
                   "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "ab_test_summary"
-                        }
-                      },
-                      "Property": "Clicks needed per variant"
+                    "SourceRef": {
+                      "Entity": "ab_test_summary"
                     }
                   },
-                  "Function": 0
+                  "Property": "Clicks needed (text)"
                 }
               },
-              "queryRef": "Sum(ab_test_summary.Clicks needed per variant)",
-              "nativeQueryRef": "Clicks needed per variant"
+              "queryRef": "ab_test_summary.Clicks needed (text)",
+              "nativeQueryRef": "Clicks needed (text)"
             }
           ]
         }

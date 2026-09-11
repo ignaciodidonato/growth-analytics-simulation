@@ -10,7 +10,8 @@ table ab_test_daily
 		annotation SummarizationSetBy = Automatic
 
 	column Date
-		dataType: string
+		dataType: dateTime
+		formatString: Short Date
 		lineageTag: f19015a3-4d4f-48b7-a55c-368482ed9e9e
 		summarizeBy: none
 		sourceColumn: date
@@ -68,7 +69,7 @@ table ab_test_daily
 				let
 				  Origen = Csv.Document(File.Contents("C:\Users\Nacho\Desktop\light-it-analytics\data\powerbi\ab_test_daily.csv"), [Delimiter = ",", Columns = 7, QuoteStyle = QuoteStyle.None]),
 				  #"Encabezados promovidos" = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
-				  #"Changed Type with Locale" = Table.TransformColumnTypes(#"Encabezados promovidos", {{"conversion_acum", type number}}, "en-US"),
+				  #"Changed Type with Locale" = Table.TransformColumnTypes(#"Encabezados promovidos", {{"conversion_acum", type number}, {"date", type date}}, "en-US"),
 				  #"Changed Type" = Table.TransformColumnTypes(#"Changed Type with Locale",{{"clicks", Int64.Type}, {"registros", Int64.Type}, {"clicks_acum", Int64.Type}, {"registros_acum", Int64.Type}})
 				in
 				  #"Changed Type"

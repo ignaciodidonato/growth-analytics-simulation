@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "59447abe007a9275c771",
   "position": {
-    "x": 956,
+    "x": 216,
     "y": 80,
     "z": 10000,
-    "height": 142,
-    "width": 308,
+    "height": 140,
+    "width": 340,
     "tabOrder": 10000
   },
   "visual": {
@@ -23,11 +23,11 @@
                       "Entity": "ab_test_results"
                     }
                   },
-                  "Property": "Significant (95%)"
+                  "Property": "Significant (95%) with p"
                 }
               },
-              "queryRef": "ab_test_results.Significant (95%)",
-              "nativeQueryRef": "Significant (95%)"
+              "queryRef": "ab_test_results.Significant (95%) with p",
+              "nativeQueryRef": "Significant (95%) with p"
             }
           ]
         }

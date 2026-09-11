@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "26d025b85171bfa0cc75",
   "position": {
-    "x": 215.5688622754491,
-    "y": 451.25748502994014,
+    "x": 216,
+    "y": 654,
     "z": 6000,
-    "height": 76,
-    "width": 1048.1437125748503,
+    "height": 50,
+    "width": 1048,
     "tabOrder": 6000
   },
   "visual": {
@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Variant B (lookalike) converts 42% better than A (broad) in the sample, but with ~1,200 clicks per variant the result does not reach statistical significance at 95% (p = 0.084): the confidence interval of the difference still includes zero. To confirm a lift of this size with 80% power you would need ~3,300 clicks per variant (2.6x the sample), about 80 more days at the test's budget. Recommendation: keep the test running rather than declaring B the winner now.",
+                    "value": "Variant B (lookalike) converts 42% better than A in the sample, but the confidence interval of the difference still includes zero (p = 0.084). Confirming a lift of this size with 80% power needs ~3,300 clicks per variant, about 80 more days at the test's budget: keep the test running rather than declaring B the winner now.",
                     "textStyle": {
                       "fontSize": "10pt",
                       "color": "#d2d3da"
