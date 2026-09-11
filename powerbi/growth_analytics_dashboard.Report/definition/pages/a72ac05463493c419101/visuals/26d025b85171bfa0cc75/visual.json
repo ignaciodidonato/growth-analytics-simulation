@@ -3,9 +3,9 @@
   "name": "26d025b85171bfa0cc75",
   "position": {
     "x": 216,
-    "y": 643.5555555555555,
+    "y": 633.77777777777783,
     "z": 6000,
-    "height": 50,
+    "height": 71.111111111111114,
     "width": 1048,
     "tabOrder": 6000
   },
@@ -21,24 +21,28 @@
                   {
                     "value": "Result: ",
                     "textStyle": {
-                      "fontSize": "10pt",
-                      "color": "#d2d3da",
-                      "fontWeight": "bold"
-                    }
-                  },
-                  {
-                    "value": "variant B (lookalike) converts 42% better than A in the sample, but the confidence interval of the difference still includes zero (p = 0.084). ",
-                    "textStyle": {
+                      "fontWeight": "bold",
                       "fontSize": "10pt",
                       "color": "#d2d3da"
                     }
                   },
                   {
-                    "value": "Next step: ",
+                    "value": "variant B (lookalike) converts 42% better than A in the sample, but the confidence interval of the difference still includes zero (p = 0.084).",
                     "textStyle": {
                       "fontSize": "10pt",
-                      "color": "#d2d3da",
-                      "fontWeight": "bold"
+                      "color": "#d2d3da"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Next step: ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "10pt",
+                      "color": "#d2d3da"
                     }
                   },
                   {

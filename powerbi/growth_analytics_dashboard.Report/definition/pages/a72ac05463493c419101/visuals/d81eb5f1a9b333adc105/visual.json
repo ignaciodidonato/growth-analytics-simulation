@@ -3,7 +3,7 @@
   "name": "d81eb5f1a9b333adc105",
   "position": {
     "x": 216,
-    "y": 603.3333333333333,
+    "y": 604.44444444444446,
     "z": 7000,
     "height": 20,
     "width": 1048,
@@ -21,9 +21,9 @@
                   {
                     "value": "The first days are noisy because few clicks have accumulated; the curves settle after ~2 weeks and B stays above A, but the gap is within the noise.",
                     "textStyle": {
+                      "fontStyle": "italic",
                       "fontSize": "9pt",
-                      "color": "#AAADB6",
-                      "fontStyle": "italic"
+                      "color": "#aaadb6"
                     }
                   }
                 ]

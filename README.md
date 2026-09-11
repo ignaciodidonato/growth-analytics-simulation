@@ -14,8 +14,18 @@ dataset generation, metric computation, A/B test evaluation with real
 statistics (not just "which number is bigger") and a dashboard that ends with
 a business recommendation.
 
-> Dashboard screenshots and the public Power BI link will be added here once
-> the report is published.
+## Dashboard
+
+Five pages, one question each, every page closing with a written takeaway.
+A channel filter in the sidebar drives every visual through the `channels`
+dimension.
+
+![Overview](docs/screenshots/01-overview.png)
+
+| | |
+|---|---|
+| ![Funnel](docs/screenshots/02-funnel.png) | ![Monthly trend](docs/screenshots/03-monthly-trend.png) |
+| ![Geography](docs/screenshots/04-geography.png) | ![A/B test](docs/screenshots/05-ab-test.png) |
 
 ## Questions it answers
 
@@ -150,6 +160,8 @@ python/
 data/
   teleterapia.db          generated database (not versioned, rebuilt by the scripts)
   powerbi/                CSV mart tables, the dashboard's source
+docs/
+  screenshots/            one capture per dashboard page
 powerbi/
   growth_analytics_dashboard.pbip           Power BI project (open this)
   growth_analytics_dashboard.Report/        pages and visuals as JSON (PBIR)
@@ -253,7 +265,7 @@ cumulative conversion by variant, day by day, for the monitoring chart.
 ## Roadmap
 
 - [x] Power BI dashboard (overview, funnel, monthly trend, geography, A/B test).
-- [ ] Publish to web and add screenshots to this README.
+- [ ] Publish to web (public interactive link).
 - [ ] Retention cohorts by signup month.
 - [ ] Simple MRR forecast from observed churn.
 
