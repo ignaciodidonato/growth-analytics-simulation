@@ -1,0 +1,91 @@
+table ab_test_summary
+	lineageTag: 4c64aa9c-04c2-454f-a89d-4aa1c2a4e9fa
+
+	measure 'CI 95% (pp)' = FORMAT(MAX(ab_test_summary[CI low]) * 100, "+0.0;-0.0") & " to " & FORMAT(MAX(ab_test_summary[CI high]) * 100, "+0.0;-0.0") & " pp"
+		lineageTag: 77dc9951-cce1-4ee7-b69f-8d9b6cf6c2e0
+
+	column Test
+		dataType: string
+		lineageTag: 8a2b4143-749a-4dd1-afcb-204ee8fcbd62
+		summarizeBy: none
+		sourceColumn: ab_test_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Observed lift'
+		dataType: double
+		formatString: +0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: 179d1b07-45ca-4e34-90f9-df72bcc42e95
+		summarizeBy: sum
+		sourceColumn: lift_relativo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Difference (abs)'
+		dataType: double
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: 73ae4054-7c5d-4b06-b565-befd3e5b10cb
+		summarizeBy: sum
+		sourceColumn: diff_abs
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CI low'
+		dataType: double
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: 507c28d2-ee1a-457e-a9c9-f0b8dc014a11
+		summarizeBy: sum
+		sourceColumn: ci_low
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CI high'
+		dataType: double
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: c251b9be-7399-4f27-90e4-538cffe206cc
+		summarizeBy: sum
+		sourceColumn: ci_high
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Clicks needed per variant'
+		dataType: int64
+		formatString: #,0
+		lineageTag: d8cb1b44-c58f-421d-8b40-d26df40653e7
+		summarizeBy: sum
+		sourceColumn: clicks_necesarios_por_variante
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sample multiple'
+		dataType: double
+		formatString: 0.0
+		lineageTag: 444061e2-8e7e-4894-9f3a-2535e73c2695
+		summarizeBy: sum
+		sourceColumn: multiplo_muestra
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Days needed'
+		dataType: int64
+		formatString: 0
+		lineageTag: 93ef8f15-62cc-4bb9-a794-5bd25b556a8a
+		summarizeBy: sum
+		sourceColumn: dias_necesarios
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ab_test_summary = m
+		mode: import
+		source =
+				let
+				  Origen = Csv.Document(File.Contents("C:\Users\Nacho\Desktop\light-it-analytics\data\powerbi\ab_test_summary.csv"), [Delimiter = ",", Columns = 8, QuoteStyle = QuoteStyle.None]),
+				  #"Encabezados promovidos" = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				  #"Changed Type with Locale" = Table.TransformColumnTypes(#"Encabezados promovidos", {{"lift_relativo", type number}, {"diff_abs", type number}, {"ci_low", type number}, {"ci_high", type number}, {"multiplo_muestra", type number}}, "en-US"),
+				  #"Changed Type" = Table.TransformColumnTypes(#"Changed Type with Locale",{{"clicks_necesarios_por_variante", Int64.Type}, {"dias_necesarios", Int64.Type}})
+				in
+				  #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation

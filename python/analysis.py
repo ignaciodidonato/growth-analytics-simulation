@@ -50,6 +50,30 @@ def create_output_tables(conn):
             significativo_95    INTEGER
         );
 
+        DROP TABLE IF EXISTS ab_test_summary;
+        CREATE TABLE ab_test_summary (
+            ab_test_name                    TEXT PRIMARY KEY,
+            lift_relativo                   REAL,
+            diff_abs                        REAL,
+            ci_low                          REAL,
+            ci_high                         REAL,
+            clicks_necesarios_por_variante  INTEGER,
+            multiplo_muestra                REAL,
+            dias_necesarios                 INTEGER
+        );
+
+        DROP TABLE IF EXISTS ab_test_daily;
+        CREATE TABLE ab_test_daily (
+            variant             TEXT,
+            date                TEXT,
+            clicks              INTEGER,
+            registros           INTEGER,
+            clicks_acum         INTEGER,
+            registros_acum      INTEGER,
+            conversion_acum     REAL,
+            PRIMARY KEY (variant, date)
+        );
+
         DROP TABLE IF EXISTS monthly_channel_metrics;
         CREATE TABLE monthly_channel_metrics (
             channel_name        TEXT,
@@ -399,6 +423,92 @@ def compute_ab_test(conn):
     return rows
 
 
+def required_sample_per_variant(p1, p2, alpha=0.05, power=0.80):
+    """Clicks por variante para detectar la diferencia p2 - p1 con un test z
+    bilateral de dos proporciones (formula clasica de tamanio de muestra)."""
+    z_alpha = norm.ppf(1 - alpha / 2)
+    z_beta = norm.ppf(power)
+    p_bar = (p1 + p2) / 2
+    num = z_alpha * math.sqrt(2 * p_bar * (1 - p_bar)) + z_beta * math.sqrt(p1 * (1 - p1) + p2 * (1 - p2))
+    return math.ceil(num ** 2 / (p2 - p1) ** 2)
+
+
+def compute_ab_test_summary(conn):
+    """Una fila por test: lift observado, intervalo de confianza de la
+    diferencia y muestra necesaria para confirmar ese lift con 80% de potencia."""
+    rows = conn.execute(
+        "SELECT ab_test_name, variant, clicks, registros FROM ab_test_results ORDER BY variant"
+    ).fetchall()
+    name = rows[0][0]
+    (_, _, n_a, x_a), (_, _, n_b, x_b) = rows
+    p_a, p_b = x_a / n_a, x_b / n_b
+    diff = p_b - p_a
+    se_unpooled = math.sqrt(p_a * (1 - p_a) / n_a + p_b * (1 - p_b) / n_b)
+    ci_low, ci_high = diff - 1.96 * se_unpooled, diff + 1.96 * se_unpooled
+    n_required = required_sample_per_variant(p_a, p_b)
+
+    days_observed = conn.execute(
+        """SELECT COUNT(DISTINCT m.date) FROM campaign_daily_metrics m
+           JOIN campaigns c ON c.campaign_id = m.campaign_id WHERE c.ab_test_name = ?""",
+        (name,),
+    ).fetchone()[0]
+    clicks_per_day_per_variant = (n_a + n_b) / 2 / days_observed
+    days_required = math.ceil(n_required / clicks_per_day_per_variant)
+
+    row = (
+        name,
+        round(p_b / p_a - 1, 4),
+        round(diff, 4),
+        round(ci_low, 4),
+        round(ci_high, 4),
+        n_required,
+        round(n_required / ((n_a + n_b) / 2), 1),
+        days_required,
+    )
+    conn.execute(
+        """INSERT INTO ab_test_summary
+           (ab_test_name, lift_relativo, diff_abs, ci_low, ci_high,
+            clicks_necesarios_por_variante, multiplo_muestra, dias_necesarios)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?)""",
+        row,
+    )
+    conn.commit()
+    return row
+
+
+def compute_ab_test_daily(conn):
+    """Conversion acumulada por variante, dia a dia: el grafico de
+    monitoreo tipico de un test A/B."""
+    daily = conn.execute(
+        """
+        SELECT c.variant, m.date, m.clicks,
+               (SELECT COUNT(*) FROM users u
+                WHERE u.acquisition_campaign_id = c.campaign_id AND u.signup_date = m.date) AS registros
+        FROM campaign_daily_metrics m
+        JOIN campaigns c ON c.campaign_id = m.campaign_id
+        WHERE c.ab_test_name IS NOT NULL
+        ORDER BY c.variant, m.date
+        """
+    ).fetchall()
+
+    rows = []
+    cum = {}
+    for variant, date_str, clicks, registros in daily:
+        c, r = cum.get(variant, (0, 0))
+        c, r = c + clicks, r + registros
+        cum[variant] = (c, r)
+        rows.append((variant, date_str, clicks, registros, c, r, round(r / c, 4) if c else None))
+
+    conn.executemany(
+        """INSERT INTO ab_test_daily
+           (variant, date, clicks, registros, clicks_acum, registros_acum, conversion_acum)
+           VALUES (?, ?, ?, ?, ?, ?, ?)""",
+        rows,
+    )
+    conn.commit()
+    return rows
+
+
 def main():
     conn = sqlite3.connect(DB_PATH)
     create_output_tables(conn)
@@ -412,6 +522,11 @@ def main():
     print("\n--- ab_test_results ---")
     for row in ab_rows:
         print(row)
+
+    print("\n--- ab_test_summary ---")
+    print(compute_ab_test_summary(conn))
+    daily_rows = compute_ab_test_daily(conn)
+    print(f"--- ab_test_daily: {len(daily_rows)} filas, ultimo dia: {daily_rows[len(daily_rows) // 2 - 1]} / {daily_rows[-1]}")
 
     monthly_rows = compute_monthly_channel_metrics(conn)
     print("\n--- monthly_channel_metrics ---")

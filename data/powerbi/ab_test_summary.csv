@@ -1,0 +1,2 @@
+ab_test_name,lift_relativo,diff_abs,ci_low,ci_high,clicks_necesarios_por_variante,multiplo_muestra,dias_necesarios
+meta_targeting_test,0.4171,0.0134,-0.0018,0.0287,3256,2.6,80

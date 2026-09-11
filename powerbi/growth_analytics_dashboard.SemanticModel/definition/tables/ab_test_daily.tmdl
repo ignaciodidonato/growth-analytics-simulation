@@ -1,0 +1,78 @@
+table ab_test_daily
+	lineageTag: 7b504d3f-ede7-40f4-b979-afe4f82cb864
+
+	column Variant
+		dataType: string
+		lineageTag: 5b1c54ca-eac9-474b-8417-6261b4629d03
+		summarizeBy: none
+		sourceColumn: variant
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date
+		dataType: string
+		lineageTag: f19015a3-4d4f-48b7-a55c-368482ed9e9e
+		summarizeBy: none
+		sourceColumn: date
+
+		annotation SummarizationSetBy = Automatic
+
+	column Clicks
+		dataType: int64
+		formatString: 0
+		lineageTag: 83531fa0-6980-453f-8078-6d368c36e8bd
+		summarizeBy: sum
+		sourceColumn: clicks
+
+		annotation SummarizationSetBy = Automatic
+
+	column Signups
+		dataType: int64
+		formatString: 0
+		lineageTag: b6fded56-e948-4fc9-8952-c0b93c0a47fb
+		summarizeBy: sum
+		sourceColumn: registros
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cumulative clicks'
+		dataType: int64
+		formatString: 0
+		lineageTag: 1d1c3fac-186d-4431-b56a-b3f983eddbc6
+		summarizeBy: sum
+		sourceColumn: clicks_acum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cumulative signups'
+		dataType: int64
+		formatString: 0
+		lineageTag: 639cc9f1-7ab3-4cf7-b092-3798724a0c0e
+		summarizeBy: sum
+		sourceColumn: registros_acum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cumulative conversion'
+		dataType: double
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: c77515c2-1624-4cbf-b628-157b081a77f5
+		summarizeBy: sum
+		sourceColumn: conversion_acum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ab_test_daily = m
+		mode: import
+		source =
+				let
+				  Origen = Csv.Document(File.Contents("C:\Users\Nacho\Desktop\light-it-analytics\data\powerbi\ab_test_daily.csv"), [Delimiter = ",", Columns = 7, QuoteStyle = QuoteStyle.None]),
+				  #"Encabezados promovidos" = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				  #"Changed Type with Locale" = Table.TransformColumnTypes(#"Encabezados promovidos", {{"conversion_acum", type number}}, "en-US"),
+				  #"Changed Type" = Table.TransformColumnTypes(#"Changed Type with Locale",{{"clicks", Int64.Type}, {"registros", Int64.Type}, {"clicks_acum", Int64.Type}, {"registros_acum", Int64.Type}})
+				in
+				  #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation

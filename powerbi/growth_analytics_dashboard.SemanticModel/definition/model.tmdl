@@ -9,7 +9,7 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_QueryOrder = ["channel_metrics","ab_test_results","funnel_conversion","monthly_channel_metrics","channels","state_channel_metrics"]
+annotation PBI_QueryOrder = ["channel_metrics","ab_test_results","funnel_conversion","monthly_channel_metrics","channels","state_channel_metrics","ab_test_summary","ab_test_daily"]
 
 annotation PBI_ProTooling = ["DevMode"]
 
@@ -19,6 +19,8 @@ ref table funnel_conversion
 ref table monthly_channel_metrics
 ref table channels
 ref table state_channel_metrics
+ref table ab_test_summary
+ref table ab_test_daily
 
 ref cultureInfo es-ES
 

@@ -101,8 +101,8 @@ erDiagram
 
 On top of the transactional schema, `analysis.py` writes the mart tables
 the dashboard reads: `channel_metrics`, `monthly_channel_metrics`,
-`funnel_conversion`, `state_metrics`, `state_channel_metrics` and
-`ab_test_results`.
+`funnel_conversion`, `state_metrics`, `state_channel_metrics`,
+`ab_test_results`, `ab_test_summary` and `ab_test_daily`.
 
 ## How to run it
 
@@ -214,8 +214,14 @@ proportion to the signups it produced there.
 
 The lookalike variant converts ~42% better in the sample, but with this
 click volume the result does not reach statistical significance at 95%
-(p = 0.084). A textbook case of "one variant looks like a winner, but the
-sample is not large enough to say so".
+(p = 0.084): the 95% confidence interval of the difference runs from −0.2 to
++2.9 percentage points and still includes zero. A textbook case of "one
+variant looks like a winner, but the sample is not large enough to say so".
+`ab_test_summary` turns that into a decision: confirming a lift of this size
+with 80% power would take ~3,300 clicks per variant (2.6x the sample), about
+80 more days at the test's daily budget — so the recommendation is to keep
+the test running rather than declare B the winner. `ab_test_daily` holds the
+cumulative conversion by variant, day by day, for the monitoring chart.
 
 ## Design decisions
 

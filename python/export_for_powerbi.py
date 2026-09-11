@@ -19,6 +19,8 @@ TABLES = [
     "monthly_channel_metrics",
     "funnel_conversion",
     "ab_test_results",
+    "ab_test_summary",
+    "ab_test_daily",
     "state_metrics",
     "state_channel_metrics",
 ]
