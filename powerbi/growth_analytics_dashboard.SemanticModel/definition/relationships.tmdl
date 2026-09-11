@@ -10,3 +10,6 @@ relationship bebaacce-a4fc-4584-d3cb-b8f68c5aaa74
 	fromColumn: channel_metrics.channel_name
 	toColumn: channels.channel_name
 
+relationship d0280353-5a3f-4eec-9062-097a670b5be2
+	fromColumn: state_channel_metrics.channel_name
+	toColumn: channels.channel_name

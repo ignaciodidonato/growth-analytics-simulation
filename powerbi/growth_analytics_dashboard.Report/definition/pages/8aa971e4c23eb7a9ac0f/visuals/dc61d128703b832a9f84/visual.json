@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "dc61d128703b832a9f84",
+  "position": {
+    "x": 216,
+    "y": 14,
+    "z": 4000,
+    "height": 32,
+    "width": 900,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Geografia: donde funciona cada canal",
+                    "textStyle": {
+                      "fontSize": "18pt",
+                      "color": "#FCFCFC",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

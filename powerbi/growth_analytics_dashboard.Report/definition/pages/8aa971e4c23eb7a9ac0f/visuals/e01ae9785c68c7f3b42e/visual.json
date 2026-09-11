@@ -1,0 +1,107 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "e01ae9785c68c7f3b42e",
+  "position": {
+    "x": 216,
+    "y": 396,
+    "z": 42,
+    "height": 256,
+    "width": 360,
+    "tabOrder": 42
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "state_channel_metrics"
+                    }
+                  },
+                  "Property": "state_name"
+                }
+              },
+              "queryRef": "state_channel_metrics.state_name",
+              "nativeQueryRef": "state_name",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "state_channel_metrics"
+                    }
+                  },
+                  "Property": "Tasa registro a pago"
+                }
+              },
+              "queryRef": "state_channel_metrics.Tasa registro a pago",
+              "nativeQueryRef": "Tasa registro a pago"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "state_channel_metrics"
+                  }
+                },
+                "Property": "Tasa registro a pago"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Ranking de conversion por estado'"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FCFCFC'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -398,6 +398,79 @@
           }
         ]
       }
+    },
+    "pivotTable": {
+      "*": {
+        "grid": [
+          {
+            "gridVertical": false,
+            "gridHorizontal": true,
+            "gridHorizontalColor": {
+              "solid": {
+                "color": "#3f465a"
+              }
+            },
+            "rowPadding": 6,
+            "textSize": 11
+          }
+        ],
+        "columnHeaders": [
+          {
+            "fontColor": {
+              "solid": {
+                "color": "#fcfcfc"
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": "#3f465a"
+              }
+            },
+            "fontSize": 11,
+            "bold": true
+          }
+        ],
+        "rowHeaders": [
+          {
+            "fontColor": {
+              "solid": {
+                "color": "#fcfcfc"
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": "#353a4b"
+              }
+            },
+            "fontSize": 11
+          }
+        ],
+        "values": [
+          {
+            "fontColorPrimary": {
+              "solid": {
+                "color": "#fcfcfc"
+              }
+            },
+            "fontColorSecondary": {
+              "solid": {
+                "color": "#fcfcfc"
+              }
+            },
+            "backColorPrimary": {
+              "solid": {
+                "color": "#353a4b"
+              }
+            },
+            "backColorSecondary": {
+              "solid": {
+                "color": "#353a4b"
+              }
+            },
+            "fontSize": 11
+          }
+        ]
+      }
     }
   }
 }

@@ -1,0 +1,104 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "b128df19e810b4e40781",
+  "position": {
+    "x": 216,
+    "y": 80,
+    "z": 40,
+    "height": 300,
+    "width": 400,
+    "tabOrder": 40
+  },
+  "visual": {
+    "visualType": "filledMap",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "state_channel_metrics"
+                    }
+                  },
+                  "Property": "state_name"
+                }
+              },
+              "queryRef": "state_channel_metrics.state_name",
+              "nativeQueryRef": "state_name",
+              "active": true
+            }
+          ]
+        },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "state_channel_metrics"
+                    }
+                  },
+                  "Property": "Tasa registro a pago"
+                }
+              },
+              "queryRef": "state_channel_metrics.Tasa registro a pago",
+              "nativeQueryRef": "Tasa registro a pago"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "state_channel_metrics"
+                    }
+                  },
+                  "Property": "CAC estimado"
+                }
+              },
+              "queryRef": "state_channel_metrics.CAC estimado",
+              "nativeQueryRef": "CAC estimado"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Estados con usuarios (15 de mayor poblacion)'"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FCFCFC'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

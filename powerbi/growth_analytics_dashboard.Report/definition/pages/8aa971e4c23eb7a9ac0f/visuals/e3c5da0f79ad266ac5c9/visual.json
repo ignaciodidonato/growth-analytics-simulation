@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "e3c5da0f79ad266ac5c9",
+  "position": {
+    "x": 8,
+    "y": 293.3333333333333,
+    "z": 3000,
+    "height": 18,
+    "width": 168,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "FILTRO POR CANAL",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#D8EE17",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

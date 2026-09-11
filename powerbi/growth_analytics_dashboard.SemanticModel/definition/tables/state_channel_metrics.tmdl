@@ -1,0 +1,104 @@
+table state_channel_metrics
+	lineageTag: 52d637b6-1f89-4d48-92e6-4f6ee44f95bf
+
+	measure 'Tasa registro a pago' = DIVIDE(SUM(state_channel_metrics[clientes_pagos]), SUM(state_channel_metrics[registros]))
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: 2aae3bd7-46d5-4037-b03d-7ca97a9dc79d
+
+	measure 'CAC estimado' = DIVIDE(SUM(state_channel_metrics[spend_asignado]), SUM(state_channel_metrics[clientes_pagos]))
+		formatString: \$#,0
+		lineageTag: d6929d68-90bb-474c-9fae-c3292d46a610
+
+	column state
+		dataType: string
+		lineageTag: 037b40b2-7a81-44e6-97f6-e662630414ef
+		summarizeBy: none
+		sourceColumn: state
+
+		annotation SummarizationSetBy = Automatic
+
+	column state_name
+		dataType: string
+		dataCategory: StateOrProvince
+		lineageTag: 6f3e09f3-e7b0-4ec2-b96b-a64ae87f30c9
+		summarizeBy: none
+		sourceColumn: state_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column channel_name
+		dataType: string
+		lineageTag: b15cb331-92f3-4208-952f-6959bd67b9e1
+		summarizeBy: none
+		sourceColumn: channel_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column registros
+		dataType: int64
+		formatString: 0
+		lineageTag: 9cfe8563-2f58-4df2-9806-09cda3e78b0c
+		summarizeBy: sum
+		sourceColumn: registros
+
+		annotation SummarizationSetBy = Automatic
+
+	column activaciones
+		dataType: int64
+		formatString: 0
+		lineageTag: 6edcaa94-9b38-4a07-8af9-e518d19eee29
+		summarizeBy: sum
+		sourceColumn: activaciones
+
+		annotation SummarizationSetBy = Automatic
+
+	column clientes_pagos
+		dataType: int64
+		formatString: 0
+		lineageTag: 4ee223d2-747f-4611-aa4f-fe40627ab53d
+		summarizeBy: sum
+		sourceColumn: clientes_pagos
+
+		annotation SummarizationSetBy = Automatic
+
+	column tasa_registro_a_pago
+		dataType: double
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: 01987150-7f40-49a9-a4a4-aed398ef3af8
+		summarizeBy: none
+		sourceColumn: tasa_registro_a_pago
+
+		annotation SummarizationSetBy = Automatic
+
+	column spend_asignado
+		dataType: double
+		formatString: \$#,0
+		lineageTag: 8f234b20-6a7d-4cfb-9765-b5fe4ed5c331
+		summarizeBy: sum
+		sourceColumn: spend_asignado
+
+		annotation SummarizationSetBy = Automatic
+
+	column cac_estimado
+		dataType: double
+		formatString: \$#,0
+		lineageTag: 29e4d04c-0857-4543-be95-a145f9c37d00
+		summarizeBy: none
+		sourceColumn: cac_estimado
+
+		annotation SummarizationSetBy = Automatic
+
+	partition state_channel_metrics = m
+		mode: import
+		source =
+				let
+				  Origen = Csv.Document(File.Contents("C:\Users\Nacho\Desktop\light-it-analytics\data\powerbi\state_channel_metrics.csv"), [Delimiter = ",", Columns = 9, QuoteStyle = QuoteStyle.None]),
+				  #"Encabezados promovidos" = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				  #"Changed Type with Locale" = Table.TransformColumnTypes(#"Encabezados promovidos", {{"tasa_registro_a_pago", type number}, {"spend_asignado", type number}, {"cac_estimado", type number}}, "en-US"),
+				  #"Changed Type" = Table.TransformColumnTypes(#"Changed Type with Locale",{{"registros", Int64.Type}, {"activaciones", Int64.Type}, {"clientes_pagos", Int64.Type}})
+				in
+				  #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
