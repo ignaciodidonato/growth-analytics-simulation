@@ -2,71 +2,29 @@ cultureInfo es-ES
 
 	linguisticMetadata =
 			{
-			  "Version": "2.0.0",
+			  "Version": "1.0.0",
 			  "Language": "en-US",
 			  "Entities": {
 			    "channels.channel": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "channels",
-			          "ConceptualProperty": "Channel"
-			        }
+			      "Binding": {
+			        "ConceptualEntity": "channels",
+			        "ConceptualProperty": "Channel"
 			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "Canal de Tráfico": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
+			      "State": "Generated"
 			    },
 			    "state_channel_metrics.state_name": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "state_channel_metrics",
-			          "ConceptualProperty": "State name"
-			        }
+			      "Binding": {
+			        "ConceptualEntity": "state_channel_metrics",
+			        "ConceptualProperty": "State name"
 			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "Estado": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
+			      "State": "Generated"
 			    },
 			    "ab_test_results.variant": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "ab_test_results",
-			          "ConceptualProperty": "Variant"
-			        }
+			      "Binding": {
+			        "ConceptualEntity": "ab_test_results",
+			        "ConceptualProperty": "Variant"
 			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "Variante": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
+			      "State": "Generated"
 			    }
 			  }
 			}

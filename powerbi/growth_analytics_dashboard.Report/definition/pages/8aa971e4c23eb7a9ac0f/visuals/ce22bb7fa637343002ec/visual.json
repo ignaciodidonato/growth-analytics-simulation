@@ -19,18 +19,22 @@
               {
                 "textRuns": [
                   {
-                    "value": "Meta does not perform evenly: in Texas and Florida it converts 7% of its signups, versus 19% in California, with an estimated CAC above $500. Google Ads is the most efficient paid channel in Texas (46%, $136) and email dominates the Northeast (NY 85%). ",
+                    "value": "Meta does not perform evenly: in Texas and Florida it converts 7% of its signups, versus 19% in California, with an estimated CAC above $500. Google Ads is the most efficient paid channel in Texas (46%, $136) and email dominates the Northeast (NY 85%).",
                     "textStyle": {
                       "fontSize": "10pt",
                       "color": "#d2d3da"
                     }
-                  },
+                  }
+                ]
+              },
+              {
+                "textRuns": [
                   {
                     "value": "Recommendation:",
                     "textStyle": {
+                      "fontWeight": "bold",
                       "fontSize": "10pt",
-                      "color": "#d2d3da",
-                      "fontWeight": "bold"
+                      "color": "#d2d3da"
                     }
                   },
                   {
