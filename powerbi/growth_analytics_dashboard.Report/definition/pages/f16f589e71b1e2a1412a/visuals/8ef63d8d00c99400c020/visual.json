@@ -25,14 +25,14 @@
                           "Entity": "channel_metrics"
                         }
                       },
-                      "Property": "clientes_pagos"
+                      "Property": "Paying customers"
                     }
                   },
                   "Function": 0
                 }
               },
-              "queryRef": "CountNonNull(channel_metrics.clientes_pagos)",
-              "nativeQueryRef": "Sum of clientes_pagos"
+              "queryRef": "Sum(channel_metrics.Paying customers)",
+              "nativeQueryRef": "Sum of Paying customers"
             }
           ]
         }
@@ -49,7 +49,7 @@
                         "Entity": "channel_metrics"
                       }
                     },
-                    "Property": "clientes_pagos"
+                    "Property": "Paying customers"
                   }
                 },
                 "Function": 0
@@ -109,7 +109,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Clientes pagos adquiridos'"
+                  "Value": "'Paying customers acquired'"
                 }
               }
             },

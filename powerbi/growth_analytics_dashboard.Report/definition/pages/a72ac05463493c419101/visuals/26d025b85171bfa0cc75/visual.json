@@ -2,7 +2,7 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "26d025b85171bfa0cc75",
   "position": {
-    "x": 215.56886227544911,
+    "x": 215.5688622754491,
     "y": 451.25748502994014,
     "z": 6000,
     "height": 57.485029940119766,
@@ -19,9 +19,8 @@
               {
                 "textRuns": [
                   {
-                    "value": "La variante B (lookalike) convierte un 42% mejor que A (broad) en la muestra, pero con ~1.200 clicks por variante el resultado no alcanza significancia estadística al 95% (p = 0,084). No se puede declarar un ganador con estos datos: haría falta más muestra.",
+                    "value": "Variant B (lookalike) converts 42% better than A (broad) in the sample, but with ~1,200 clicks per variant the result does not reach statistical significance at 95% (p = 0.084). No winner can be declared with this data: a larger sample is needed.",
                     "textStyle": {
-                      "fontWeight": "bold",
                       "fontSize": "10pt",
                       "color": "#d2d3da"
                     }

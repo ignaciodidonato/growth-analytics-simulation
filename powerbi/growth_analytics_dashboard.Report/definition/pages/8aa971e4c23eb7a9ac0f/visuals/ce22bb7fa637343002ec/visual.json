@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "ce22bb7fa637343002ec",
   "position": {
-    "x": 1046.5550660792951,
+    "x": 1046.555066079295,
     "y": 396.96916299559473,
     "z": 13000,
     "height": 289,
-    "width": 216.52863436123349,
+    "width": 216.5286343612335,
     "tabOrder": 13000
   },
   "visual": {
@@ -19,37 +19,23 @@
               {
                 "textRuns": [
                   {
-                    "value": "Meta no rinde parejo: en Texas y Florida convierte el 7% de sus registros, contra 19% en California, con un CAC estimado de mas de $500. Google Ads es el canal pago mas eficiente en Texas (46%, $136) y email domina el noreste (NY 85%). ",
+                    "value": "Meta does not perform evenly: in Texas and Florida it converts 7% of its signups, versus 19% in California, with an estimated CAC above $500. Google Ads is the most efficient paid channel in Texas (46%, $136) and email dominates the Northeast (NY 85%). ",
                     "textStyle": {
-                      "fontWeight": "bold",
                       "fontSize": "10pt",
-                      "color": "#d2d3da"
-                    }
-                  }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": ""
-                  }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": "Recomendación:",
-                    "textStyle": {
-                      "fontWeight": "bold",
-                      "fontSize": "10pt",
-                      "textDecoration": "underline",
                       "color": "#d2d3da"
                     }
                   },
                   {
-                    "value": " mover el presupuesto de Meta en TX/FL hacia Google Ads y reforzar email en NY/MA. El gasto por estado es estimado: se asigna a cada estado en proporción a los registros de cada campaña.",
+                    "value": "Recommendation:",
                     "textStyle": {
-                      "fontWeight": "bold",
+                      "fontSize": "10pt",
+                      "color": "#d2d3da",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": " move Meta budget in TX/FL to Google Ads and double down on email in NY/MA. Spend by state is estimated: each campaign's spend is allocated in proportion to its signups per state.",
+                    "textStyle": {
                       "fontSize": "10pt",
                       "color": "#d2d3da"
                     }

@@ -25,14 +25,14 @@
                           "Entity": "channel_metrics"
                         }
                       },
-                      "Property": "spend_total"
+                      "Property": "Spend"
                     }
                   },
                   "Function": 0
                 }
               },
-              "queryRef": "CountNonNull(channel_metrics.spend_total)",
-              "nativeQueryRef": "Sum of spend_total"
+              "queryRef": "Sum(channel_metrics.Spend)",
+              "nativeQueryRef": "Sum of Spend"
             }
           ]
         }
@@ -49,7 +49,7 @@
                         "Entity": "channel_metrics"
                       }
                     },
-                    "Property": "spend_total"
+                    "Property": "Spend"
                   }
                 },
                 "Function": 0
@@ -109,7 +109,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Gasto total en marketing'"
+                  "Value": "'Total marketing spend'"
                 }
               }
             },

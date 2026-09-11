@@ -1,7 +1,12 @@
 table channel_metrics
 	lineageTag: 65f4b64f-6cb4-481a-8ebe-e091bb62aa7f
 
+	measure 'Blended CAC' = DIVIDE(SUM(channel_metrics[Spend]), SUM(channel_metrics[Paying customers]))
+		formatString: \$#,0
+		lineageTag: 7b1631eb-aa97-4282-8091-2a9117415b91
+
 	column channel_name
+		isHidden
 		dataType: string
 		lineageTag: 51b25bcc-430a-48bf-a2d6-9834f6d03ed2
 		summarizeBy: none
@@ -9,7 +14,7 @@ table channel_metrics
 
 		annotation SummarizationSetBy = Automatic
 
-	column spend_total
+	column Spend
 		dataType: double
 		formatString: \$#,0
 		lineageTag: c6bec2d3-33ef-486a-8e35-d56438194718
@@ -18,15 +23,16 @@ table channel_metrics
 
 		annotation SummarizationSetBy = Automatic
 
-	column registros
-		dataType: string
+	column Signups
+		dataType: int64
+		formatString: 0
 		lineageTag: f1cc12e3-6e4d-4f74-a0cd-189e3166c8a9
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: registros
 
 		annotation SummarizationSetBy = Automatic
 
-	column clientes_pagos
+	column 'Paying customers'
 		dataType: int64
 		formatString: 0
 		lineageTag: 573045c3-7362-47f7-8180-47bf166d89d2
@@ -35,7 +41,7 @@ table channel_metrics
 
 		annotation SummarizationSetBy = Automatic
 
-	column cac
+	column CAC
 		dataType: double
 		formatString: \$#,0
 		lineageTag: aa8069e3-83fa-40c6-9caa-4e7187abb6aa
@@ -44,7 +50,7 @@ table channel_metrics
 
 		annotation SummarizationSetBy = Automatic
 
-	column arpu_mensual
+	column 'Monthly ARPU'
 		dataType: double
 		formatString: \$#,0
 		lineageTag: 53b248db-2138-4d2b-b239-1182925ead21
@@ -53,7 +59,7 @@ table channel_metrics
 
 		annotation SummarizationSetBy = Automatic
 
-	column churn_mensual
+	column 'Monthly churn'
 		dataType: double
 		formatString: 0.00\ %;-0.00\ %;0.00\ %
 		lineageTag: 936b532d-840b-490b-91d5-6128cba0266e
@@ -62,7 +68,7 @@ table channel_metrics
 
 		annotation SummarizationSetBy = Automatic
 
-	column vida_util_meses
+	column 'Lifetime (months)'
 		dataType: double
 		formatString: 0
 		lineageTag: 826d578e-b1fb-4bbd-8459-d18d10d020e9
@@ -71,7 +77,7 @@ table channel_metrics
 
 		annotation SummarizationSetBy = Automatic
 
-	column ltv
+	column LTV
 		dataType: double
 		formatString: \$#,0
 		lineageTag: 5fe8b93b-4d50-4504-8d8f-df59f7174b0e
@@ -80,7 +86,7 @@ table channel_metrics
 
 		annotation SummarizationSetBy = Automatic
 
-	column ltv_cac_ratio
+	column 'LTV:CAC'
 		dataType: double
 		formatString: 0.0
 		lineageTag: 9d54dc46-fc48-4ae3-b419-75e21c4ab2c2
@@ -96,7 +102,7 @@ table channel_metrics
 				  Origen = Csv.Document(File.Contents("C:\Users\Nacho\Desktop\light-it-analytics\data\powerbi\channel_metrics.csv"), [Delimiter = ",", Columns = 10, QuoteStyle = QuoteStyle.None]),
 				  #"Encabezados promovidos" = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
 				    #"Changed Type with Locale" = Table.TransformColumnTypes(#"Encabezados promovidos", {{"spend_total", type number}, {"cac", type number}, {"arpu_mensual", type number}, {"churn_mensual", type number}, {"vida_util_meses", type number}, {"ltv", type number}, {"ltv_cac_ratio", type number}}, "en-US"),
-				    #"Changed Type" = Table.TransformColumnTypes(#"Changed Type with Locale",{{"clientes_pagos", Int64.Type}})
+				    #"Changed Type" = Table.TransformColumnTypes(#"Changed Type with Locale",{{"registros", Int64.Type}, {"clientes_pagos", Int64.Type}})
 				in
 				    #"Changed Type"
 

@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "funnel_conversion"
+                      "Entity": "channels"
                     }
                   },
-                  "Property": "channel_name"
+                  "Property": "Channel"
                 }
               },
-              "queryRef": "funnel_conversion.channel_name",
-              "nativeQueryRef": "channel_name",
+              "queryRef": "channels.Channel",
+              "nativeQueryRef": "Channel",
               "active": true
             }
           ]
@@ -44,14 +44,14 @@
                           "Entity": "funnel_conversion"
                         }
                       },
-                      "Property": "registro"
+                      "Property": "Signups"
                     }
                   },
                   "Function": 0
                 }
               },
-              "queryRef": "CountNonNull(funnel_conversion.registro)",
-              "nativeQueryRef": "Registro",
+              "queryRef": "Sum(funnel_conversion.Signups)",
+              "nativeQueryRef": "Sum of Signups",
               "displayName": "Registro"
             },
             {
@@ -64,14 +64,14 @@
                           "Entity": "funnel_conversion"
                         }
                       },
-                      "Property": "activacion"
+                      "Property": "Activations"
                     }
                   },
                   "Function": 0
                 }
               },
-              "queryRef": "CountNonNull(funnel_conversion.activacion)",
-              "nativeQueryRef": "Activacion",
+              "queryRef": "Sum(funnel_conversion.Activations)",
+              "nativeQueryRef": "Sum of Activations",
               "displayName": "Activacion"
             },
             {
@@ -84,14 +84,14 @@
                           "Entity": "funnel_conversion"
                         }
                       },
-                      "Property": "pago"
+                      "Property": "Paid"
                     }
                   },
                   "Function": 0
                 }
               },
-              "queryRef": "CountNonNull(funnel_conversion.pago)",
-              "nativeQueryRef": "Pago",
+              "queryRef": "Sum(funnel_conversion.Paid)",
+              "nativeQueryRef": "Sum of Paid",
               "displayName": "Pago"
             }
           ]
@@ -109,7 +109,7 @@
                         "Entity": "funnel_conversion"
                       }
                     },
-                    "Property": "registro"
+                    "Property": "Signups"
                   }
                 },
                 "Function": 0
@@ -150,7 +150,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Usuarios por etapa del funnel y canal'"
+                  "Value": "'Users by funnel stage and channel'"
                 }
               }
             },

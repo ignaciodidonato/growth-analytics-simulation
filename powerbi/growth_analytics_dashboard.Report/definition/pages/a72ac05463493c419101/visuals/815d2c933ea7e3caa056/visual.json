@@ -2,7 +2,7 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "815d2c933ea7e3caa056",
   "position": {
-    "x": 632.33532934131745,
+    "x": 632.3353293413174,
     "y": 237.60479041916167,
     "z": 12000,
     "height": 177.24550898203594,
@@ -23,11 +23,11 @@
                       "Entity": "ab_test_results"
                     }
                   },
-                  "Property": "variant"
+                  "Property": "Variant"
                 }
               },
-              "queryRef": "ab_test_results.variant",
-              "nativeQueryRef": "Variante",
+              "queryRef": "ab_test_results.Variant",
+              "nativeQueryRef": "Variant",
               "displayName": "Variante"
             },
             {
@@ -40,14 +40,14 @@
                           "Entity": "ab_test_results"
                         }
                       },
-                      "Property": "clicks"
+                      "Property": "Clicks"
                     }
                   },
                   "Function": 0
                 }
               },
-              "queryRef": "Sum(ab_test_results.clicks)",
-              "nativeQueryRef": "Clicks",
+              "queryRef": "Sum(ab_test_results.Clicks)",
+              "nativeQueryRef": "Sum of Clicks",
               "displayName": "Clicks"
             },
             {
@@ -60,14 +60,14 @@
                           "Entity": "ab_test_results"
                         }
                       },
-                      "Property": "registros"
+                      "Property": "Signups"
                     }
                   },
                   "Function": 0
                 }
               },
-              "queryRef": "Sum(ab_test_results.registros)",
-              "nativeQueryRef": "Registros",
+              "queryRef": "Sum(ab_test_results.Signups)",
+              "nativeQueryRef": "Sum of Signups",
               "displayName": "Registros"
             },
             {
@@ -80,14 +80,14 @@
                           "Entity": "ab_test_results"
                         }
                       },
-                      "Property": "conversion_rate"
+                      "Property": "Conversion rate"
                     }
                   },
                   "Function": 0
                 }
               },
-              "queryRef": "Sum(ab_test_results.conversion_rate)",
-              "nativeQueryRef": "Tasa de Conversión",
+              "queryRef": "Sum(ab_test_results.Conversion rate)",
+              "nativeQueryRef": "Sum of Conversion rate",
               "displayName": "Tasa de Conversión"
             },
             {
@@ -100,14 +100,14 @@
                           "Entity": "ab_test_results"
                         }
                       },
-                      "Property": "z_stat"
+                      "Property": "z-statistic"
                     }
                   },
                   "Function": 0
                 }
               },
-              "queryRef": "Sum(ab_test_results.z_stat)",
-              "nativeQueryRef": "Z-Stat",
+              "queryRef": "Sum(ab_test_results.z-statistic)",
+              "nativeQueryRef": "Sum of z-statistic",
               "displayName": "Z-Stat"
             },
             {
@@ -120,14 +120,14 @@
                           "Entity": "ab_test_results"
                         }
                       },
-                      "Property": "p_value"
+                      "Property": "p-value"
                     }
                   },
                   "Function": 0
                 }
               },
-              "queryRef": "Sum(ab_test_results.p_value)",
-              "nativeQueryRef": "P-Value",
+              "queryRef": "Sum(ab_test_results.p-value)",
+              "nativeQueryRef": "Sum of p-value",
               "displayName": "P-Value"
             }
           ]
@@ -145,7 +145,7 @@
                         "Entity": "ab_test_results"
                       }
                     },
-                    "Property": "clicks"
+                    "Property": "Clicks"
                   }
                 },
                 "Function": 0
@@ -182,7 +182,7 @@
             }
           },
           "selector": {
-            "metadata": "Sum(ab_test_results.clicks)"
+            "metadata": "Sum(ab_test_results.Clicks)"
           }
         },
         {
@@ -196,7 +196,7 @@
             }
           },
           "selector": {
-            "metadata": "ab_test_results.variant"
+            "metadata": "ab_test_results.Variant"
           }
         },
         {
@@ -210,7 +210,7 @@
             }
           },
           "selector": {
-            "metadata": "Sum(ab_test_results.registros)"
+            "metadata": "Sum(ab_test_results.Signups)"
           }
         },
         {
@@ -224,7 +224,7 @@
             }
           },
           "selector": {
-            "metadata": "Sum(ab_test_results.conversion_rate)"
+            "metadata": "Sum(ab_test_results.Conversion rate)"
           }
         },
         {
@@ -238,7 +238,7 @@
             }
           },
           "selector": {
-            "metadata": "Sum(ab_test_results.z_stat)"
+            "metadata": "Sum(ab_test_results.z-statistic)"
           }
         },
         {
@@ -252,7 +252,7 @@
             }
           },
           "selector": {
-            "metadata": "Sum(ab_test_results.p_value)"
+            "metadata": "Sum(ab_test_results.p-value)"
           }
         }
       ],
@@ -288,7 +288,7 @@
             }
           },
           "selector": {
-            "metadata": "ab_test_results.variant"
+            "metadata": "ab_test_results.Variant"
           }
         },
         {
@@ -302,7 +302,7 @@
             }
           },
           "selector": {
-            "metadata": "Sum(ab_test_results.clicks)"
+            "metadata": "Sum(ab_test_results.Clicks)"
           }
         },
         {
@@ -316,7 +316,7 @@
             }
           },
           "selector": {
-            "metadata": "Sum(ab_test_results.registros)"
+            "metadata": "Sum(ab_test_results.Signups)"
           }
         },
         {
@@ -330,7 +330,7 @@
             }
           },
           "selector": {
-            "metadata": "Sum(ab_test_results.conversion_rate)"
+            "metadata": "Sum(ab_test_results.Conversion rate)"
           }
         },
         {
@@ -344,7 +344,7 @@
             }
           },
           "selector": {
-            "metadata": "Sum(ab_test_results.z_stat)"
+            "metadata": "Sum(ab_test_results.z-statistic)"
           }
         }
       ]
@@ -363,7 +363,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Análisis del Test'"
+                  "Value": "'Test details'"
                 }
               }
             },

@@ -23,11 +23,11 @@
                       "Entity": "channels"
                     }
                   },
-                  "Property": "channel_name"
+                  "Property": "Channel"
                 }
               },
-              "queryRef": "channels.channel_name",
-              "nativeQueryRef": "channel_name",
+              "queryRef": "channels.Channel",
+              "nativeQueryRef": "Channel",
               "active": true
             }
           ]
@@ -42,11 +42,11 @@
                       "Entity": "state_channel_metrics"
                     }
                   },
-                  "Property": "state_name"
+                  "Property": "State name"
                 }
               },
-              "queryRef": "state_channel_metrics.state_name",
-              "nativeQueryRef": "Estado",
+              "queryRef": "state_channel_metrics.State name",
+              "nativeQueryRef": "State name",
               "active": true,
               "displayName": "Estado"
             }
@@ -62,11 +62,11 @@
                       "Entity": "state_channel_metrics"
                     }
                   },
-                  "Property": "Tasa registro a pago"
+                  "Property": "Signup to paid rate"
                 }
               },
-              "queryRef": "state_channel_metrics.Tasa registro a pago",
-              "nativeQueryRef": "Tasa registro a pago"
+              "queryRef": "state_channel_metrics.Signup to paid rate",
+              "nativeQueryRef": "Signup to paid rate"
             }
           ]
         }
@@ -81,7 +81,7 @@
                     "Entity": "state_channel_metrics"
                   }
                 },
-                "Property": "state_name"
+                "Property": "State name"
               }
             },
             "direction": "Ascending"
@@ -134,12 +134,12 @@
                             "Entity": "channels"
                           }
                         },
-                        "Property": "channel_name"
+                        "Property": "Channel"
                       }
                     },
                     "Right": {
                       "Literal": {
-                        "Value": "'organic'"
+                        "Value": "'Organic'"
                       }
                     }
                   }
@@ -171,12 +171,12 @@
                             "Entity": "channels"
                           }
                         },
-                        "Property": "channel_name"
+                        "Property": "Channel"
                       }
                     },
                     "Right": {
                       "Literal": {
-                        "Value": "'meta'"
+                        "Value": "'Meta'"
                       }
                     }
                   }
@@ -208,12 +208,12 @@
                             "Entity": "channels"
                           }
                         },
-                        "Property": "channel_name"
+                        "Property": "Channel"
                       }
                     },
                     "Right": {
                       "Literal": {
-                        "Value": "'google_ads'"
+                        "Value": "'Google Ads'"
                       }
                     }
                   }
@@ -245,12 +245,12 @@
                             "Entity": "channels"
                           }
                         },
-                        "Property": "channel_name"
+                        "Property": "Channel"
                       }
                     },
                     "Right": {
                       "Literal": {
-                        "Value": "'email'"
+                        "Value": "'Email'"
                       }
                     }
                   }
@@ -270,7 +270,7 @@
             }
           },
           "selector": {
-            "metadata": "state_channel_metrics.state_name"
+            "metadata": "state_channel_metrics.State name"
           }
         }
       ],
@@ -327,7 +327,7 @@
             }
           },
           "selector": {
-            "metadata": "state_channel_metrics.Tasa registro a pago"
+            "metadata": "state_channel_metrics.Signup to paid rate"
           }
         }
       ],
@@ -372,7 +372,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Conversion registro a pago por estado y canal'"
+                  "Value": "'Signup to paid conversion by state and channel'"
                 }
               }
             },

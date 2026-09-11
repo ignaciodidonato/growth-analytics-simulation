@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "f69914c1d82e7e401b7e",
   "position": {
-    "x": 932.21556886227552,
+    "x": 932.2155688622755,
     "y": 442.63473053892216,
     "z": 6000,
-    "height": 137.00598802395211,
+    "height": 137.0059880239521,
     "width": 331.49700598802394,
     "tabOrder": 6000
   },
@@ -19,9 +19,8 @@
               {
                 "textRuns": [
                   {
-                    "value": "El costo por registro de Google Ads sube de $140 en enero a $307 en diciembre (+120%): el presupuesto crece más rápido que los clicks que compra, rendimientos decrecientes clásicos de search. Meta se mantiene en ~$100 y orgánico crece mes a mes sin costo. El pico de registros de junio es el test A/B de Meta.",
+                    "value": "Google Ads cost per signup climbs from $140 in January to $307 in December (+120%): budget grows faster than the clicks it buys, classic diminishing returns in search. Meta stays around $100 and organic grows month over month at no cost. The June spike in signups is the Meta A/B test.",
                     "textStyle": {
-                      "fontWeight": "bold",
                       "fontSize": "10pt",
                       "color": "#d2d3da"
                     }

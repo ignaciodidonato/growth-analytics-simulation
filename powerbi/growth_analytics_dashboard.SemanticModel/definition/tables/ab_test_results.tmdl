@@ -1,7 +1,10 @@
 table ab_test_results
 	lineageTag: 445bbc74-070f-49b4-b4d9-558188f08462
 
-	column ab_test_name
+	measure 'Significant (95%)' = IF(MAX(ab_test_results[Significant at 95%]) = 1, \"Yes\", \"No\")
+		lineageTag: 4ee6b566-194c-4f54-859d-29b3d0aa1952
+
+	column Test
 		dataType: string
 		lineageTag: e4b796c2-6185-4a3c-8349-1976d13c0972
 		summarizeBy: none
@@ -9,7 +12,7 @@ table ab_test_results
 
 		annotation SummarizationSetBy = Automatic
 
-	column variant
+	column Variant
 		dataType: string
 		lineageTag: d2f39a52-e8fe-43f1-bff7-ce1d0d091dad
 		summarizeBy: none
@@ -17,7 +20,7 @@ table ab_test_results
 
 		annotation SummarizationSetBy = Automatic
 
-	column clicks
+	column Clicks
 		dataType: int64
 		formatString: 0
 		lineageTag: aab69d6a-50d1-49c2-86e1-8c9f26f57204
@@ -26,7 +29,7 @@ table ab_test_results
 
 		annotation SummarizationSetBy = Automatic
 
-	column registros
+	column Signups
 		dataType: int64
 		formatString: 0
 		lineageTag: 7731b131-fde2-4121-a433-b052777ad79b
@@ -35,7 +38,7 @@ table ab_test_results
 
 		annotation SummarizationSetBy = Automatic
 
-	column conversion_rate
+	column 'Conversion rate'
 		dataType: double
 		formatString: 0.00\ %;-0.00\ %;0.00\ %
 		lineageTag: be4ce0c5-513d-4a7a-a688-21db48611944
@@ -44,7 +47,7 @@ table ab_test_results
 
 		annotation SummarizationSetBy = Automatic
 
-	column z_stat
+	column 'z-statistic'
 		dataType: double
 		formatString: 0.000
 		lineageTag: 572a70bc-203f-4f6b-b70b-8de340655013
@@ -53,7 +56,7 @@ table ab_test_results
 
 		annotation SummarizationSetBy = Automatic
 
-	column p_value
+	column 'p-value'
 		dataType: double
 		formatString: 0.000
 		lineageTag: eea10157-5cc0-4a52-bfb2-427e66609b35
@@ -62,7 +65,7 @@ table ab_test_results
 
 		annotation SummarizationSetBy = Automatic
 
-	column significativo_95
+	column 'Significant at 95%'
 		dataType: int64
 		formatString: 0
 		lineageTag: ad33cb2e-390a-48e3-9c0f-f3304d234c66

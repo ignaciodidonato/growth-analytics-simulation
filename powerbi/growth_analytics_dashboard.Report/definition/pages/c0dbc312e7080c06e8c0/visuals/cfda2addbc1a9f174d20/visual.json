@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "cfda2addbc1a9f174d20",
   "position": {
-    "x": 944.67065868263478,
+    "x": 944.6706586826348,
     "y": 486.70658682634735,
     "z": 3000,
     "height": 121.67664670658684,
-    "width": 319.04191616766468,
+    "width": 319.0419161676647,
     "tabOrder": 3000
   },
   "visual": {
@@ -19,9 +19,8 @@
               {
                 "textRuns": [
                   {
-                    "value": "Meta pierde usuarios en las dos etapas: solo el 54% de los registrados se activa y el 27% de los activados paga (14% punta a punta). Email convierte el 42% de sus registros en clientes pagos: el canal owned trae usuarios con intención real, no solo curiosidad.",
+                    "value": "Meta loses users at both stages: only 51% of signups activate and 27% of activated users pay (13% end to end). Email converts 51% of its signups into paying customers: the owned channel brings users with real intent, not just curiosity.",
                     "textStyle": {
-                      "fontWeight": "bold",
                       "fontSize": "10pt",
                       "color": "#d2d3da"
                     }

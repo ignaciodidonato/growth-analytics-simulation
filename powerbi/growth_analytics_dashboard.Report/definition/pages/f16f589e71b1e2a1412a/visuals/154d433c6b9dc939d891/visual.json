@@ -5,8 +5,8 @@
     "x": 457.77777777777777,
     "y": 388.44444444444446,
     "z": 13000,
-    "height": 263.11111111111109,
-    "width": 813.33333333333337,
+    "height": 263.1111111111111,
+    "width": 813.3333333333334,
     "tabOrder": 13000
   },
   "visual": {
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "channel_metrics"
+                      "Entity": "channels"
                     }
                   },
-                  "Property": "channel_name"
+                  "Property": "Channel"
                 }
               },
-              "queryRef": "channel_metrics.channel_name",
-              "nativeQueryRef": "Canal de Tráfico",
+              "queryRef": "channels.Channel",
+              "nativeQueryRef": "Channel",
               "displayName": "Canal de Tráfico"
             },
             {
@@ -40,14 +40,14 @@
                           "Entity": "channel_metrics"
                         }
                       },
-                      "Property": "spend_total"
+                      "Property": "Spend"
                     }
                   },
                   "Function": 0
                 }
               },
-              "queryRef": "channel_metrics.spend_total",
-              "nativeQueryRef": "Total Gastado",
+              "queryRef": "Sum(channel_metrics.Spend)",
+              "nativeQueryRef": "Sum of Spend",
               "displayName": "Total Gastado"
             },
             {
@@ -60,14 +60,14 @@
                           "Entity": "channel_metrics"
                         }
                       },
-                      "Property": "clientes_pagos"
+                      "Property": "Paying customers"
                     }
                   },
                   "Function": 0
                 }
               },
-              "queryRef": "channel_metrics.clientes_pagos",
-              "nativeQueryRef": "Clientes Pagos",
+              "queryRef": "Sum(channel_metrics.Paying customers)",
+              "nativeQueryRef": "Sum of Paying customers",
               "displayName": "Clientes Pagos"
             },
             {
@@ -80,14 +80,14 @@
                           "Entity": "channel_metrics"
                         }
                       },
-                      "Property": "cac"
+                      "Property": "CAC"
                     }
                   },
                   "Function": 0
                 }
               },
-              "queryRef": "channel_metrics.cac",
-              "nativeQueryRef": "CAC",
+              "queryRef": "Sum(channel_metrics.CAC)",
+              "nativeQueryRef": "Sum of CAC",
               "displayName": "CAC"
             },
             {
@@ -100,14 +100,14 @@
                           "Entity": "channel_metrics"
                         }
                       },
-                      "Property": "arpu_mensual"
+                      "Property": "Monthly ARPU"
                     }
                   },
                   "Function": 0
                 }
               },
-              "queryRef": "channel_metrics.arpu_mensual",
-              "nativeQueryRef": "ARPU Mensual",
+              "queryRef": "Sum(channel_metrics.Monthly ARPU)",
+              "nativeQueryRef": "Sum of Monthly ARPU",
               "displayName": "ARPU Mensual"
             },
             {
@@ -120,14 +120,14 @@
                           "Entity": "channel_metrics"
                         }
                       },
-                      "Property": "churn_mensual"
+                      "Property": "Monthly churn"
                     }
                   },
                   "Function": 0
                 }
               },
-              "queryRef": "channel_metrics.churn_mensual",
-              "nativeQueryRef": "Churn Mensual",
+              "queryRef": "Sum(channel_metrics.Monthly churn)",
+              "nativeQueryRef": "Sum of Monthly churn",
               "displayName": "Churn Mensual"
             },
             {
@@ -140,14 +140,14 @@
                           "Entity": "channel_metrics"
                         }
                       },
-                      "Property": "ltv"
+                      "Property": "LTV"
                     }
                   },
                   "Function": 0
                 }
               },
-              "queryRef": "channel_metrics.ltv",
-              "nativeQueryRef": "LTV",
+              "queryRef": "Sum(channel_metrics.LTV)",
+              "nativeQueryRef": "Sum of LTV",
               "displayName": "LTV"
             },
             {
@@ -160,14 +160,14 @@
                           "Entity": "channel_metrics"
                         }
                       },
-                      "Property": "ltv_cac_ratio"
+                      "Property": "LTV:CAC"
                     }
                   },
                   "Function": 0
                 }
               },
-              "queryRef": "channel_metrics.ltv_cac_ratio",
-              "nativeQueryRef": "LTV-CAC Ratio",
+              "queryRef": "Sum(channel_metrics.LTV:CAC)",
+              "nativeQueryRef": "Sum of LTV:CAC",
               "displayName": "LTV-CAC Ratio"
             }
           ]
@@ -243,7 +243,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Métricas por canal'"
+                  "Value": "'Metrics by channel'"
                 }
               }
             },

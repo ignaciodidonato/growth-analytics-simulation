@@ -1,54 +1,59 @@
 # growth-analytics-simulation
 
-Simulación end-to-end de growth analytics para una plataforma de teleterapia
-en EE.UU. (una sociedad de psicólogos que atiende pacientes por videollamada).
-Genera datos sintéticos pero realistas de marketing, funnel de conversión y
-suscripciones, calcula las métricas de negocio estándar (CAC, ARPU, churn,
-LTV) y evalúa un test A/B con significancia estadística — todo persistido en
-SQLite, listo para conectarse a Power BI (o cualquier BI tool) sin tener que
-reimplementar la lógica de negocio en DAX.
+End-to-end growth analytics simulation for a US teletherapy platform (a
+group of licensed psychologists treating patients over video calls). It
+generates synthetic but realistic marketing, funnel and subscription data,
+computes the standard business metrics (CAC, ARPU, churn, LTV), evaluates an
+A/B test with proper statistics and breaks acquisition performance down by
+US state — all persisted in SQLite and served to a Power BI dashboard built
+as code.
 
-Lo armé como proyecto de portfolio para practicar y mostrar cómo encaro un
-caso de growth/marketing analytics de punta a punta: diseño del modelo de
-datos, generación del dataset, cálculo de métricas y evaluación de un test
-A/B con estadística real (no solo "cuál número es más alto").
+I built this as a portfolio project to practice and show how I approach a
+growth/marketing analytics case from start to finish: data model design,
+dataset generation, metric computation, A/B test evaluation with real
+statistics (not just "which number is bigger") and a dashboard that ends with
+a business recommendation.
 
-## Qué preguntas responde
+> Dashboard screenshots and the public Power BI link will be added here once
+> the report is published.
 
-- Qué canal de adquisición es más eficiente (CAC, ARPU, churn mensual y LTV
-  por canal, con el ratio LTV:CAC como resumen).
-- Dónde se pierden los usuarios en el funnel (conversión etapa a etapa:
-  registro → activación → suscripción paga, por canal).
-- Si la audiencia lookalike de Meta convierte mejor que la broad (test A/B
-  con test de proporciones y p-value).
-- Cómo evoluciona el costo de adquisición mes a mes, por canal.
-- En qué estados de EE.UU. funciona cada canal y dónde conviene mover
-  presupuesto (conversión y CAC estimado por estado × canal).
+## Questions it answers
+
+- Which acquisition channel is most efficient (CAC, ARPU, monthly churn and
+  LTV by channel, with LTV:CAC as the summary ratio).
+- Where users drop off in the funnel (stage-to-stage conversion: signup →
+  activation → paid subscription, by channel).
+- Whether Meta's lookalike audience converts better than the broad one (A/B
+  test with a two-proportion z-test and p-value).
+- How acquisition cost evolves month by month, by channel.
+- In which US states each channel works and where budget should move
+  (conversion and estimated CAC by state × channel).
 
 ## Stack
 
-| Capa | Herramienta |
+| Layer | Tool |
 |---|---|
-| Generación de datos sintéticos | Python 3.12, `numpy` |
-| Estadística (test A/B) | `scipy.stats` |
-| Almacenamiento | SQLite |
-| Métricas de negocio | SQL + Python (persistidas como tablas "mart") |
-| Consumo final | Power BI (o cualquier herramienta que lea SQLite/ODBC) |
+| Synthetic data generation | Python 3.12, `numpy` |
+| Statistics (A/B test) | `scipy.stats` |
+| Storage | SQLite |
+| Business metrics | SQL + Python (persisted as mart tables) |
+| Dashboard | Power BI, saved as a `.pbip` project (report as code) |
 
-## Modelo de datos
+## Data model
 
 ```mermaid
 erDiagram
-    channels ||--o{ campaigns : agrupa
-    campaigns ||--o{ campaign_daily_metrics : "genera trafico"
-    campaigns ||--o{ users : adquiere
-    users ||--o{ funnel_events : atraviesa
-    users ||--|| subscriptions : "puede tener"
-    plans ||--o{ subscriptions : define
+    channels ||--o{ campaigns : groups
+    campaigns ||--o{ campaign_daily_metrics : "generates traffic"
+    campaigns ||--o{ users : acquires
+    users ||--o{ funnel_events : "goes through"
+    users ||--|| subscriptions : "may have"
+    plans ||--o{ subscriptions : defines
 
     channels {
         int channel_id PK
-        text channel_name
+        text channel_name "technical key"
+        text channel_label "display name"
         text channel_type "paid | organic | owned"
     }
     campaigns {
@@ -76,7 +81,7 @@ erDiagram
     users {
         int user_id PK
         int acquisition_campaign_id FK
-        text state "codigo de 2 letras, EE.UU."
+        text state "2-letter US state code"
         date signup_date
     }
     funnel_events {
@@ -87,150 +92,165 @@ erDiagram
     }
     subscriptions {
         int subscription_id PK
-        int user_id FK "unique: 1:1 con users"
+        int user_id FK "unique: 1:1 with users"
         int plan_id FK
         date start_date
         date cancel_date "nullable"
     }
 ```
 
-`channel_metrics` y `ab_test_results` son tablas adicionales, generadas por
-`analysis.py`, que guardan los resultados ya calculados (no forman parte del
-esquema transaccional).
+On top of the transactional schema, `analysis.py` writes the mart tables
+the dashboard reads: `channel_metrics`, `monthly_channel_metrics`,
+`funnel_conversion`, `state_metrics`, `state_channel_metrics` and
+`ab_test_results`.
 
-## Cómo correrlo
+## How to run it
 
 ```bash
 pip install -r python/requirements.txt
 python python/generate_data.py
 python python/analysis.py
 python python/export_for_powerbi.py
+pytest python/tests
 ```
 
-El primer script recrea `data/teleterapia.db` desde cero (aplica
-`sql/schema.sql` y simula todo el pipeline con una seed fija para que el
-resultado sea reproducible). El segundo calcula las métricas y las persiste
-como tablas mart (`channel_metrics`, `monthly_channel_metrics`,
-`funnel_conversion`, `state_metrics`, `state_channel_metrics`,
-`ab_test_results`) en esa misma base. El tercero
-exporta esas tablas más la dimensión `channels` a `data/powerbi/*.csv`,
-que es lo que consume el dashboard de Power BI — así no hace falta ningún
-driver ODBC de SQLite. En el modelo de Power BI, `channels` se relaciona 1:N
-con las tres tablas por canal, para que un único slicer filtre todo el reporte.
+`generate_data.py` rebuilds `data/teleterapia.db` from scratch (applies
+`sql/schema.sql` and simulates the whole pipeline with a fixed seed, so the
+result is reproducible). `analysis.py` computes the metrics and persists them
+as mart tables in the same database. `export_for_powerbi.py` dumps those
+tables plus the `channels` dimension to `data/powerbi/*.csv`, which is what
+the Power BI model reads — no SQLite ODBC driver needed. The tests check the
+pipeline's invariants (rates within 0–1, totals consistent across mart
+tables, exactly two A/B variants).
 
-Para explorar los datos a mano, `sql/metrics_queries.sql` tiene queries de
-referencia (costo por registro mensual, CAC blended, conversión de funnel)
-pensadas para el equipo de growth.
+`sql/metrics_queries.sql` has reference queries (monthly cost per signup,
+blended CAC, funnel conversion) written for a growth team.
 
-## Estructura del repo
+### Opening the dashboard
+
+`powerbi/growth_analytics_dashboard.pbip` is a Power BI **project**, not a
+`.pbix`. To open it, Power BI Desktop needs the preview feature *Power BI
+Project (.pbip) save option* enabled (File → Options → Preview features), then
+File → Open the `.pbip`. The Power Query sources point to the absolute path
+of `data/powerbi/` on the machine where the project was saved; after cloning,
+repoint them once in Transform data → Data source settings.
+
+## Repository layout
 
 ```
 sql/
-  schema.sql            esquema transaccional (dimensiones + hechos)
-  metrics_queries.sql   queries de referencia para growth
+  schema.sql              transactional schema (dimensions + facts)
+  metrics_queries.sql     reference queries for the growth team
 python/
-  config.py               parámetros de negocio (canales, tasas, precios, A/B test)
-  generate_data.py        genera la simulación completa en SQLite
-  analysis.py              calcula CAC/ARPU/churn/LTV, funnel, geografía y test A/B
-  export_for_powerbi.py   exporta las tablas mart a CSV para Power BI
-  requirements.txt
+  config.py               business parameters (channels, rates, prices, A/B test, state effects)
+  generate_data.py        generates the full simulation into SQLite
+  analysis.py             computes CAC/ARPU/churn/LTV, funnel, geography and the A/B test
+  export_for_powerbi.py   exports the mart tables to CSV for Power BI
+  tests/                  pipeline invariants (pytest)
 data/
-  teleterapia.db          base generada (no se versiona, se regenera con los scripts)
-  powerbi/                CSV de las tablas mart, fuente del dashboard
+  teleterapia.db          generated database (not versioned, rebuilt by the scripts)
+  powerbi/                CSV mart tables, the dashboard's source
 powerbi/
-  growth_analytics_dashboard.pbip           proyecto de Power BI (abrir este)
-  growth_analytics_dashboard.Report/        páginas y visuales en JSON (PBIR)
-  growth_analytics_dashboard.SemanticModel/ tablas, relaciones y formatos (TMDL)
-  theme.json                                tema del reporte (paleta, tipografía, cards)
+  growth_analytics_dashboard.pbip           Power BI project (open this)
+  growth_analytics_dashboard.Report/        pages and visuals as JSON (PBIR)
+  growth_analytics_dashboard.SemanticModel/ tables, relationships, measures (TMDL)
+  theme.json                                report theme (palette, typography, cards)
 ```
 
-El dashboard está guardado como **proyecto** (`.pbip`) en vez de `.pbix`:
-cada página, visual y relación es un archivo de texto versionable, y el
-layout se puede revisar en un diff o regenerar con un script.
+Comments and identifiers in the Python/SQL code are in Spanish; everything
+user-facing (dashboard, this README) is in English.
 
-## Resultados de ejemplo
+## Sample results
 
-Con la seed por defecto (`RANDOM_SEED = 42` en `config.py`):
+With the default seed (`RANDOM_SEED = 42` in `config.py`):
 
-**Métricas por canal** (`channel_metrics`)
+**Metrics by channel** (`channel_metrics`)
 
-| Canal | Gasto | Registros | Clientes pagos | CAC | ARPU mensual | Churn mensual | LTV | LTV:CAC |
+| Channel | Spend | Signups | Paying customers | CAC | Monthly ARPU | Monthly churn | LTV | LTV:CAC |
 |---|---|---|---|---|---|---|---|---|
-| email | $1,050 | 268 | 137 | $7.67 | $213.58 | 2.7% | $8,019.80 | 1045.6 |
-| organic | $0 | 386 | 134 | — | $215.97 | 3.3% | $6,469.71 | — |
-| google_ads | $78,291 | 1,235 | 414 | $189.11 | $211.55 | 4.3% | $4,965.25 | 26.3 |
-| meta | $38,573 | 982 | 132 | $292.22 | $215.98 | 7.3% | $2,962.08 | 10.1 |
+| Email | $1,050 | 268 | 137 | $7.67 | $213.58 | 2.7% | $8,019.80 | 1045.6 |
+| Organic | $0 | 386 | 134 | — | $215.97 | 3.3% | $6,469.71 | — |
+| Google Ads | $78,291 | 1,235 | 414 | $189.11 | $211.55 | 4.3% | $4,965.25 | 26.3 |
+| Meta | $38,573 | 982 | 132 | $292.22 | $215.98 | 7.3% | $2,962.08 | 10.1 |
 
-Email y orgánico son, por lejos, los canales más eficientes (costo marginal
-bajo o nulo y menor churn); los canales pagos masivos (Google/Meta) traen
-mucho más volumen pero a un CAC 25-40x mayor, y Meta además retiene peor.
+Email and organic are by far the most efficient channels (near-zero marginal
+cost and the lowest churn); the paid channels bring far more volume but at a
+25–40x higher CAC, and Meta also retains worse. The blended CAC across all
+channels is $144.
 
-**Funnel por canal** (`funnel_conversion`)
+**Funnel by channel** (`funnel_conversion`)
 
-| Canal | Registro | Activación | Pago | Registro → activación | Activación → pago | Registro → pago |
+| Channel | Signups | Activations | Paid | Signup → activation | Activation → paid | Signup → paid |
 |---|---|---|---|---|---|---|
-| email | 268 | 228 | 137 | 85.1% | 60.1% | 51.1% |
-| organic | 386 | 277 | 134 | 71.8% | 48.4% | 34.7% |
-| google_ads | 1,235 | 892 | 414 | 72.2% | 46.4% | 33.5% |
-| meta | 982 | 498 | 132 | 50.7% | 26.5% | 13.4% |
+| Email | 268 | 228 | 137 | 85.1% | 60.1% | 51.1% |
+| Organic | 386 | 277 | 134 | 71.8% | 48.4% | 34.7% |
+| Google Ads | 1,235 | 892 | 414 | 72.2% | 46.4% | 33.5% |
+| Meta | 982 | 498 | 132 | 50.7% | 26.5% | 13.4% |
 
-**Estado × canal** (`state_channel_metrics`, extracto)
+**State × channel** (`state_channel_metrics`, excerpt)
 
-| Estado | Canal | Registros | Pagos | Registro → pago | CAC estimado |
+| State | Channel | Signups | Paid | Signup → paid | Estimated CAC |
 |---|---|---|---|---|---|
-| TX | google_ads | 211 | 98 | 46.4% | $136 |
-| TX | meta | 138 | 10 | 7.2% | $537 |
-| FL | meta | 105 | 8 | 7.6% | $516 |
-| NY | email | 26 | 22 | 84.6% | $5 |
-| CA | meta | 194 | 36 | 18.6% | $213 |
+| TX | Google Ads | 211 | 98 | 46.4% | $136 |
+| TX | Meta | 138 | 10 | 7.2% | $537 |
+| FL | Meta | 105 | 8 | 7.6% | $516 |
+| NY | Email | 26 | 22 | 84.6% | $5 |
+| CA | Meta | 194 | 36 | 18.6% | $213 |
 
-El problema de Meta no es parejo: en Texas y Florida convierte a menos de la
-mitad que en California, con un CAC estimado de más de $500. La
-recomendación que sale del dashboard es mover presupuesto de Meta en TX/FL
-hacia Google Ads (que en Texas es el canal pago más eficiente) y reforzar
-email en el noreste. El gasto por estado es *estimado*: las plataformas lo
-reportan por campaña, así que se asigna a cada estado en proporción a los
-registros que la campaña consiguió ahí.
+Meta's problem is not uniform: in Texas and Florida it converts at less than
+half its California rate, with an estimated CAC above $500. The
+recommendation that comes out of the dashboard is to move Meta budget in
+TX/FL to Google Ads (the most efficient paid channel in Texas) and to double
+down on email in the Northeast. Spend by state is *estimated*: ad platforms
+report it per campaign, so each campaign's spend is allocated to states in
+proportion to the signups it produced there.
 
-**Test A/B** (`meta_targeting_test`, audiencia broad vs. lookalike)
+**A/B test** (`meta_targeting_test`, broad vs. lookalike audience)
 
-| Variante | Clicks | Registros | Tasa conversión | z | p-value | Significativo (95%) |
+| Variant | Clicks | Signups | Conversion rate | z | p-value | Significant (95%) |
 |---|---|---|---|---|---|---|
 | A (broad) | 1,243 | 40 | 3.22% | -1.726 | 0.0843 | No |
 | B (lookalike) | 1,228 | 56 | 4.56% | -1.726 | 0.0843 | No |
 
-La variante lookalike convierte ~42% mejor en la muestra, pero con este
-volumen de clicks el resultado no llega a ser estadísticamente significativo
-al 95% (p = 0.084). Es el típico caso real de "parece que ganó una variante,
-pero la muestra todavía no alcanza para afirmarlo".
+The lookalike variant converts ~42% better in the sample, but with this
+click volume the result does not reach statistical significance at 95%
+(p = 0.084). A textbook case of "one variant looks like a winner, but the
+sample is not large enough to say so".
 
-## Decisiones de diseño
+## Design decisions
 
-- **Seed fija (`RANDOM_SEED = 42`)**: todo el pipeline es reproducible; correr
-  `generate_data.py` dos veces da exactamente la misma base.
-- **Las tasas de negocio (`config.py`) no se usan en `analysis.py`**: las
-  métricas se estiman desde los datos generados, igual que haría un analista
-  real (que nunca tiene acceso a las probabilidades "verdaderas" de
-  generación).
-- **Churn estimado por método persona-periodo**: cada suscripción aporta N
-  periodos de 30 días en riesgo, y 1 evento si terminó en cancelación (las
-  suscripciones activas quedan censuradas, no se cuentan como churn).
-- **CAC calculado con CTEs separados por grano** (`sql/metrics_queries.sql`,
-  query 2): unir gasto diario y clientes pagos en un solo JOIN generaría
-  fan-out e infla el gasto total; se agregan por separado antes de unir.
-- **15 estados de EE.UU. en vez de 50**: los de mayor población, para no
-  diluir el volumen de datos en estados con muestras demasiado chicas para
-  ser informativas.
-- **Los efectos que el análisis "descubre" están plantados en la simulación**
-  (`config.py`): la diferencia entre variantes del test A/B y los
-  multiplicadores de conversión por estado y canal. Sin eso, cualquier
-  diferencia geográfica sería ruido, y un dashboard que encuentra patrones
-  inexistentes es peor que uno sin esa página.
+- **Fixed seed (`RANDOM_SEED = 42`)**: the whole pipeline is reproducible;
+  running `generate_data.py` twice produces exactly the same database.
+- **The business rates in `config.py` are never read by `analysis.py`**: the
+  metrics are estimated from the generated data, the way a real analyst
+  would (they never see the "true" generating probabilities).
+- **The effects the analysis "discovers" are planted in the simulation**: the
+  difference between A/B variants and the conversion multipliers by state and
+  channel. Without them, any geographic difference would be noise, and a
+  dashboard that finds patterns that do not exist is worse than one without
+  that page.
+- **Churn estimated with the person-period method**: every subscription
+  contributes N 30-day periods at risk, plus 1 event if it ended in a
+  cancellation (active subscriptions are censored, not counted as churn).
+- **CAC computed with separate CTEs per grain** (`sql/metrics_queries.sql`,
+  query 2): joining daily spend and paying customers in a single JOIN would
+  fan out and inflate total spend; they are aggregated separately first.
+- **15 US states instead of 50**: the most populous ones, so that per-state
+  samples stay large enough to be informative.
+- **Dashboard as code**: the report is stored as a `.pbip` project (PBIR JSON
+  + TMDL), so every page, visual and relationship is versioned and reviewable
+  in a diff. Business names live in the semantic layer (renamed columns and
+  DAX measures such as `Blended CAC`), never in the source data.
+- **Blended CAC is a measure, not an average of ratios**: total spend divided
+  by total paying customers, so it stays correct under any channel filter.
 
 ## Roadmap
 
-- [ ] Dashboard en Power BI conectado a `data/teleterapia.db` (modelo,
-      medidas DAX y visualizaciones sobre `channel_metrics` y
-      `ab_test_results`).
-- [ ] Cohortes de retención por mes de alta.
-- [ ] Forecast simple de MRR a partir del churn observado.
+- [x] Power BI dashboard (overview, funnel, monthly trend, geography, A/B test).
+- [ ] Publish to web and add screenshots to this README.
+- [ ] Retention cohorts by signup month.
+- [ ] Simple MRR forecast from observed churn.
+
+## License
+
+MIT — see [LICENSE](LICENSE).

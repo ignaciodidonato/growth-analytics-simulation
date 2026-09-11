@@ -46,9 +46,9 @@ def create_database():
 
 
 def seed_channels(conn):
-    rows = [(c["channel_name"], c["channel_type"]) for c in CHANNELS]
+    rows = [(c["channel_name"], c["channel_label"], c["channel_type"]) for c in CHANNELS]
     conn.executemany(
-        "INSERT INTO channels (channel_name, channel_type) VALUES (?, ?)", rows
+        "INSERT INTO channels (channel_name, channel_label, channel_type) VALUES (?, ?, ?)", rows
     )
     conn.commit()
 

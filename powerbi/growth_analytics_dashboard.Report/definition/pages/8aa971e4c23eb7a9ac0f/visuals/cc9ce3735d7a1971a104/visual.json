@@ -2,7 +2,7 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "cc9ce3735d7a1971a104",
   "position": {
-    "x": 631.54185022026434,
+    "x": 631.5418502202643,
     "y": 396.96916299559473,
     "z": 4000,
     "height": 288.704845814978,
@@ -23,11 +23,11 @@
                       "Entity": "state_channel_metrics"
                     }
                   },
-                  "Property": "state"
+                  "Property": "State"
                 }
               },
-              "queryRef": "state_channel_metrics.state",
-              "nativeQueryRef": "state",
+              "queryRef": "state_channel_metrics.State",
+              "nativeQueryRef": "State",
               "active": true
             }
           ]
@@ -42,11 +42,11 @@
                       "Entity": "state_channel_metrics"
                     }
                   },
-                  "Property": "CAC estimado"
+                  "Property": "Estimated CAC"
                 }
               },
-              "queryRef": "state_channel_metrics.CAC estimado",
-              "nativeQueryRef": "CAC estimado"
+              "queryRef": "state_channel_metrics.Estimated CAC",
+              "nativeQueryRef": "Estimated CAC"
             }
           ]
         }
@@ -61,7 +61,7 @@
                     "Entity": "state_channel_metrics"
                   }
                 },
-                "Property": "CAC estimado"
+                "Property": "Estimated CAC"
               }
             },
             "direction": "Ascending"
@@ -83,7 +83,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'CAC estimado por estado (USD)'"
+                  "Value": "'Estimated CAC by state (USD)'"
                 }
               }
             },
@@ -128,7 +128,7 @@
                 "Entity": "state_channel_metrics"
               }
             },
-            "Property": "state"
+            "Property": "State"
           }
         },
         "type": "Categorical"
@@ -142,7 +142,7 @@
                 "Entity": "state_channel_metrics"
               }
             },
-            "Property": "CAC estimado"
+            "Property": "Estimated CAC"
           }
         },
         "type": "Advanced"

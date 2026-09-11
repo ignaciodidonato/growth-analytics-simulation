@@ -6,7 +6,7 @@
     "y": 80,
     "z": 11000,
     "height": 300.44444444444446,
-    "width": 813.33333333333337,
+    "width": 813.3333333333334,
     "tabOrder": 11000
   },
   "visual": {
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "channel_metrics"
+                      "Entity": "channels"
                     }
                   },
-                  "Property": "channel_name"
+                  "Property": "Channel"
                 }
               },
-              "queryRef": "channel_metrics.channel_name",
-              "nativeQueryRef": "channel_name",
+              "queryRef": "channels.Channel",
+              "nativeQueryRef": "Channel",
               "active": true
             }
           ]
@@ -44,14 +44,14 @@
                           "Entity": "channel_metrics"
                         }
                       },
-                      "Property": "cac"
+                      "Property": "CAC"
                     }
                   },
                   "Function": 0
                 }
               },
-              "queryRef": "CountNonNull(channel_metrics.cac)",
-              "nativeQueryRef": "Sum of cac"
+              "queryRef": "Sum(channel_metrics.CAC)",
+              "nativeQueryRef": "Sum of CAC"
             }
           ]
         }
@@ -68,7 +68,7 @@
                         "Entity": "channel_metrics"
                       }
                     },
-                    "Property": "cac"
+                    "Property": "CAC"
                   }
                 },
                 "Function": 0
@@ -121,7 +121,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'CAC por canal (USD por cliente pago)'"
+                  "Value": "'CAC by channel (USD per paying customer)'"
                 }
               }
             },

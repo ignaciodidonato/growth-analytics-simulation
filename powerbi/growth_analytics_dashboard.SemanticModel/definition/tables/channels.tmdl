@@ -1,7 +1,8 @@
 table channels
 	lineageTag: 64895936-dc18-48e6-af94-08bd39352021
 
-	column channel_id
+	column 'Channel id'
+		isHidden
 		dataType: int64
 		formatString: 0
 		lineageTag: c23764ab-f2ef-4cb1-b354-dd4b7e346725
@@ -11,6 +12,7 @@ table channels
 		annotation SummarizationSetBy = Automatic
 
 	column channel_name
+		isHidden
 		dataType: string
 		lineageTag: a63d8a0a-da94-4385-ad17-1adf4bc6680b
 		summarizeBy: none
@@ -18,7 +20,15 @@ table channels
 
 		annotation SummarizationSetBy = Automatic
 
-	column channel_type
+	column Channel
+		dataType: string
+		lineageTag: a809c3d2-1065-4f89-8187-7857f458028e
+		summarizeBy: none
+		sourceColumn: channel_label
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Channel type'
 		dataType: string
 		lineageTag: f7a00172-129a-432b-b28d-a1648680d5f1
 		summarizeBy: none
@@ -30,9 +40,9 @@ table channels
 		mode: import
 		source =
 				let
-				  Source = Csv.Document(File.Contents("C:\Users\Nacho\Desktop\light-it-analytics\data\powerbi\channels.csv"), [Delimiter = ",", Columns = 3, QuoteStyle = QuoteStyle.None]),
+				  Source = Csv.Document(File.Contents("C:\Users\Nacho\Desktop\light-it-analytics\data\powerbi\channels.csv"), [Delimiter = ",", Columns = 4, QuoteStyle = QuoteStyle.None]),
 				  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
-				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"channel_id", Int64.Type}, {"channel_name", type text}, {"channel_type", type text}}, "en-US")
+				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"channel_id", Int64.Type}, {"channel_name", type text}, {"channel_label", type text}, {"channel_type", type text}}, "en-US")
 				in
 				  #"Changed column type"
 

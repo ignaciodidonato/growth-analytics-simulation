@@ -1,15 +1,15 @@
 table state_channel_metrics
 	lineageTag: 52d637b6-1f89-4d48-92e6-4f6ee44f95bf
 
-	measure 'Tasa registro a pago' = DIVIDE(SUM(state_channel_metrics[clientes_pagos]), SUM(state_channel_metrics[registros]))
+	measure 'Signup to paid rate' = DIVIDE(SUM(state_channel_metrics[Paying customers]), SUM(state_channel_metrics[Signups]))
 		formatString: 0.0\ %;-0.0\ %;0.0\ %
 		lineageTag: 2aae3bd7-46d5-4037-b03d-7ca97a9dc79d
 
-	measure 'CAC estimado' = DIVIDE(SUM(state_channel_metrics[spend_asignado]), SUM(state_channel_metrics[clientes_pagos]))
+	measure 'Estimated CAC' = DIVIDE(SUM(state_channel_metrics[Allocated spend]), SUM(state_channel_metrics[Paying customers]))
 		formatString: \$#,0
 		lineageTag: d6929d68-90bb-474c-9fae-c3292d46a610
 
-	column state
+	column State
 		dataType: string
 		lineageTag: 037b40b2-7a81-44e6-97f6-e662630414ef
 		summarizeBy: none
@@ -17,7 +17,7 @@ table state_channel_metrics
 
 		annotation SummarizationSetBy = Automatic
 
-	column state_name
+	column 'State name'
 		dataType: string
 		lineageTag: 6f3e09f3-e7b0-4ec2-b96b-a64ae87f30c9
 		dataCategory: StateOrProvince
@@ -27,6 +27,7 @@ table state_channel_metrics
 		annotation SummarizationSetBy = Automatic
 
 	column channel_name
+		isHidden
 		dataType: string
 		lineageTag: b15cb331-92f3-4208-952f-6959bd67b9e1
 		summarizeBy: none
@@ -34,7 +35,7 @@ table state_channel_metrics
 
 		annotation SummarizationSetBy = Automatic
 
-	column registros
+	column Signups
 		dataType: int64
 		formatString: 0
 		lineageTag: 9cfe8563-2f58-4df2-9806-09cda3e78b0c
@@ -43,7 +44,7 @@ table state_channel_metrics
 
 		annotation SummarizationSetBy = Automatic
 
-	column activaciones
+	column Activations
 		dataType: int64
 		formatString: 0
 		lineageTag: 6edcaa94-9b38-4a07-8af9-e518d19eee29
@@ -52,7 +53,7 @@ table state_channel_metrics
 
 		annotation SummarizationSetBy = Automatic
 
-	column clientes_pagos
+	column 'Paying customers'
 		dataType: int64
 		formatString: 0
 		lineageTag: 4ee223d2-747f-4611-aa4f-fe40627ab53d
@@ -61,7 +62,7 @@ table state_channel_metrics
 
 		annotation SummarizationSetBy = Automatic
 
-	column tasa_registro_a_pago
+	column 'Signup to paid (row)'
 		dataType: double
 		formatString: 0.0\ %;-0.0\ %;0.0\ %
 		lineageTag: 01987150-7f40-49a9-a4a4-aed398ef3af8
@@ -70,7 +71,7 @@ table state_channel_metrics
 
 		annotation SummarizationSetBy = Automatic
 
-	column spend_asignado
+	column 'Allocated spend'
 		dataType: double
 		formatString: \$#,0
 		lineageTag: 8f234b20-6a7d-4cfb-9765-b5fe4ed5c331
@@ -79,7 +80,7 @@ table state_channel_metrics
 
 		annotation SummarizationSetBy = Automatic
 
-	column cac_estimado
+	column 'Estimated CAC (row)'
 		dataType: double
 		formatString: \$#,0
 		lineageTag: 29e4d04c-0857-4543-be95-a145f9c37d00

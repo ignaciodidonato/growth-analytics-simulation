@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "6098cce2d7c0ecc92197",
   "position": {
-    "x": 216.52863436123349,
+    "x": 216.5286343612335,
     "y": 396.96916299559473,
     "z": 3000,
     "height": 288.704845814978,
-    "width": 399.22466960352421,
+    "width": 399.2246696035242,
     "tabOrder": 3000
   },
   "visual": {
@@ -23,11 +23,11 @@
                       "Entity": "state_channel_metrics"
                     }
                   },
-                  "Property": "state"
+                  "Property": "State"
                 }
               },
-              "queryRef": "state_channel_metrics.state",
-              "nativeQueryRef": "state",
+              "queryRef": "state_channel_metrics.State",
+              "nativeQueryRef": "State",
               "active": true
             }
           ]
@@ -42,11 +42,11 @@
                       "Entity": "state_channel_metrics"
                     }
                   },
-                  "Property": "Tasa registro a pago"
+                  "Property": "Signup to paid rate"
                 }
               },
-              "queryRef": "state_channel_metrics.Tasa registro a pago",
-              "nativeQueryRef": "Tasa registro a pago"
+              "queryRef": "state_channel_metrics.Signup to paid rate",
+              "nativeQueryRef": "Signup to paid rate"
             }
           ]
         }
@@ -61,7 +61,7 @@
                     "Entity": "state_channel_metrics"
                   }
                 },
-                "Property": "Tasa registro a pago"
+                "Property": "Signup to paid rate"
               }
             },
             "direction": "Ascending"
@@ -83,7 +83,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Conversion registro a pago por estado'"
+                  "Value": "'Signup to paid conversion by state'"
                 }
               }
             },
@@ -128,7 +128,7 @@
                 "Entity": "state_channel_metrics"
               }
             },
-            "Property": "state"
+            "Property": "State"
           }
         },
         "type": "Categorical"
@@ -142,7 +142,7 @@
                 "Entity": "state_channel_metrics"
               }
             },
-            "Property": "Tasa registro a pago"
+            "Property": "Signup to paid rate"
           }
         },
         "type": "Advanced"

@@ -23,11 +23,11 @@
                       "Entity": "monthly_channel_metrics"
                     }
                   },
-                  "Property": "month"
+                  "Property": "Month"
                 }
               },
-              "queryRef": "monthly_channel_metrics.month",
-              "nativeQueryRef": "month",
+              "queryRef": "monthly_channel_metrics.Month",
+              "nativeQueryRef": "Month",
               "active": true
             }
           ]
@@ -39,14 +39,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "monthly_channel_metrics"
+                      "Entity": "channels"
                     }
                   },
-                  "Property": "channel_name"
+                  "Property": "Channel"
                 }
               },
-              "queryRef": "monthly_channel_metrics.channel_name",
-              "nativeQueryRef": "channel_name"
+              "queryRef": "channels.Channel",
+              "nativeQueryRef": "Channel"
             }
           ]
         },
@@ -62,14 +62,14 @@
                           "Entity": "monthly_channel_metrics"
                         }
                       },
-                      "Property": "costo_por_registro"
+                      "Property": "Cost per signup"
                     }
                   },
                   "Function": 0
                 }
               },
-              "queryRef": "Sum(monthly_channel_metrics.costo_por_registro)",
-              "nativeQueryRef": "Sum of costo_por_registro"
+              "queryRef": "Sum(monthly_channel_metrics.Cost per signup)",
+              "nativeQueryRef": "Sum of Cost per signup"
             }
           ]
         }
@@ -84,7 +84,7 @@
                     "Entity": "monthly_channel_metrics"
                   }
                 },
-                "Property": "month"
+                "Property": "Month"
               }
             },
             "direction": "Ascending"
@@ -94,10 +94,10 @@
               "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "monthly_channel_metrics"
+                    "Entity": "channels"
                   }
                 },
-                "Property": "channel_name"
+                "Property": "Channel"
               }
             },
             "direction": "Ascending"
@@ -134,7 +134,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Costo por registro mensual (USD)'"
+                  "Value": "'Monthly cost per signup (USD)'"
                 }
               }
             },

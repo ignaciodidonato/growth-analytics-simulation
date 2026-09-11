@@ -25,14 +25,14 @@
                           "Entity": "ab_test_results"
                         }
                       },
-                      "Property": "p_value"
+                      "Property": "p-value"
                     }
                   },
                   "Function": 1
                 }
               },
-              "queryRef": "Sum(ab_test_results.p_value)",
-              "nativeQueryRef": "Average of p_value"
+              "queryRef": "Avg(ab_test_results.p-value)",
+              "nativeQueryRef": "Avg of p-value"
             }
           ]
         }
@@ -49,7 +49,7 @@
                         "Entity": "ab_test_results"
                       }
                     },
-                    "Property": "p_value"
+                    "Property": "p-value"
                   }
                 },
                 "Function": 1
@@ -109,7 +109,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'P-Value'"
+                  "Value": "'p-value'"
                 }
               }
             },

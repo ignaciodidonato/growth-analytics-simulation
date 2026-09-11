@@ -3,7 +3,8 @@
 
 CREATE TABLE channels (
     channel_id      INTEGER PRIMARY KEY,
-    channel_name    TEXT NOT NULL UNIQUE,
+    channel_name    TEXT NOT NULL UNIQUE,   -- clave tecnica (google_ads, meta, ...)
+    channel_label   TEXT NOT NULL,          -- nombre de presentacion (Google Ads, Meta, ...)
     channel_type    TEXT NOT NULL CHECK (channel_type IN ('paid', 'organic', 'owned'))
 );
 

@@ -6,7 +6,7 @@
     "y": 425.77777777777777,
     "z": 8000,
     "height": 245.33333333333334,
-    "width": 700.44444444444446,
+    "width": 700.4444444444445,
     "tabOrder": 8000
   },
   "visual": {
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "funnel_conversion"
+                      "Entity": "channels"
                     }
                   },
-                  "Property": "channel_name"
+                  "Property": "Channel"
                 }
               },
-              "queryRef": "funnel_conversion.channel_name",
-              "nativeQueryRef": "Canal de Tráfico",
+              "queryRef": "channels.Channel",
+              "nativeQueryRef": "Channel",
               "displayName": "Canal de Tráfico"
             },
             {
@@ -40,14 +40,14 @@
                           "Entity": "funnel_conversion"
                         }
                       },
-                      "Property": "tasa_registro_a_activacion"
+                      "Property": "Signup to activation"
                     }
                   },
                   "Function": 0
                 }
               },
-              "queryRef": "Sum(funnel_conversion.tasa_registro_a_activacion)",
-              "nativeQueryRef": "Tasa Registro-Activación",
+              "queryRef": "Sum(funnel_conversion.Signup to activation)",
+              "nativeQueryRef": "Sum of Signup to activation",
               "displayName": "Tasa Registro-Activación"
             },
             {
@@ -60,14 +60,14 @@
                           "Entity": "funnel_conversion"
                         }
                       },
-                      "Property": "tasa_activacion_a_pago"
+                      "Property": "Activation to paid"
                     }
                   },
                   "Function": 0
                 }
               },
-              "queryRef": "Sum(funnel_conversion.tasa_activacion_a_pago)",
-              "nativeQueryRef": "Tasa Activación-Pago",
+              "queryRef": "Sum(funnel_conversion.Activation to paid)",
+              "nativeQueryRef": "Sum of Activation to paid",
               "displayName": "Tasa Activación-Pago"
             },
             {
@@ -80,14 +80,14 @@
                           "Entity": "funnel_conversion"
                         }
                       },
-                      "Property": "tasa_registro_a_pago"
+                      "Property": "Signup to paid"
                     }
                   },
                   "Function": 0
                 }
               },
-              "queryRef": "Sum(funnel_conversion.tasa_registro_a_pago)",
-              "nativeQueryRef": "Tasa Registro-Pago",
+              "queryRef": "Sum(funnel_conversion.Signup to paid)",
+              "nativeQueryRef": "Sum of Signup to paid",
               "displayName": "Tasa Registro-Pago"
             }
           ]
@@ -100,10 +100,10 @@
               "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "funnel_conversion"
+                    "Entity": "channels"
                   }
                 },
-                "Property": "channel_name"
+                "Property": "Channel"
               }
             },
             "direction": "Ascending"
@@ -137,7 +137,7 @@
             }
           },
           "selector": {
-            "metadata": "Sum(funnel_conversion.tasa_registro_a_pago)"
+            "metadata": "Sum(funnel_conversion.Signup to paid)"
           }
         },
         {
@@ -151,7 +151,7 @@
             }
           },
           "selector": {
-            "metadata": "Sum(funnel_conversion.tasa_activacion_a_pago)"
+            "metadata": "Sum(funnel_conversion.Activation to paid)"
           }
         },
         {
@@ -165,7 +165,7 @@
             }
           },
           "selector": {
-            "metadata": "funnel_conversion.channel_name"
+            "metadata": "channels.Channel"
           }
         },
         {
@@ -179,7 +179,7 @@
             }
           },
           "selector": {
-            "metadata": "Sum(funnel_conversion.tasa_registro_a_activacion)"
+            "metadata": "Sum(funnel_conversion.Signup to activation)"
           }
         }
       ],
@@ -215,7 +215,7 @@
             }
           },
           "selector": {
-            "metadata": "funnel_conversion.channel_name"
+            "metadata": "channels.Channel"
           }
         },
         {
@@ -229,7 +229,7 @@
             }
           },
           "selector": {
-            "metadata": "Sum(funnel_conversion.tasa_registro_a_activacion)"
+            "metadata": "Sum(funnel_conversion.Signup to activation)"
           }
         },
         {
@@ -243,7 +243,7 @@
             }
           },
           "selector": {
-            "metadata": "Sum(funnel_conversion.tasa_activacion_a_pago)"
+            "metadata": "Sum(funnel_conversion.Activation to paid)"
           }
         },
         {
@@ -257,7 +257,7 @@
             }
           },
           "selector": {
-            "metadata": "Sum(funnel_conversion.tasa_registro_a_pago)"
+            "metadata": "Sum(funnel_conversion.Signup to paid)"
           }
         }
       ]
@@ -276,7 +276,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Tasas de conversión etapa a etapa'"
+                  "Value": "'Stage-to-stage conversion rates'"
                 }
               }
             },

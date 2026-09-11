@@ -2,6 +2,7 @@ table monthly_channel_metrics
 	lineageTag: d0923e9b-96e0-459f-9ce1-b93c670e5508
 
 	column channel_name
+		isHidden
 		dataType: string
 		lineageTag: f4c61218-a763-447d-a580-ea4f8bdf1525
 		summarizeBy: none
@@ -9,7 +10,7 @@ table monthly_channel_metrics
 
 		annotation SummarizationSetBy = Automatic
 
-	column month
+	column Month
 		dataType: string
 		lineageTag: 60439772-3b17-4eaa-aa06-1ff6b1fda98b
 		summarizeBy: none
@@ -17,7 +18,7 @@ table monthly_channel_metrics
 
 		annotation SummarizationSetBy = Automatic
 
-	column spend
+	column Spend
 		dataType: double
 		formatString: \$#,0
 		lineageTag: 846d6ab1-301f-4c1e-865b-7f661e479a54
@@ -26,7 +27,7 @@ table monthly_channel_metrics
 
 		annotation SummarizationSetBy = Automatic
 
-	column registros
+	column Signups
 		dataType: int64
 		formatString: 0
 		lineageTag: c8d0cb90-bd0e-4ca5-b469-1923e4567868
@@ -35,7 +36,7 @@ table monthly_channel_metrics
 
 		annotation SummarizationSetBy = Automatic
 
-	column costo_por_registro
+	column 'Cost per signup'
 		dataType: double
 		formatString: \$#,0.00
 		lineageTag: 90444128-9dd9-4473-8dbf-72da82bc73e7

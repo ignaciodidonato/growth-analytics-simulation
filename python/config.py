@@ -9,11 +9,13 @@ RANDOM_SEED = 42
 START_DATE = date(2024, 1, 1)
 END_DATE = date(2024, 12, 31)
 
+# channel_name es la clave tecnica (se usa en joins y relaciones);
+# channel_label es el nombre de presentacion para reportes.
 CHANNELS = [
-    {"channel_name": "google_ads", "channel_type": "paid"},
-    {"channel_name": "meta", "channel_type": "paid"},
-    {"channel_name": "email", "channel_type": "owned"},
-    {"channel_name": "organic", "channel_type": "organic"},
+    {"channel_name": "google_ads", "channel_label": "Google Ads", "channel_type": "paid"},
+    {"channel_name": "meta", "channel_label": "Meta", "channel_type": "paid"},
+    {"channel_name": "email", "channel_label": "Email", "channel_type": "owned"},
+    {"channel_name": "organic", "channel_label": "Organic", "channel_type": "organic"},
 ]
 
 PLANS = [

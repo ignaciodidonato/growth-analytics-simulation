@@ -23,11 +23,11 @@
                       "Entity": "state_channel_metrics"
                     }
                   },
-                  "Property": "state_name"
+                  "Property": "State name"
                 }
               },
-              "queryRef": "state_channel_metrics.state_name",
-              "nativeQueryRef": "state_name",
+              "queryRef": "state_channel_metrics.State name",
+              "nativeQueryRef": "State name",
               "active": true
             }
           ]
@@ -42,11 +42,11 @@
                       "Entity": "state_channel_metrics"
                     }
                   },
-                  "Property": "Tasa registro a pago"
+                  "Property": "Signup to paid rate"
                 }
               },
-              "queryRef": "state_channel_metrics.Tasa registro a pago",
-              "nativeQueryRef": "Tasa registro a pago"
+              "queryRef": "state_channel_metrics.Signup to paid rate",
+              "nativeQueryRef": "Signup to paid rate"
             },
             {
               "field": {
@@ -56,11 +56,11 @@
                       "Entity": "state_channel_metrics"
                     }
                   },
-                  "Property": "CAC estimado"
+                  "Property": "Estimated CAC"
                 }
               },
-              "queryRef": "state_channel_metrics.CAC estimado",
-              "nativeQueryRef": "CAC estimado"
+              "queryRef": "state_channel_metrics.Estimated CAC",
+              "nativeQueryRef": "Estimated CAC"
             }
           ]
         }
@@ -119,7 +119,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Estados con usuarios (15 de mayor poblacion)'"
+                  "Value": "'States with users (15 most populous)'"
                 }
               }
             },

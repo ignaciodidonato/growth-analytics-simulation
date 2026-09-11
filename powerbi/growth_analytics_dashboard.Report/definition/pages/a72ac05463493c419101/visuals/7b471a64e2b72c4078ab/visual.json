@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "7b471a64e2b72c4078ab",
   "position": {
-    "x": 215.56886227544911,
-    "y": 80.479041916167674,
+    "x": 215.5688622754491,
+    "y": 80.47904191616767,
     "z": 7000,
     "height": 334.37125748502996,
     "width": 400.47904191616766,
@@ -23,11 +23,11 @@
                       "Entity": "ab_test_results"
                     }
                   },
-                  "Property": "variant"
+                  "Property": "Variant"
                 }
               },
-              "queryRef": "ab_test_results.variant",
-              "nativeQueryRef": "variant",
+              "queryRef": "ab_test_results.Variant",
+              "nativeQueryRef": "Variant",
               "active": true
             }
           ]
@@ -44,14 +44,14 @@
                           "Entity": "ab_test_results"
                         }
                       },
-                      "Property": "conversion_rate"
+                      "Property": "Conversion rate"
                     }
                   },
                   "Function": 0
                 }
               },
-              "queryRef": "Sum(ab_test_results.conversion_rate)",
-              "nativeQueryRef": "Sum of conversion_rate"
+              "queryRef": "Sum(ab_test_results.Conversion rate)",
+              "nativeQueryRef": "Sum of Conversion rate"
             }
           ]
         }
@@ -66,7 +66,7 @@
                     "Entity": "ab_test_results"
                   }
                 },
-                "Property": "variant"
+                "Property": "Variant"
               }
             },
             "direction": "Ascending"
@@ -103,7 +103,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Tasa de conversión por variante'"
+                  "Value": "'Conversion rate by variant'"
                 }
               }
             },

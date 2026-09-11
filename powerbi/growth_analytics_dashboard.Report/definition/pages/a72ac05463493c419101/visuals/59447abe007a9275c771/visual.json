@@ -17,48 +17,20 @@
           "projections": [
             {
               "field": {
-                "Aggregation": {
+                "Measure": {
                   "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "ab_test_results"
-                        }
-                      },
-                      "Property": "significativo_95"
+                    "SourceRef": {
+                      "Entity": "ab_test_results"
                     }
                   },
-                  "Function": 1
+                  "Property": "Significant (95%)"
                 }
               },
-              "queryRef": "Sum(ab_test_results.significativo_95)",
-              "nativeQueryRef": "Average of significativo_95"
+              "queryRef": "ab_test_results.Significant (95%)",
+              "nativeQueryRef": "Significant (95%)"
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Aggregation": {
-                "Expression": {
-                  "Column": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "ab_test_results"
-                      }
-                    },
-                    "Property": "significativo_95"
-                  }
-                },
-                "Function": 1
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
-        "isDefaultSort": true
       }
     },
     "objects": {
@@ -141,7 +113,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Significativo al 95% (1 = sí, 0 = no)'"
+                  "Value": "'Significant at 95%?'"
                 }
               }
             },

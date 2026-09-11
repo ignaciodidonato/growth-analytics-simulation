@@ -17,48 +17,20 @@
           "projections": [
             {
               "field": {
-                "Aggregation": {
+                "Measure": {
                   "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "channel_metrics"
-                        }
-                      },
-                      "Property": "cac"
+                    "SourceRef": {
+                      "Entity": "channel_metrics"
                     }
                   },
-                  "Function": 1
+                  "Property": "Blended CAC"
                 }
               },
-              "queryRef": "CountNonNull(channel_metrics.cac)",
-              "nativeQueryRef": "Average of cac"
+              "queryRef": "channel_metrics.Blended CAC",
+              "nativeQueryRef": "Blended CAC"
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Aggregation": {
-                "Expression": {
-                  "Column": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "channel_metrics"
-                      }
-                    },
-                    "Property": "cac"
-                  }
-                },
-                "Function": 1
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
-        "isDefaultSort": true
       }
     },
     "objects": {
@@ -120,7 +92,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'CAC promedio'"
+                  "Value": "'Blended CAC'"
                 }
               }
             },
