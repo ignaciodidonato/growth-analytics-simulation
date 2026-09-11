@@ -4,10 +4,10 @@
   "position": {
     "x": 216,
     "y": 46,
-    "z": 14,
+    "z": 5000,
     "height": 20,
     "width": 1000,
-    "tabOrder": 14
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "textbox",
@@ -22,7 +22,7 @@
                     "value": "Gasto, clientes pagos y unit economics (CAC, ARPU, churn, LTV) por canal · Plataforma de teleterapia, EE.UU., 2024",
                     "textStyle": {
                       "fontSize": "10pt",
-                      "color": "#AAADB6"
+                      "color": "#d8ee17"
                     }
                   }
                 ]

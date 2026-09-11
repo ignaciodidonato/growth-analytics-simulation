@@ -4,10 +4,10 @@
   "position": {
     "x": 216,
     "y": 392,
-    "z": 41,
+    "z": 10000,
     "height": 240,
     "width": 700,
-    "tabOrder": 41
+    "tabOrder": 10000
   },
   "visual": {
     "visualType": "columnChart",
@@ -105,7 +105,6 @@
         ]
       }
     },
-    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "title": [
         {
@@ -137,7 +136,21 @@
             }
           }
         }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
       ]
-    }
+    },
+    "drillFilterOtherVisuals": true
   }
 }

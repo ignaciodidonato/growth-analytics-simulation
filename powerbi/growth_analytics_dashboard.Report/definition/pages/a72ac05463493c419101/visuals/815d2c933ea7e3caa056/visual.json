@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "815d2c933ea7e3caa056",
   "position": {
-    "x": 632,
-    "y": 238,
-    "z": 43,
-    "height": 142,
-    "width": 632,
-    "tabOrder": 43
+    "x": 632.33532934131745,
+    "y": 237.60479041916167,
+    "z": 12000,
+    "height": 177.24550898203594,
+    "width": 631.377245508982,
+    "tabOrder": 12000
   },
   "visual": {
     "visualType": "tableEx",
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "ab_test_results.variant",
-              "nativeQueryRef": "variant"
+              "nativeQueryRef": "Variante",
+              "displayName": "Variante"
             },
             {
               "field": {
@@ -46,7 +47,8 @@
                 }
               },
               "queryRef": "Sum(ab_test_results.clicks)",
-              "nativeQueryRef": "Sum of clicks"
+              "nativeQueryRef": "Clicks",
+              "displayName": "Clicks"
             },
             {
               "field": {
@@ -65,7 +67,8 @@
                 }
               },
               "queryRef": "Sum(ab_test_results.registros)",
-              "nativeQueryRef": "Sum of registros"
+              "nativeQueryRef": "Registros",
+              "displayName": "Registros"
             },
             {
               "field": {
@@ -84,7 +87,8 @@
                 }
               },
               "queryRef": "Sum(ab_test_results.conversion_rate)",
-              "nativeQueryRef": "Sum of conversion_rate"
+              "nativeQueryRef": "Tasa de Conversión",
+              "displayName": "Tasa de Conversión"
             },
             {
               "field": {
@@ -103,7 +107,8 @@
                 }
               },
               "queryRef": "Sum(ab_test_results.z_stat)",
-              "nativeQueryRef": "Sum of z_stat"
+              "nativeQueryRef": "Z-Stat",
+              "displayName": "Z-Stat"
             },
             {
               "field": {
@@ -122,7 +127,8 @@
                 }
               },
               "queryRef": "Sum(ab_test_results.p_value)",
-              "nativeQueryRef": "Sum of p_value"
+              "nativeQueryRef": "P-Value",
+              "displayName": "P-Value"
             }
           ]
         }
@@ -139,7 +145,7 @@
                         "Entity": "ab_test_results"
                       }
                     },
-                    "Property": "conversion_rate"
+                    "Property": "clicks"
                   }
                 },
                 "Function": 0
@@ -163,9 +169,186 @@
             }
           }
         }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "75.8682634730539D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(ab_test_results.clicks)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "81.41317826657517D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "ab_test_results.variant"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "86.49700598802396D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(ab_test_results.registros)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "159.28742781385893D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(ab_test_results.conversion_rate)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "70.24547853795028D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(ab_test_results.z_stat)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "76.41315373248483D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(ab_test_results.p_value)"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnFormatting": [
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "ab_test_results.variant"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(ab_test_results.clicks)"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(ab_test_results.registros)"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(ab_test_results.conversion_rate)"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(ab_test_results.z_stat)"
+          }
+        }
       ]
     },
-    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "title": [
         {
@@ -180,7 +363,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Detalle del test'"
+                  "Value": "'Análisis del Test'"
                 }
               }
             },
@@ -198,6 +381,7 @@
           }
         }
       ]
-    }
+    },
+    "drillFilterOtherVisuals": true
   }
 }

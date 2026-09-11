@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "a8704811a2a48bbd3377",
+  "name": "9b4597e9ae3e2dc57e29",
   "position": {
     "x": 16,
-    "y": 22,
-    "z": 10,
-    "height": 48,
+    "y": 22.222222222222221,
+    "z": 14000,
+    "height": 57.777777777777779,
     "width": 168,
-    "tabOrder": 10
+    "tabOrder": 14000
   },
   "visual": {
     "visualType": "textbox",
@@ -21,9 +21,9 @@
                   {
                     "value": "GA",
                     "textStyle": {
+                      "fontWeight": "bold",
                       "fontSize": "22pt",
-                      "color": "#A081FD",
-                      "fontWeight": "bold"
+                      "color": "#a081fd"
                     }
                   }
                 ]
@@ -34,7 +34,7 @@
                     "value": "Growth Analytics",
                     "textStyle": {
                       "fontSize": "9pt",
-                      "color": "#AAADB6"
+                      "color": "#aaadb6"
                     }
                   }
                 ]

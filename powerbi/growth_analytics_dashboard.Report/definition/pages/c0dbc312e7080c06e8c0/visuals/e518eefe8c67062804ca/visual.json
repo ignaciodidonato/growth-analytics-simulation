@@ -3,11 +3,11 @@
   "name": "e518eefe8c67062804ca",
   "position": {
     "x": 216,
-    "y": 426,
-    "z": 41,
-    "height": 206,
-    "width": 700,
-    "tabOrder": 41
+    "y": 425.77777777777777,
+    "z": 8000,
+    "height": 245.33333333333334,
+    "width": 700.44444444444446,
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "tableEx",
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "funnel_conversion.channel_name",
-              "nativeQueryRef": "channel_name"
+              "nativeQueryRef": "Canal de Tráfico",
+              "displayName": "Canal de Tráfico"
             },
             {
               "field": {
@@ -46,7 +47,8 @@
                 }
               },
               "queryRef": "Sum(funnel_conversion.tasa_registro_a_activacion)",
-              "nativeQueryRef": "Sum of tasa_registro_a_activacion"
+              "nativeQueryRef": "Tasa Registro-Activación",
+              "displayName": "Tasa Registro-Activación"
             },
             {
               "field": {
@@ -65,7 +67,8 @@
                 }
               },
               "queryRef": "Sum(funnel_conversion.tasa_activacion_a_pago)",
-              "nativeQueryRef": "Sum of tasa_activacion_a_pago"
+              "nativeQueryRef": "Tasa Activación-Pago",
+              "displayName": "Tasa Activación-Pago"
             },
             {
               "field": {
@@ -84,7 +87,8 @@
                 }
               },
               "queryRef": "Sum(funnel_conversion.tasa_registro_a_pago)",
-              "nativeQueryRef": "Sum of tasa_registro_a_pago"
+              "nativeQueryRef": "Tasa Registro-Pago",
+              "displayName": "Tasa Registro-Pago"
             }
           ]
         }
@@ -93,21 +97,16 @@
         "sort": [
           {
             "field": {
-              "Aggregation": {
+              "Column": {
                 "Expression": {
-                  "Column": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "funnel_conversion"
-                      }
-                    },
-                    "Property": "tasa_registro_a_pago"
+                  "SourceRef": {
+                    "Entity": "funnel_conversion"
                   }
                 },
-                "Function": 0
+                "Property": "channel_name"
               }
             },
-            "direction": "Descending"
+            "direction": "Ascending"
           }
         ]
       }
@@ -125,9 +124,144 @@
             }
           }
         }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "166.91187301432902D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(funnel_conversion.tasa_registro_a_pago)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "164.66466951675827D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(funnel_conversion.tasa_activacion_a_pago)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "128.66466991784736D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "funnel_conversion.channel_name"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "189.5808383233533D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(funnel_conversion.tasa_registro_a_activacion)"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            },
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnFormatting": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "funnel_conversion.channel_name"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(funnel_conversion.tasa_registro_a_activacion)"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(funnel_conversion.tasa_activacion_a_pago)"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(funnel_conversion.tasa_registro_a_pago)"
+          }
+        }
       ]
     },
-    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "title": [
         {
@@ -160,6 +294,7 @@
           }
         }
       ]
-    }
+    },
+    "drillFilterOtherVisuals": true
   }
 }

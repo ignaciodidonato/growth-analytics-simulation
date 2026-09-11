@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "154d433c6b9dc939d891",
   "position": {
-    "x": 464,
-    "y": 396,
-    "z": 44,
-    "height": 236,
-    "width": 800,
-    "tabOrder": 44
+    "x": 457.77777777777777,
+    "y": 388.44444444444446,
+    "z": 13000,
+    "height": 263.11111111111109,
+    "width": 813.33333333333337,
+    "tabOrder": 13000
   },
   "visual": {
     "visualType": "tableEx",
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "channel_metrics.channel_name",
-              "nativeQueryRef": "channel_name"
+              "nativeQueryRef": "Canal de Tráfico",
+              "displayName": "Canal de Tráfico"
             },
             {
               "field": {
@@ -46,7 +47,8 @@
                 }
               },
               "queryRef": "channel_metrics.spend_total",
-              "nativeQueryRef": "Sum of spend_total"
+              "nativeQueryRef": "Total Gastado",
+              "displayName": "Total Gastado"
             },
             {
               "field": {
@@ -65,7 +67,8 @@
                 }
               },
               "queryRef": "channel_metrics.clientes_pagos",
-              "nativeQueryRef": "Sum of clientes_pagos"
+              "nativeQueryRef": "Clientes Pagos",
+              "displayName": "Clientes Pagos"
             },
             {
               "field": {
@@ -84,7 +87,8 @@
                 }
               },
               "queryRef": "channel_metrics.cac",
-              "nativeQueryRef": "Sum of cac"
+              "nativeQueryRef": "CAC",
+              "displayName": "CAC"
             },
             {
               "field": {
@@ -103,7 +107,8 @@
                 }
               },
               "queryRef": "channel_metrics.arpu_mensual",
-              "nativeQueryRef": "Sum of arpu_mensual"
+              "nativeQueryRef": "ARPU Mensual",
+              "displayName": "ARPU Mensual"
             },
             {
               "field": {
@@ -122,7 +127,8 @@
                 }
               },
               "queryRef": "channel_metrics.churn_mensual",
-              "nativeQueryRef": "Sum of churn_mensual"
+              "nativeQueryRef": "Churn Mensual",
+              "displayName": "Churn Mensual"
             },
             {
               "field": {
@@ -141,7 +147,8 @@
                 }
               },
               "queryRef": "channel_metrics.ltv",
-              "nativeQueryRef": "Sum of ltv"
+              "nativeQueryRef": "LTV",
+              "displayName": "LTV"
             },
             {
               "field": {
@@ -160,7 +167,8 @@
                 }
               },
               "queryRef": "channel_metrics.ltv_cac_ratio",
-              "nativeQueryRef": "Sum of ltv_cac_ratio"
+              "nativeQueryRef": "LTV-CAC Ratio",
+              "displayName": "LTV-CAC Ratio"
             }
           ]
         }
@@ -179,9 +187,48 @@
             }
           }
         }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "columnAdjustment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'fitToContent'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "outlineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "gridHorizontal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
       ]
     },
-    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "title": [
         {
@@ -213,7 +260,34 @@
             }
           }
         }
+      ],
+      "general": [
+        {
+          "properties": {
+            "keepLayerOrder": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "lockAspect": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
       ]
-    }
+    },
+    "drillFilterOtherVisuals": true
   }
 }

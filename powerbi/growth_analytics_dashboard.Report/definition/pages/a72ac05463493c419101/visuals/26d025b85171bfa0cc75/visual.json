@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "26d025b85171bfa0cc75",
   "position": {
-    "x": 216,
-    "y": 396,
-    "z": 30,
-    "height": 90,
-    "width": 1048,
-    "tabOrder": 30
+    "x": 215.56886227544911,
+    "y": 451.25748502994014,
+    "z": 8000,
+    "height": 57.485029940119766,
+    "width": 1048.1437125748503,
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "textbox",
@@ -21,13 +21,82 @@
                   {
                     "value": "La variante B (lookalike) convierte un 42% mejor que A (broad) en la muestra, pero con ~1.200 clicks por variante el resultado no alcanza significancia estadística al 95% (p = 0,084). No se puede declarar un ganador con estos datos: haría falta más muestra.",
                     "textStyle": {
+                      "fontWeight": "bold",
                       "fontSize": "10pt",
-                      "color": "#D2D3DA"
+                      "color": "#d2d3da"
                     }
                   }
                 ]
               }
             ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 3,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "2D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "5D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "5D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "5D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "5D"
+                }
+              }
+            }
           }
         }
       ]

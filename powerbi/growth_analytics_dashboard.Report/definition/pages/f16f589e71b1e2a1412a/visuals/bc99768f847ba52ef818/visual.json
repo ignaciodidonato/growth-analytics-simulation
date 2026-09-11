@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "bc99768f847ba52ef818",
   "position": {
-    "x": 16,
-    "y": 92,
-    "z": 11,
+    "x": 8,
+    "y": 87.111111111111114,
+    "z": 2000,
     "height": 18,
     "width": 168,
-    "tabOrder": 11
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "textbox",
@@ -21,9 +21,9 @@
                   {
                     "value": "NAVEGACIÓN",
                     "textStyle": {
+                      "fontWeight": "bold",
                       "fontSize": "8pt",
-                      "color": "#D8EE17",
-                      "fontWeight": "bold"
+                      "color": "#d8ee17"
                     }
                   }
                 ]

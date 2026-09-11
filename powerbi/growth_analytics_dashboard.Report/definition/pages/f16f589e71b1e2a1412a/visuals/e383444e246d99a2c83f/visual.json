@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "e383444e246d99a2c83f",
   "position": {
-    "x": 216,
-    "y": 470,
-    "z": 30,
-    "height": 162,
-    "width": 232,
-    "tabOrder": 30
+    "x": 208.86227544910182,
+    "y": 548.02395209580845,
+    "z": 8000,
+    "height": 157.125748502994,
+    "width": 238.56287425149702,
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "textbox",
@@ -21,13 +21,89 @@
                   {
                     "value": "Email y orgánico adquieren clientes a una fracción del costo de los canales pagos (CAC de $9 y $0 vs. $219–274) y además retienen mejor: su churn mensual es la mitad. Google Ads y Meta aportan 2 de cada 3 clientes pagos, pero cada uno cuesta 20–30 veces más.",
                     "textStyle": {
+                      "fontWeight": "bold",
                       "fontSize": "10pt",
-                      "color": "#D2D3DA"
+                      "color": "#d2d3da"
                     }
                   }
                 ]
               }
             ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "2D"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 3,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "5D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "5D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "5D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "5D"
+                }
+              }
+            }
           }
         }
       ]

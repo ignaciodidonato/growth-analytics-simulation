@@ -4,10 +4,10 @@
   "position": {
     "x": 632,
     "y": 80,
-    "z": 41,
+    "z": 10000,
     "height": 142,
     "width": 308,
-    "tabOrder": 41
+    "tabOrder": 10000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -61,7 +61,40 @@
         "isDefaultSort": true
       }
     },
-    "drillFilterOtherVisuals": true,
+    "objects": {
+      "value": [
+        {
+          "properties": {
+            "horizontalAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "label": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ]
+    },
     "visualContainerObjects": {
       "title": [
         {
@@ -76,7 +109,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'p-value'"
+                  "Value": "'P-Value'"
                 }
               }
             },
@@ -90,10 +123,18 @@
                   }
                 }
               }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
             }
           }
         }
       ]
-    }
+    },
+    "drillFilterOtherVisuals": true
   }
 }

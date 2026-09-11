@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "e24e10c2d77b75721caf",
+  "name": "beeb5352e3408d3003d0",
   "position": {
-    "x": 16,
-    "y": 92,
-    "z": 11,
+    "x": 8,
+    "y": 293.33333333333331,
+    "z": 11000,
     "height": 18,
     "width": 168,
-    "tabOrder": 11
+    "tabOrder": 11000
   },
   "visual": {
     "visualType": "textbox",
@@ -19,11 +19,11 @@
               {
                 "textRuns": [
                   {
-                    "value": "NAVEGACIÓN",
+                    "value": "FILTRO POR CANAL",
                     "textStyle": {
+                      "fontWeight": "bold",
                       "fontSize": "8pt",
-                      "color": "#D8EE17",
-                      "fontWeight": "bold"
+                      "color": "#d8ee17"
                     }
                   }
                 ]

@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "cfda2addbc1a9f174d20",
   "position": {
-    "x": 932,
-    "y": 426,
-    "z": 30,
-    "height": 206,
-    "width": 332,
-    "tabOrder": 30
+    "x": 944.67065868263478,
+    "y": 486.70658682634735,
+    "z": 6000,
+    "height": 121.67664670658684,
+    "width": 319.04191616766468,
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "textbox",
@@ -21,13 +21,82 @@
                   {
                     "value": "Meta pierde usuarios en las dos etapas: solo el 54% de los registrados se activa y el 27% de los activados paga (14% punta a punta). Email convierte el 42% de sus registros en clientes pagos: el canal owned trae usuarios con intención real, no solo curiosidad.",
                     "textStyle": {
+                      "fontWeight": "bold",
                       "fontSize": "10pt",
-                      "color": "#D2D3DA"
+                      "color": "#d2d3da"
                     }
                   }
                 ]
               }
             ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "5D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "5D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "5D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "5D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 3,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "2D"
+                }
+              }
+            }
           }
         }
       ]
