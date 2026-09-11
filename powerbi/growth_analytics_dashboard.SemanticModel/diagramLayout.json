@@ -72,6 +72,19 @@
             "width": 234
           },
           "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1251,
+            "y": 180
+          },
+          "nodeIndex": "state_channel_metrics",
+          "nodeLineageTag": "52d637b6-1f89-4d48-92e6-4f6ee44f95bf",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "Todas las tablas",

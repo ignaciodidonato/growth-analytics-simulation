@@ -3,7 +3,7 @@
   "name": "6b2daad5b9dc1bd02223",
   "position": {
     "x": 8,
-    "y": 293.33333333333331,
+    "y": 362,
     "z": 14000,
     "height": 18,
     "width": 168,
@@ -21,9 +21,9 @@
                   {
                     "value": "FILTRO POR CANAL",
                     "textStyle": {
+                      "fontWeight": "bold",
                       "fontSize": "8pt",
-                      "color": "#D8EE17",
-                      "fontWeight": "bold"
+                      "color": "#d8ee17"
                     }
                   }
                 ]

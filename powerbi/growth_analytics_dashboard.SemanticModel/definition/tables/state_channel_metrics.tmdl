@@ -19,8 +19,8 @@ table state_channel_metrics
 
 	column state_name
 		dataType: string
-		dataCategory: StateOrProvince
 		lineageTag: 6f3e09f3-e7b0-4ec2-b96b-a64ae87f30c9
+		dataCategory: StateOrProvince
 		summarizeBy: none
 		sourceColumn: state_name
 
@@ -102,3 +102,4 @@ table state_channel_metrics
 	annotation PBI_ResultType = Table
 
 	annotation PBI_NavigationStepName = Navigation
+

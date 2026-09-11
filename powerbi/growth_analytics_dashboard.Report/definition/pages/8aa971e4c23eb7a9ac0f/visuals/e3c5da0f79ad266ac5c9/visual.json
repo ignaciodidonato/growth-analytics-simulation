@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "e3c5da0f79ad266ac5c9",
   "position": {
-    "x": 8,
-    "y": 293.3333333333333,
-    "z": 3000,
-    "height": 18,
-    "width": 168,
-    "tabOrder": 3000
+    "x": 35.555555555555557,
+    "y": 377.77777777777806,
+    "z": 8000,
+    "height": 18.666666666666668,
+    "width": 112,
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "textbox",
@@ -21,9 +21,9 @@
                   {
                     "value": "FILTRO POR CANAL",
                     "textStyle": {
+                      "fontWeight": "bold",
                       "fontSize": "8pt",
-                      "color": "#D8EE17",
-                      "fontWeight": "bold"
+                      "color": "#d8ee17"
                     }
                   }
                 ]

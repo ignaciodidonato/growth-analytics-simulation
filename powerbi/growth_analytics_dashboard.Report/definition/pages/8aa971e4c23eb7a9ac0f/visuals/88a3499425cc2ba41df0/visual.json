@@ -4,34 +4,15 @@
   "position": {
     "x": 632,
     "y": 80,
-    "z": 41,
+    "z": 2000,
     "height": 300,
     "width": 632,
-    "tabOrder": 41
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "pivotTable",
     "query": {
       "queryState": {
-        "Rows": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "state_channel_metrics"
-                    }
-                  },
-                  "Property": "state_name"
-                }
-              },
-              "queryRef": "state_channel_metrics.state_name",
-              "nativeQueryRef": "state_name",
-              "active": true
-            }
-          ]
-        },
         "Columns": {
           "projections": [
             {
@@ -47,6 +28,25 @@
               },
               "queryRef": "channels.channel_name",
               "nativeQueryRef": "channel_name",
+              "active": true
+            }
+          ]
+        },
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "state_channel_metrics"
+                    }
+                  },
+                  "Property": "state_name"
+                }
+              },
+              "queryRef": "state_channel_metrics.state_name",
+              "nativeQueryRef": "state_name",
               "active": true
             }
           ]
@@ -87,28 +87,6 @@
           }
         ]
       }
-    },
-    "objects": {
-      "grand": [
-        {
-          "properties": {
-            "rowSubtotals": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "columnSubtotals": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ]
     },
     "visualContainerObjects": {
       "title": [

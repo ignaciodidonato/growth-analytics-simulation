@@ -4,10 +4,10 @@
   "position": {
     "x": 592,
     "y": 396,
-    "z": 43,
+    "z": 4000,
     "height": 256,
     "width": 440,
-    "tabOrder": 43
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "tableEx",
@@ -47,7 +47,8 @@
                 }
               },
               "queryRef": "state_channel_metrics.registros",
-              "nativeQueryRef": "Sum of registros"
+              "nativeQueryRef": "Sum of registros",
+              "active": false
             },
             {
               "field": {
@@ -66,7 +67,8 @@
                 }
               },
               "queryRef": "state_channel_metrics.clientes_pagos",
-              "nativeQueryRef": "Sum of clientes_pagos"
+              "nativeQueryRef": "Sum of clientes_pagos",
+              "active": false
             },
             {
               "field": {
@@ -80,7 +82,8 @@
                 }
               },
               "queryRef": "state_channel_metrics.Tasa registro a pago",
-              "nativeQueryRef": "Tasa registro a pago"
+              "nativeQueryRef": "Tasa registro a pago",
+              "active": false
             },
             {
               "field": {
@@ -94,7 +97,8 @@
                 }
               },
               "queryRef": "state_channel_metrics.CAC estimado",
-              "nativeQueryRef": "CAC estimado"
+              "nativeQueryRef": "CAC estimado",
+              "active": false
             }
           ]
         }

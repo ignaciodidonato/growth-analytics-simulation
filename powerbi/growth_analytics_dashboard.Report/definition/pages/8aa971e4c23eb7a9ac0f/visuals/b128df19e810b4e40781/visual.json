@@ -4,10 +4,10 @@
   "position": {
     "x": 216,
     "y": 80,
-    "z": 40,
+    "z": 1000,
     "height": 300,
     "width": 400,
-    "tabOrder": 40
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "filledMap",
@@ -65,6 +65,45 @@
           ]
         }
       }
+    },
+    "objects": {
+      "dataPoint": [
+        {
+          "properties": {
+            "fillRule": {
+              "linearGradient2": {
+                "min": {
+                  "color": {
+                    "expr": {
+                      "Literal": {
+                        "Value": "'minColor'"
+                      }
+                    }
+                  }
+                },
+                "max": {
+                  "color": {
+                    "expr": {
+                      "Literal": {
+                        "Value": "'maxColor'"
+                      }
+                    }
+                  }
+                },
+                "nullColoringStrategy": {
+                  "strategy": {
+                    "expr": {
+                      "Literal": {
+                        "Value": "'asZero'"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
     },
     "visualContainerObjects": {
       "title": [

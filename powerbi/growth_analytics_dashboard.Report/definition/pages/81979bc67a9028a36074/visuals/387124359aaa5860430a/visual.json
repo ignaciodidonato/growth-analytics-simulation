@@ -21,9 +21,9 @@
                   {
                     "value": "NAVEGACIÓN",
                     "textStyle": {
+                      "fontWeight": "bold",
                       "fontSize": "8pt",
-                      "color": "#D8EE17",
-                      "fontWeight": "bold"
+                      "color": "#d8ee17"
                     }
                   }
                 ]

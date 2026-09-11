@@ -4,5 +4,10 @@
   "displayName": "Test A/B",
   "displayOption": "FitToPage",
   "height": 720,
-  "width": 1280
+  "width": 1280,
+  "pageBinding": {
+    "name": "85818ff75ac052699070",
+    "type": "Default",
+    "parameters": []
+  }
 }
