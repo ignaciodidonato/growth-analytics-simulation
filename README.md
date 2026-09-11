@@ -93,11 +93,6 @@ The whole pipeline is reproducible from a fixed seed. Details on the data
 model, the mart tables, design decisions and how to open the Power BI
 project are in [docs/technical-notes.md](docs/technical-notes.md).
 
-## Next steps
-
-- Retention cohorts by signup month.
-- A simple MRR forecast from observed churn.
-
 ## License
 
 MIT — see [LICENSE](LICENSE).
