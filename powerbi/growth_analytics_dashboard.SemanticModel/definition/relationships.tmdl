@@ -14,3 +14,8 @@ relationship d0280353-5a3f-4eec-9062-097a670b5be2
 	fromColumn: state_channel_metrics.channel_name
 	toColumn: channels.channel_name
 
+relationship 823c3498-1f96-498b-99d4-81dd397b0d2a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: ab_test_daily.Date
+	toColumn: LocalDateTable_c30a60d3-3723-4ca4-8d83-b94b147bb364.Date
+

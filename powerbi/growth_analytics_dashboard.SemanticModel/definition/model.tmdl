@@ -21,6 +21,8 @@ ref table channels
 ref table state_channel_metrics
 ref table ab_test_summary
 ref table ab_test_daily
+ref table DateTableTemplate_77aab71e-56f6-4e16-b5fb-6222a7cbf403
+ref table LocalDateTable_c30a60d3-3723-4ca4-8d83-b94b147bb364
 
 ref cultureInfo es-ES
 

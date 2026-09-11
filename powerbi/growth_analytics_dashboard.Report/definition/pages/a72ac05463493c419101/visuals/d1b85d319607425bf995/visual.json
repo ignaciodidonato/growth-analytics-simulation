@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "d1b85d319607425bf995",
   "position": {
-    "x": 852,
-    "y": 522,
+    "x": 1040.8888888888889,
+    "y": 190.22222222222223,
     "z": 23,
-    "height": 120,
-    "width": 412,
+    "height": 93.333333333333329,
+    "width": 223.11111111111111,
     "tabOrder": 23
   },
   "visual": {
@@ -33,6 +33,60 @@
         }
       }
     },
+    "objects": {
+      "value": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            },
+            "horizontalAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "ab_test_summary.Clicks needed (text)"
+          }
+        }
+      ],
+      "label": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "ab_test_summary.Clicks needed (text)"
+          }
+        }
+      ],
+      "layout": [
+        {
+          "properties": {
+            "calloutSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "50D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
     "visualContainerObjects": {
       "title": [
         {
@@ -47,7 +101,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Clicks per variant needed to confirm the lift (80% power)'"
+                  "Value": "'Clicks per variant'"
                 }
               }
             },
@@ -59,6 +113,20 @@
                       "Value": "'#FCFCFC'"
                     }
                   }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
                 }
               }
             }

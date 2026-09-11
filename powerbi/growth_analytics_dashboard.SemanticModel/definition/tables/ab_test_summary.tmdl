@@ -92,3 +92,4 @@ table ab_test_summary
 	annotation PBI_ResultType = Table
 
 	annotation PBI_NavigationStepName = Navigation
+

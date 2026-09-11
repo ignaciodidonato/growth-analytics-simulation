@@ -85,6 +85,32 @@
             "width": 234
           },
           "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1535,
+            "y": 206
+          },
+          "nodeIndex": "ab_test_daily",
+          "nodeLineageTag": "7b504d3f-ede7-40f4-b979-afe4f82cb864",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1819,
+            "y": 180
+          },
+          "nodeIndex": "ab_test_summary",
+          "nodeLineageTag": "4c64aa9c-04c2-454f-a89d-4aa1c2a4e9fa",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "Todas las tablas",

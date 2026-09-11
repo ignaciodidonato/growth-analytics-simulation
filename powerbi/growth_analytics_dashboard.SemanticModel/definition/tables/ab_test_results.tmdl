@@ -1,11 +1,11 @@
 table ab_test_results
 	lineageTag: 445bbc74-070f-49b4-b4d9-558188f08462
 
-	measure 'Significant (95%) with p' = IF(MAX(ab_test_results[Significant at 95%]) = 1, "Yes", "No") & " (p = " & FORMAT(MAX(ab_test_results[p-value]), "0.000") & ")"
-		lineageTag: 5a94d382-caa3-4c02-8fa3-32b7753b1ac8
-
 	measure 'Significant (95%)' = IF(MAX(ab_test_results[Significant at 95%]) = 1, "Yes", "No")
 		lineageTag: 4ee6b566-194c-4f54-859d-29b3d0aa1952
+
+	measure 'Significant (95%) with p' = IF(MAX(ab_test_results[Significant at 95%]) = 1, "Yes", "No") & " (p = " & FORMAT(MAX(ab_test_results[p-value]), "0.000") & ")"
+		lineageTag: 5a94d382-caa3-4c02-8fa3-32b7753b1ac8
 
 	column Test
 		dataType: string

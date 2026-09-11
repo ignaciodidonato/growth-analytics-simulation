@@ -16,7 +16,14 @@ table ab_test_daily
 		summarizeBy: none
 		sourceColumn: date
 
+		variation Variation
+			isDefault
+			relationship: 823c3498-1f96-498b-99d4-81dd397b0d2a
+			defaultHierarchy: LocalDateTable_c30a60d3-3723-4ca4-8d83-b94b147bb364.'Jerarquía de fechas'
+
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column Clicks
 		dataType: int64
@@ -77,3 +84,4 @@ table ab_test_daily
 	annotation PBI_ResultType = Table
 
 	annotation PBI_NavigationStepName = Navigation
+

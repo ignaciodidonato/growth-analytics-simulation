@@ -3,10 +3,10 @@
   "name": "815d2c933ea7e3caa056",
   "position": {
     "x": 216,
-    "y": 522,
+    "y": 80,
     "z": 12000,
-    "height": 120,
-    "width": 620,
+    "height": 203.55555555555554,
+    "width": 599.11111111111109,
     "tabOrder": 12000
   },
   "visual": {
@@ -139,13 +139,13 @@
                         "Entity": "ab_test_results"
                       }
                     },
-                    "Property": "Signups"
+                    "Property": "z-statistic"
                   }
                 },
                 "Function": 0
               }
             },
-            "direction": "Ascending"
+            "direction": "Descending"
           }
         ]
       }
