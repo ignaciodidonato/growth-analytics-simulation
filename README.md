@@ -16,6 +16,9 @@ a business recommendation.
 
 ## Dashboard
 
+**[Open the live dashboard](https://app.powerbi.com/view?r=eyJrIjoiNzVmMjhlOTQtNzEzZS00OThmLTkxNjgtZDdkMWY3YjE4YzNiIiwidCI6ImY5MGE4NjRlLTM2ZjQtNGY5Zi1iNmE2LWU1ZDJjOGU3ZTVjYiIsImMiOjR9)** —
+interactive, no login required (Power BI publish-to-web).
+
 Five pages, one question each, every page closing with a written takeaway.
 A channel filter in the sidebar drives every visual through the `channels`
 dimension.
@@ -265,7 +268,7 @@ cumulative conversion by variant, day by day, for the monitoring chart.
 ## Roadmap
 
 - [x] Power BI dashboard (overview, funnel, monthly trend, geography, A/B test).
-- [ ] Publish to web (public interactive link).
+- [x] Publish to web (public interactive link).
 - [ ] Retention cohorts by signup month.
 - [ ] Simple MRR forecast from observed churn.
 
