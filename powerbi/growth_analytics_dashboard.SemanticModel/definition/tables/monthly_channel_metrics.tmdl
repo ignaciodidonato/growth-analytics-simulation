@@ -1,6 +1,18 @@
 table monthly_channel_metrics
 	lineageTag: d0923e9b-96e0-459f-9ce1-b93c670e5508
 
+	measure 'Cost per signup (line)' = CALCULATE(SUM(monthly_channel_metrics[Cost per signup]), REMOVEFILTERS(monthly_channel_metrics[Month]))
+		formatString: \$#,0
+		lineageTag: 43b163f0-2623-442d-90ed-6b64b1c70304
+
+	measure 'Cost per signup label' = VAR picked = IF(ISFILTERED(monthly_channel_metrics[Month]), SELECTEDVALUE(monthly_channel_metrics[Month])) VAR axis = SELECTEDVALUE(months[Month]) VAR v = [Cost per signup (line)] RETURN IF(NOT ISBLANK(picked), IF(picked = axis, v), IF(CALCULATE(DISTINCTCOUNT(channels[Channel]), ALLSELECTED(channels[Channel])) = 1, v))
+		formatString: \$#,0
+		lineageTag: b87cf74a-da8d-412b-8ced-9d9781a8ddc1
+
+	measure 'Signups label' = IF(CALCULATE(DISTINCTCOUNT(channels[Channel]), ALLSELECTED(channels[Channel])) = 1, SUM(monthly_channel_metrics[Signups]))
+		formatString: 0
+		lineageTag: 40924798-fd1a-46b1-87c2-e5d41f096947
+
 	column channel_name
 		dataType: string
 		isHidden

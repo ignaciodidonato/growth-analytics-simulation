@@ -15,6 +15,7 @@ OUTPUT_DIR = os.path.join(BASE_DIR, "data", "powerbi")
 # el modelo de Power BI, para que un unico slicer filtre todos los visuales.
 TABLES = [
     "channels",
+    "months",
     "channel_metrics",
     "monthly_channel_metrics",
     "funnel_conversion",

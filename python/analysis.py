@@ -74,6 +74,11 @@ def create_output_tables(conn):
             PRIMARY KEY (variant, date)
         );
 
+        DROP TABLE IF EXISTS months;
+        CREATE TABLE months (
+            month   TEXT PRIMARY KEY
+        );
+
         DROP TABLE IF EXISTS monthly_channel_metrics;
         CREATE TABLE monthly_channel_metrics (
             channel_name        TEXT,
@@ -250,6 +255,9 @@ def compute_monthly_channel_metrics(conn):
            VALUES (?, ?, ?, ?, ?)""",
         rows,
     )
+    # Dimension de meses: en Power BI, un eje temporal sobre esta tabla no se
+    # recorta cuando el usuario hace click en un mes de otro visual.
+    conn.execute("INSERT INTO months SELECT DISTINCT month FROM monthly_channel_metrics ORDER BY month")
     conn.commit()
     return rows
 

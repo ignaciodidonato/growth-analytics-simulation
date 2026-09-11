@@ -1,0 +1,24 @@
+table months
+	lineageTag: 51c58c72-bd38-495d-b269-e1993e471c51
+
+	column Month
+		dataType: string
+		lineageTag: f5fa492b-12ac-4004-bcac-7287062c2a02
+		summarizeBy: none
+		sourceColumn: month
+
+		annotation SummarizationSetBy = Automatic
+
+	partition months = m
+		mode: import
+		source =
+				let
+				  Origen = Csv.Document(File.Contents("C:\Users\Nacho\Desktop\light-it-analytics\data\powerbi\months.csv"), [Delimiter = ",", Columns = 1, QuoteStyle = QuoteStyle.None]),
+				  #"Encabezados promovidos" = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				  #"Changed Type" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"month", type text}})
+				in
+				  #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
