@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "15f8e6ec061cceb65bb3",
   "position": {
-    "x": 1302.8571428571429,
-    "y": 331.1854103343465,
-    "z": 3000,
-    "height": 300.54711246200606,
-    "width": 490.21276595744678,
-    "tabOrder": 3000
+    "x": 464,
+    "y": 80,
+    "z": 43,
+    "height": 300,
+    "width": 800,
+    "tabOrder": 43
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -79,6 +79,39 @@
         ]
       }
     },
-    "drillFilterOtherVisuals": true
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'CAC por canal (USD por cliente pago)'"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FCFCFC'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
   }
 }

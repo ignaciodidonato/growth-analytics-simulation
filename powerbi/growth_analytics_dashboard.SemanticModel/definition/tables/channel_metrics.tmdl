@@ -11,7 +11,7 @@ table channel_metrics
 
 	column spend_total
 		dataType: double
-		formatString: 0
+		formatString: \$#,0
 		lineageTag: c6bec2d3-33ef-486a-8e35-d56438194718
 		summarizeBy: sum
 		sourceColumn: spend_total
@@ -37,7 +37,7 @@ table channel_metrics
 
 	column cac
 		dataType: double
-		formatString: 0
+		formatString: \$#,0
 		lineageTag: aa8069e3-83fa-40c6-9caa-4e7187abb6aa
 		summarizeBy: sum
 		sourceColumn: cac
@@ -46,7 +46,7 @@ table channel_metrics
 
 	column arpu_mensual
 		dataType: double
-		formatString: 0
+		formatString: \$#,0
 		lineageTag: 53b248db-2138-4d2b-b239-1182925ead21
 		summarizeBy: sum
 		sourceColumn: arpu_mensual
@@ -73,7 +73,7 @@ table channel_metrics
 
 	column ltv
 		dataType: double
-		formatString: 0
+		formatString: \$#,0
 		lineageTag: 5fe8b93b-4d50-4504-8d8f-df59f7174b0e
 		summarizeBy: sum
 		sourceColumn: ltv

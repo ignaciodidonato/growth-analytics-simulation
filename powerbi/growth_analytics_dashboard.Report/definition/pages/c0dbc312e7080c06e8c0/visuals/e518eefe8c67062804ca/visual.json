@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "e518eefe8c67062804ca",
   "position": {
-    "x": 960.00000000000011,
-    "y": 86.9952305246423,
-    "z": 1000,
-    "height": 209.09379968203498,
-    "width": 749.3799682034977,
-    "tabOrder": 1000
+    "x": 216,
+    "y": 426,
+    "z": 41,
+    "height": 206,
+    "width": 700,
+    "tabOrder": 41
   },
   "visual": {
     "visualType": "tableEx",
@@ -127,6 +127,39 @@
         }
       ]
     },
-    "drillFilterOtherVisuals": true
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Tasas de conversión etapa a etapa'"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FCFCFC'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
   }
 }

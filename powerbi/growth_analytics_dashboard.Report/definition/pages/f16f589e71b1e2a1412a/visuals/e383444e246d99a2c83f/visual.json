@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "e383444e246d99a2c83f",
+  "position": {
+    "x": 216,
+    "y": 470,
+    "z": 30,
+    "height": 162,
+    "width": 232,
+    "tabOrder": 30
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Email y orgánico adquieren clientes a una fracción del costo de los canales pagos (CAC de $9 y $0 vs. $219–274) y además retienen mejor: su churn mensual es la mitad. Google Ads y Meta aportan 2 de cada 3 clientes pagos, pero cada uno cuesta 20–30 veces más.",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#D2D3DA"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

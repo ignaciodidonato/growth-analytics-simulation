@@ -19,7 +19,7 @@ table monthly_channel_metrics
 
 	column spend
 		dataType: double
-		formatString: 0
+		formatString: \$#,0
 		lineageTag: 846d6ab1-301f-4c1e-865b-7f661e479a54
 		summarizeBy: sum
 		sourceColumn: spend
@@ -37,7 +37,7 @@ table monthly_channel_metrics
 
 	column costo_por_registro
 		dataType: double
-		formatString: 0
+		formatString: \$#,0.00
 		lineageTag: 90444128-9dd9-4473-8dbf-72da82bc73e7
 		summarizeBy: sum
 		sourceColumn: costo_por_registro

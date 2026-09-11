@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "1f7c67849e898639a792",
+  "position": {
+    "x": 216,
+    "y": 14,
+    "z": 13,
+    "height": 32,
+    "width": 900,
+    "tabOrder": 13
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Eficiencia por canal de adquisición",
+                    "textStyle": {
+                      "fontSize": "18pt",
+                      "color": "#FCFCFC",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

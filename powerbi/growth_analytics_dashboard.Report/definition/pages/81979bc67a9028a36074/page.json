@@ -4,25 +4,5 @@
   "displayName": "Evolucion mensual",
   "displayOption": "FitToPage",
   "height": 720,
-  "width": 1280,
-  "objects": {
-    "background": [
-      {
-        "properties": {
-          "color": {
-            "solid": {
-              "color": {
-                "expr": {
-                  "ThemeDataColor": {
-                    "ColorId": 2,
-                    "Percent": -0.25
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    ]
-  }
+  "width": 1280
 }

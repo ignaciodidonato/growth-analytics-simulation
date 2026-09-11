@@ -3,11 +3,11 @@
   "name": "7a42767dcea5a7a98bc1",
   "position": {
     "x": 16,
-    "y": 115,
-    "z": 6000,
-    "height": 160,
+    "y": 112,
+    "z": 20,
+    "height": 150,
     "width": 168,
-    "tabOrder": 8000
+    "tabOrder": 20
   },
   "visual": {
     "visualType": "pageNavigator",
@@ -40,7 +40,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#2C2C2A'"
+                      "Value": "'#3F465A'"
                     }
                   }
                 }
@@ -58,7 +58,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#2A78D6'"
+                      "Value": "'#7345FC'"
                     }
                   }
                 }
@@ -78,7 +78,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#C3C2B7'"
+                      "Value": "'#D2D3DA'"
                     }
                   }
                 }
@@ -87,6 +87,24 @@
           },
           "selector": {
             "id": "default"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FCFCFC'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "selected"
           }
         }
       ],
@@ -100,22 +118,6 @@
                 }
               }
             }
-          }
-        }
-      ],
-      "pages": [
-        {
-          "properties": {
-            "showPage": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          },
-          "selector": {
-            "id": "9d612d60dae191d4b19a"
           }
         }
       ],

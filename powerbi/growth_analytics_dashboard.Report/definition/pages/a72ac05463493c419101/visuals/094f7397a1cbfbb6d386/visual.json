@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "094f7397a1cbfbb6d386",
+  "position": {
+    "x": 216,
+    "y": 46,
+    "z": 14,
+    "height": 20,
+    "width": 1000,
+    "tabOrder": 14
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Junio 2024 · audiencia broad (A) vs. lookalike (B) · test z de dos proporciones sobre la conversión click → registro",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#AAADB6"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

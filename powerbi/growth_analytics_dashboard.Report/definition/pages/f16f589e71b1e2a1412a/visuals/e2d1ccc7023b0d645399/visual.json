@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "e2d1ccc7023b0d645399",
   "position": {
-    "x": 320.97264437689967,
-    "y": 51.063829787234042,
-    "z": 0,
-    "height": 280.12158054711244,
-    "width": 248.0243161094225,
-    "tabOrder": 0
+    "x": 216,
+    "y": 80,
+    "z": 40,
+    "height": 118,
+    "width": 232,
+    "tabOrder": 40
   },
   "visual": {
     "visualType": "cardVisual",
@@ -61,6 +61,39 @@
         "isDefaultSort": true
       }
     },
-    "drillFilterOtherVisuals": true
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Gasto total en marketing'"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FCFCFC'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
   }
 }

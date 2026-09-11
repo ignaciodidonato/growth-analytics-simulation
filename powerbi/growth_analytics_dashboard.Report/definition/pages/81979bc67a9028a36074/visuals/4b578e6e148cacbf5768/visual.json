@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "4b578e6e148cacbf5768",
+  "position": {
+    "x": 216,
+    "y": 46,
+    "z": 14,
+    "height": 20,
+    "width": 1000,
+    "tabOrder": 14
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Costo por registro y volumen de registros mes a mes, por canal · 2024",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#AAADB6"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

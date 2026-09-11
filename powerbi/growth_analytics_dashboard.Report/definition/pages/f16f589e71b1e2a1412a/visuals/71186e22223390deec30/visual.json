@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "71186e22223390deec30",
   "position": {
-    "x": 817.02127659574467,
-    "y": 51.063829787234042,
-    "z": 2000,
-    "height": 280,
-    "width": 248,
-    "tabOrder": 2000
+    "x": 216,
+    "y": 340,
+    "z": 42,
+    "height": 118,
+    "width": 232,
+    "tabOrder": 42
   },
   "visual": {
     "visualType": "cardVisual",
@@ -61,6 +61,39 @@
         "isDefaultSort": true
       }
     },
-    "drillFilterOtherVisuals": true
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'CAC promedio entre canales'"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FCFCFC'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
   }
 }
