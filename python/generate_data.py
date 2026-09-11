@@ -25,6 +25,8 @@ from config import (
     PLANS,
     RANDOM_SEED,
     START_DATE,
+    STATE_CHANNEL_CONVERSION_MULTIPLIER,
+    STATE_CONVERSION_MULTIPLIER,
     US_STATE_WEIGHTS,
 )
 
@@ -239,36 +241,45 @@ def generate_users(conn, campaign_ids, rng):
     return len(rows)
 
 
+def state_multiplier(state, channel_name):
+    return (
+        STATE_CONVERSION_MULTIPLIER.get(state, 1.0)
+        * STATE_CHANNEL_CONVERSION_MULTIPLIER.get((state, channel_name), 1.0)
+    )
+
+
 def generate_funnel_and_subscriptions(conn, campaign_ids, rng):
     """Recorre a cada usuario registrado a traves del resto del funnel
     (activacion -> suscripcion paga) y, si paga, simula su ciclo de vida
     de suscripcion (plan elegido y churn mes a mes)."""
     id_to_key = {v: k for k, v in campaign_ids.items()}
+    key_to_channel = {c["key"]: c["channel_name"] for c in CAMPAIGNS}
     plan_ids = dict(conn.execute("SELECT plan_name, plan_id FROM plans").fetchall())
     plan_names = list(PLAN_CHOICE_WEIGHTS.keys())
     plan_weights = np.array([PLAN_CHOICE_WEIGHTS[p] for p in plan_names])
     plan_weights = plan_weights / plan_weights.sum()
 
     users = conn.execute(
-        "SELECT user_id, acquisition_campaign_id, signup_date FROM users"
+        "SELECT user_id, acquisition_campaign_id, signup_date, state FROM users"
     ).fetchall()
 
     funnel_rows = []
     subscription_rows = []
 
-    for user_id, campaign_id, signup_date_str in users:
+    for user_id, campaign_id, signup_date_str, state in users:
         key = id_to_key[campaign_id]
+        mult = state_multiplier(state, key_to_channel[key])
         signup_date = date.fromisoformat(signup_date_str)
         funnel_rows.append((user_id, "registro", signup_date.isoformat()))
 
-        if rng.random() >= ACTIVATION_RATE[key]:
+        if rng.random() >= min(ACTIVATION_RATE[key] * mult, 0.98):
             continue
         activation_date = signup_date + timedelta(days=int(rng.integers(1, 15)))
         if activation_date > END_DATE:
             continue
         funnel_rows.append((user_id, "activacion", activation_date.isoformat()))
 
-        if rng.random() >= PAID_CONVERSION_RATE[key]:
+        if rng.random() >= min(PAID_CONVERSION_RATE[key] * mult, 0.98):
             continue
         paid_date = activation_date + timedelta(days=int(rng.integers(0, 8)))
         if paid_date > END_DATE:

@@ -102,6 +102,29 @@ US_STATE_WEIGHTS = {
     "NJ": 2.7, "VA": 2.6, "WA": 2.3, "AZ": 2.2, "MA": 2.1,
 }
 
+# Efecto geografico sobre la conversion. Cada multiplicador se aplica a
+# ACTIVATION_RATE y PAID_CONVERSION_RATE del usuario segun su estado
+# (1.0 = sin efecto, 1.2 = convierte 20% mejor, 0.8 = 20% peor). Los
+# estados que no figuran usan 1.0. Es el "efecto real" que la pagina
+# geografica del dashboard deberia detectar, igual que el test A/B.
+#
+# Historia plantada: el problema no es geografico sino de canal. Meta rinde
+# mal en TX y FL, email es fuerte en el noreste (NY, MA) y Google Ads
+# funciona bien en TX. CA y NY convierten un poco mejor en general.
+STATE_CONVERSION_MULTIPLIER = {
+    "CA": 1.10,
+    "NY": 1.10,
+}
+
+# Por (estado, canal), se aplica encima del multiplicador por estado.
+STATE_CHANNEL_CONVERSION_MULTIPLIER = {
+    ("TX", "meta"): 0.70,
+    ("FL", "meta"): 0.75,
+    ("NY", "email"): 1.25,
+    ("MA", "email"): 1.25,
+    ("TX", "google_ads"): 1.15,
+}
+
 # Probabilidad de que un usuario registrado llegue a "activacion" (primera
 # sesion agendada/realizada). El test A/B usa la misma tasa que la campania
 # always-on de Meta: el efecto que estamos probando ya quedo plantado antes,

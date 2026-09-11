@@ -69,6 +69,32 @@ def create_output_tables(conn):
             tasa_activacion_a_pago        REAL,
             tasa_registro_a_pago          REAL
         );
+
+        DROP TABLE IF EXISTS state_channel_metrics;
+        CREATE TABLE state_channel_metrics (
+            state                 TEXT,
+            state_name            TEXT,
+            channel_name          TEXT,
+            registros             INTEGER,
+            activaciones          INTEGER,
+            clientes_pagos        INTEGER,
+            tasa_registro_a_pago  REAL,
+            spend_asignado        REAL,
+            cac_estimado          REAL,
+            PRIMARY KEY (state, channel_name)
+        );
+
+        DROP TABLE IF EXISTS state_metrics;
+        CREATE TABLE state_metrics (
+            state                 TEXT PRIMARY KEY,
+            state_name            TEXT,
+            registros             INTEGER,
+            activaciones          INTEGER,
+            clientes_pagos        INTEGER,
+            tasa_registro_a_pago  REAL,
+            spend_asignado        REAL,
+            cac_estimado          REAL
+        );
         """
     )
     conn.commit()
@@ -245,6 +271,91 @@ def compute_funnel_conversion(conn):
     return rows
 
 
+US_STATE_NAMES = {
+    "CA": "California", "TX": "Texas", "FL": "Florida", "NY": "New York",
+    "PA": "Pennsylvania", "IL": "Illinois", "OH": "Ohio", "GA": "Georgia",
+    "NC": "North Carolina", "MI": "Michigan", "NJ": "New Jersey",
+    "VA": "Virginia", "WA": "Washington", "AZ": "Arizona", "MA": "Massachusetts",
+}
+
+
+def compute_state_metrics(conn):
+    """Funnel y costo por estado y por estado x canal.
+
+    El gasto de una campania no viene desglosado por estado (Google/Meta lo
+    reportan a nivel campania), asi que se ASIGNA a cada estado en proporcion
+    a los registros que la campania consiguio ahi. Es la aproximacion estandar
+    y hay que declararla como tal: el CAC por estado es estimado."""
+    spend_by_campaign = dict(conn.execute(
+        "SELECT campaign_id, SUM(spend) FROM campaign_daily_metrics GROUP BY campaign_id"
+    ).fetchall())
+
+    rows = conn.execute(
+        """
+        SELECT u.state, ch.channel_name, u.acquisition_campaign_id,
+               MAX(CASE WHEN fe.event_type = 'activacion' THEN 1 ELSE 0 END),
+               MAX(CASE WHEN fe.event_type = 'suscripcion_paga' THEN 1 ELSE 0 END)
+        FROM users u
+        JOIN campaigns c ON c.campaign_id = u.acquisition_campaign_id
+        JOIN channels ch ON ch.channel_id = c.channel_id
+        LEFT JOIN funnel_events fe ON fe.user_id = u.user_id
+        GROUP BY u.user_id
+        """
+    ).fetchall()
+
+    reg_by_campaign = {}
+    reg_by_state_campaign = {}
+    agg = {}  # (state, channel) -> [registros, activaciones, pagos]
+    for state, channel, campaign_id, activated, paid in rows:
+        reg_by_campaign[campaign_id] = reg_by_campaign.get(campaign_id, 0) + 1
+        reg_by_state_campaign[(state, campaign_id)] = reg_by_state_campaign.get((state, campaign_id), 0) + 1
+        a = agg.setdefault((state, channel), [0, 0, 0])
+        a[0] += 1
+        a[1] += activated
+        a[2] += paid
+
+    campaign_channel = dict(conn.execute(
+        "SELECT c.campaign_id, ch.channel_name FROM campaigns c JOIN channels ch ON ch.channel_id = c.channel_id"
+    ).fetchall())
+    spend_by_state_channel = {}
+    for (state, campaign_id), n in reg_by_state_campaign.items():
+        share = n / reg_by_campaign[campaign_id]
+        key = (state, campaign_channel[campaign_id])
+        spend_by_state_channel[key] = spend_by_state_channel.get(key, 0.0) + spend_by_campaign[campaign_id] * share
+
+    def metrics(registros, activaciones, pagos, spend):
+        tasa = round(pagos / registros, 3) if registros else None
+        cac = round(spend / pagos, 2) if pagos else None
+        return registros, activaciones, pagos, tasa, round(spend, 2), cac
+
+    sc_rows = []
+    by_state = {}
+    for (state, channel), (r, a, p) in sorted(agg.items()):
+        spend = spend_by_state_channel.get((state, channel), 0.0)
+        sc_rows.append((state, US_STATE_NAMES[state], channel, *metrics(r, a, p, spend)))
+        s = by_state.setdefault(state, [0, 0, 0, 0.0])
+        s[0] += r; s[1] += a; s[2] += p; s[3] += spend
+
+    s_rows = [(state, US_STATE_NAMES[state], *metrics(*vals)) for state, vals in sorted(by_state.items())]
+
+    conn.executemany(
+        """INSERT INTO state_channel_metrics
+           (state, state_name, channel_name, registros, activaciones, clientes_pagos,
+            tasa_registro_a_pago, spend_asignado, cac_estimado)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+        sc_rows,
+    )
+    conn.executemany(
+        """INSERT INTO state_metrics
+           (state, state_name, registros, activaciones, clientes_pagos,
+            tasa_registro_a_pago, spend_asignado, cac_estimado)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?)""",
+        s_rows,
+    )
+    conn.commit()
+    return s_rows, sc_rows
+
+
 def two_proportion_z_test(x1, n1, x2, n2):
     p1, p2 = x1 / n1, x2 / n2
     p_pool = (x1 + x2) / (n1 + n2)
@@ -311,6 +422,15 @@ def main():
     print("\n--- funnel_conversion ---")
     for row in funnel_rows:
         print(row)
+
+    state_rows, state_channel_rows = compute_state_metrics(conn)
+    print("\n--- state_metrics ---")
+    for row in sorted(state_rows, key=lambda r: -(r[5] or 0)):
+        print(row)
+    print("\n--- state_channel_metrics (solo estados con efecto plantado) ---")
+    for row in state_channel_rows:
+        if row[0] in ("TX", "FL", "NY", "MA", "CA"):
+            print(row)
 
     conn.close()
 

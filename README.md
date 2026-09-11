@@ -22,6 +22,8 @@ A/B con estadística real (no solo "cuál número es más alto").
 - Si la audiencia lookalike de Meta convierte mejor que la broad (test A/B
   con test de proporciones y p-value).
 - Cómo evoluciona el costo de adquisición mes a mes, por canal.
+- En qué estados de EE.UU. funciona cada canal y dónde conviene mover
+  presupuesto (conversión y CAC estimado por estado × canal).
 
 ## Stack
 
@@ -109,8 +111,9 @@ El primer script recrea `data/teleterapia.db` desde cero (aplica
 `sql/schema.sql` y simula todo el pipeline con una seed fija para que el
 resultado sea reproducible). El segundo calcula las métricas y las persiste
 como tablas mart (`channel_metrics`, `monthly_channel_metrics`,
-`funnel_conversion`, `ab_test_results`) en esa misma base. El tercero
-exporta esas cuatro tablas más la dimensión `channels` a `data/powerbi/*.csv`,
+`funnel_conversion`, `state_metrics`, `state_channel_metrics`,
+`ab_test_results`) en esa misma base. El tercero
+exporta esas tablas más la dimensión `channels` a `data/powerbi/*.csv`,
 que es lo que consume el dashboard de Power BI — así no hace falta ningún
 driver ODBC de SQLite. En el modelo de Power BI, `channels` se relaciona 1:N
 con las tres tablas por canal, para que un único slicer filtre todo el reporte.
@@ -128,15 +131,22 @@ sql/
 python/
   config.py               parámetros de negocio (canales, tasas, precios, A/B test)
   generate_data.py        genera la simulación completa en SQLite
-  analysis.py              calcula CAC/ARPU/churn/LTV, funnel y el test A/B, los persiste
+  analysis.py              calcula CAC/ARPU/churn/LTV, funnel, geografía y test A/B
   export_for_powerbi.py   exporta las tablas mart a CSV para Power BI
   requirements.txt
 data/
   teleterapia.db          base generada (no se versiona, se regenera con los scripts)
   powerbi/                CSV de las tablas mart, fuente del dashboard
 powerbi/
-  growth_analytics_dashboard.pbix   dashboard de Power BI
+  growth_analytics_dashboard.pbip           proyecto de Power BI (abrir este)
+  growth_analytics_dashboard.Report/        páginas y visuales en JSON (PBIR)
+  growth_analytics_dashboard.SemanticModel/ tablas, relaciones y formatos (TMDL)
+  theme.json                                tema del reporte (paleta, tipografía, cards)
 ```
+
+El dashboard está guardado como **proyecto** (`.pbip`) en vez de `.pbix`:
+cada página, visual y relación es un archivo de texto versionable, y el
+layout se puede revisar en un diff o regenerar con un script.
 
 ## Resultados de ejemplo
 
@@ -146,14 +156,41 @@ Con la seed por defecto (`RANDOM_SEED = 42` en `config.py`):
 
 | Canal | Gasto | Registros | Clientes pagos | CAC | ARPU mensual | Churn mensual | LTV | LTV:CAC |
 |---|---|---|---|---|---|---|---|---|
-| email | $1,050 | 268 | 113 | $9.30 | $209.82 | 2.2% | $9,591.91 | 1031.4 |
-| organic | $0 | 386 | 140 | — | $215.00 | 3.6% | $6,061.35 | — |
-| google_ads | $78,291 | 1,235 | 357 | $219.30 | $206.08 | 5.1% | $4,077.93 | 18.6 |
-| meta | $38,573 | 982 | 141 | $273.57 | $208.09 | 5.2% | $3,968.48 | 14.5 |
+| email | $1,050 | 268 | 137 | $7.67 | $213.58 | 2.7% | $8,019.80 | 1045.6 |
+| organic | $0 | 386 | 134 | — | $215.97 | 3.3% | $6,469.71 | — |
+| google_ads | $78,291 | 1,235 | 414 | $189.11 | $211.55 | 4.3% | $4,965.25 | 26.3 |
+| meta | $38,573 | 982 | 132 | $292.22 | $215.98 | 7.3% | $2,962.08 | 10.1 |
 
 Email y orgánico son, por lejos, los canales más eficientes (costo marginal
 bajo o nulo y menor churn); los canales pagos masivos (Google/Meta) traen
-mucho más volumen pero a un CAC 20-30x mayor.
+mucho más volumen pero a un CAC 25-40x mayor, y Meta además retiene peor.
+
+**Funnel por canal** (`funnel_conversion`)
+
+| Canal | Registro | Activación | Pago | Registro → activación | Activación → pago | Registro → pago |
+|---|---|---|---|---|---|---|
+| email | 268 | 228 | 137 | 85.1% | 60.1% | 51.1% |
+| organic | 386 | 277 | 134 | 71.8% | 48.4% | 34.7% |
+| google_ads | 1,235 | 892 | 414 | 72.2% | 46.4% | 33.5% |
+| meta | 982 | 498 | 132 | 50.7% | 26.5% | 13.4% |
+
+**Estado × canal** (`state_channel_metrics`, extracto)
+
+| Estado | Canal | Registros | Pagos | Registro → pago | CAC estimado |
+|---|---|---|---|---|---|
+| TX | google_ads | 211 | 98 | 46.4% | $136 |
+| TX | meta | 138 | 10 | 7.2% | $537 |
+| FL | meta | 105 | 8 | 7.6% | $516 |
+| NY | email | 26 | 22 | 84.6% | $5 |
+| CA | meta | 194 | 36 | 18.6% | $213 |
+
+El problema de Meta no es parejo: en Texas y Florida convierte a menos de la
+mitad que en California, con un CAC estimado de más de $500. La
+recomendación que sale del dashboard es mover presupuesto de Meta en TX/FL
+hacia Google Ads (que en Texas es el canal pago más eficiente) y reforzar
+email en el noreste. El gasto por estado es *estimado*: las plataformas lo
+reportan por campaña, así que se asigna a cada estado en proporción a los
+registros que la campaña consiguió ahí.
 
 **Test A/B** (`meta_targeting_test`, audiencia broad vs. lookalike)
 
@@ -184,6 +221,11 @@ pero la muestra todavía no alcanza para afirmarlo".
 - **15 estados de EE.UU. en vez de 50**: los de mayor población, para no
   diluir el volumen de datos en estados con muestras demasiado chicas para
   ser informativas.
+- **Los efectos que el análisis "descubre" están plantados en la simulación**
+  (`config.py`): la diferencia entre variantes del test A/B y los
+  multiplicadores de conversión por estado y canal. Sin eso, cualquier
+  diferencia geográfica sería ruido, y un dashboard que encuentra patrones
+  inexistentes es peor que uno sin esa página.
 
 ## Roadmap
 

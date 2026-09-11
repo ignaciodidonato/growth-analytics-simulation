@@ -1,0 +1,16 @@
+state,state_name,registros,activaciones,clientes_pagos,tasa_registro_a_pago,spend_asignado,cac_estimado
+AZ,Arizona,81,47,19,0.235,3086.26,162.43
+CA,California,520,367,162,0.312,21842.92,134.83
+FL,Florida,288,169,68,0.236,11342.64,166.8
+GA,Georgia,135,84,35,0.259,5649.05,161.4
+IL,Illinois,165,115,52,0.315,6475.53,124.53
+MA,Massachusetts,86,63,28,0.326,3403.05,121.54
+MI,Michigan,118,75,24,0.203,4827.09,201.13
+NC,North Carolina,131,79,30,0.229,5119.59,170.65
+NJ,New Jersey,118,65,20,0.169,4540.71,227.04
+NY,New York,247,165,78,0.316,10633.6,136.33
+OH,Ohio,147,102,47,0.32,5875.95,125.02
+PA,Pennsylvania,191,133,61,0.319,7352.79,120.54
+TX,Texas,429,300,138,0.322,18870.94,136.75
+VA,Virginia,115,70,29,0.252,4667.82,160.96
+WA,Washington,100,61,26,0.26,4226.12,162.54
